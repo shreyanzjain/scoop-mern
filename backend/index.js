@@ -29,7 +29,7 @@ app.post("/user/login", jsonParser, async(req, res) => {
         .status(200)
         .json({message: "Logged In Successfully"});
     }   else {
-        res.send(is_correct_password);
+        res.status(403).send("Incorrect Credentials");
     }
 });
 

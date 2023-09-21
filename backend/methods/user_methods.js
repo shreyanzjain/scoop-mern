@@ -31,14 +31,6 @@ async function login_user(email, password) {
         where: {
             email: email,
         }
-    })
-    .then(async()=>{
-        await prisma.$disconnect();
-    })
-    .catch(async (e) => {
-        console.error(e);
-        await prisma.$disconnect();
-        process.exit(1);
     });
 
     const is_correct_password = await bcrypt.compare(password, user.hashed_password);
@@ -54,14 +46,6 @@ async function get_data_for_jwt(email){
             email: email,
         }
     })
-    .then(async()=>{
-        await prisma.$disconnect();
-    })
-    .catch(async (e) => {
-        console.error(e);
-        await prisma.$disconnect();
-        process.exit(1);
-    });
 
     const user_dict = {id: user.id, email: email};
     return user_dict;
