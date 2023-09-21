@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 
 async function create_user(email, role, password) {
 
-    const hashed_password = bcrypt.hashSync(password, SALT_ROUNDS);
+    const hashed_password = await bcrypt.hash(password, SALT_ROUNDS);
 
     await prisma.user.create({
         data: {
@@ -15,6 +15,8 @@ async function create_user(email, role, password) {
             hashed_password: hashed_password
         }
     })
+
+    console.log(hashed_password.length)
 }
 
 async function login_user(email, password) {
