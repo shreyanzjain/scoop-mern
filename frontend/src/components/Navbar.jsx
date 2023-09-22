@@ -7,7 +7,7 @@ import AutoGraphIcon from '@mui/icons-material/AutoGraph';
 const Container = styled.div`
   position: sticky;
   top: 0;
-  background-color: #E8E8E8;
+  background-color: #F0F0F0;
   height: 56px;
 `
 const Wrapper = styled.div`
