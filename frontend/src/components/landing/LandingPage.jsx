@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Menu from "./Menu";
 import Navbar from "./Navbar";
+import Why_tsec from "./Why_tsec";
 import Home from "./Home";
 
 const Container = styled.div`
@@ -21,6 +22,7 @@ function LandingPage() {
       <Main>
         <Navbar/>
         <Home/>
+        <Why_tsec/>
       </Main>
     </Container>
   )
