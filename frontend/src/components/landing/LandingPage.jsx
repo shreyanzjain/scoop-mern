@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Menu from "./Menu";
 import Navbar from "./Navbar";
+import Home from "./Home";
 
 const Container = styled.div`
   display: flex;
@@ -19,9 +20,7 @@ function LandingPage() {
 
       <Main>
         <Navbar/>
-        <Wrapper>
-       
-        </Wrapper>
+        <Home/>
       </Main>
     </Container>
   )
