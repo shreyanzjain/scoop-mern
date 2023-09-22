@@ -1,77 +1,24 @@
-import React from 'react'
-import styled from 'styled-components'
-import PersonIcon from '@mui/icons-material/Person';
-import LightbulbIcon from '@mui/icons-material/Lightbulb';
-import AutoGraphIcon from '@mui/icons-material/AutoGraph';
+import React from "react";
+import vTube from "../img/half_logo.png";
+import AttributionIcon from '@mui/icons-material/Attribution';
 
-const Container = styled.div`
-  position: sticky;
-  top: 0;
-  background-color: #F0F0F0;
-  height: 56px;
-`
-const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  height: 100%;
-  padding: 0px 20px;
-  justify-content: flex-end;
-  position: relative;
-`
-// const Search = styled.div`
-//   position: absolute;
-// `
-
-const Item = styled.div`
-    padding: 5px 10px 10px 10px;
-`
-const Input = styled.input``
-
-const Button = styled.button`
-    padding: 5px 15px;
-    background-color: transparent;
-    border: 2px solid #3E5FD0;
-    color: #3E5FD0;
-    border-radius: 15px;
-    font-weight: bold;
-    margin-top: 10px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-`
-const Button1 = styled.button`
-    padding: 5px 15px;
-    background-color: transparent;
-    border: 2px solid #3E5FD0;
-    color: black;
-    border-radius: 15px;
-    font-weight: bold;
-    margin-top: 10px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-`
-
-const PlacementNavbar = () => {
+function PlacementNavbar() {
+  const user = "Shreyans";
   return (
-    <Container>
-      <Wrapper>
-        <Item>
-        <Button1><AutoGraphIcon/>Employers</Button1>
-        </Item>
-
-        <Item>
-        <Button1><LightbulbIcon/>Learn More</Button1>
-        </Item>
-
-        <Item>
-        <Button><PersonIcon/>SIGN - IN</Button>
-        </Item>       
-      </Wrapper>
-    </Container>
-  )
+    <nav className="sticky top-0 z-10 bg-white">
+      <div className="max-w-full mx-auto">
+        <div className="flex items-center justify-between h-12">
+          <span className="flex ms-2 text-2xl text-gray-900 font-semibold items-center">
+            <AttributionIcon className="text-gray-900 me-2"/> {user}
+          </span>
+          <div className="flex space-x-4 text-gray-900 me-3">
+            <a href="#">Report An Issue</a>
+            <a href="#">Log Out</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
 }
 
-export default PlacementNavbar
+export default PlacementNavbar;
