@@ -5,7 +5,7 @@ import AttributionIcon from '@mui/icons-material/Attribution';
 function PlacementNavbar() {
   const user = "Shreyans";
   return (
-    <nav className="sticky top-0 z-10 bg-white">
+    <nav className="sticky top-0 z-10 bg-white border-b-2 border-gray-400">
       <div className="max-w-full mx-auto">
         <div className="flex items-center justify-between h-12">
           <span className="flex ms-2 text-2xl text-gray-900 font-semibold items-center">

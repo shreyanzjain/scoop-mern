@@ -4,7 +4,7 @@ import ApiIcon from "@mui/icons-material/Api";
 function SideBar() {
   return (
     <ul
-      className="container bg-slate-50 w-1/6 text-white lg:text-lg sm:text-base"
+      className="container bg-slate-50 w-1/6 border-e-2 border-gray-400 text-white lg:text-lg sm:text-base"
       style={{ height: "93vh" }}
     >
       <li className="flex bg-slate-100 w-full h-12 border-b-2 border-gray-400 items-center justify-start font-bold text-gray-900 hover:border-gray-950 hover">
