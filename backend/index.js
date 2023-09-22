@@ -11,6 +11,23 @@ const port = 3000;
 
 app.use(cookieParser());
 
+// authorization middleware
+const authorization = (req, res, next) => {
+    const token = req.cookies.access_token;
+    console.log(token);
+    if(!token) {
+        return res.status(403).send("Unauthorized.");
+    }
+    try { 
+        const data = jwt.verify(token, process.env.JWT_SECRET_KEY);
+        req.userId = data.id;
+        req.userEmail = data.email;
+        return next();
+    }   catch {
+        return res.status(403).send("Unauthorized.")
+    }
+}
+
 app.post("/user/create", jsonParser, (req, res) => {
     create_user(req.body.email, req.body.role, req.body.password);
     res.send({user: "created"});
@@ -32,6 +49,10 @@ app.post("/user/login", jsonParser, async(req, res) => {
         res.status(403).send("Incorrect Credentials");
     }
 });
+
+app.get("/protected", authorization, (req, res) => {
+    res.send({userId: req.userId});
+})
 
 app.listen(port, ()=>{
     console.log(`App listening on http://localhost:${port}`);
