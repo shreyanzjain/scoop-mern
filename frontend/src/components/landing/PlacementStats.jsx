@@ -2,8 +2,8 @@ import React from 'react';
 
 const PlacementStats = () => {
     const batch_2023 = 'https://tsec.edu/wp-content/uploads/2023/08/Placement-of-the-Current-Final-Year-Students-Passing-in-July-2024-14th-August-2023.pdf'; 
-    const batch_2022 = 'https://tsec.edu/wp-content/uploads/2023/08/Placement-of-the-Current-Final-Year-Students-Passing-in-July-2024-14th-August-2023.pdf'; 
-    const batch_2021 = 'https://tsec.edu/wp-content/uploads/2023/08/Placement-of-the-Current-Final-Year-Students-Passing-in-July-2024-14th-August-2023.pdf'; 
+    const batch_2022 = 'https://tsecadmission.org/pages/Placement%20of%20the%202022%20Batch.pdf'; 
+    const batch_2021 = 'https://tsec.edu/wp-content/uploads/2020/10/Placement-of-Current-Final-Year-Students-passing-in-July-2021-Report-till-14th-October-2020.pdf'; 
     const batch_2020 = 'https://tsec.edu/wp-content/uploads/2023/08/Placement-of-the-Current-Final-Year-Students-Passing-in-July-2024-14th-August-2023.pdf'; 
     const batch_2019 = 'https://tsec.edu/wp-content/uploads/2023/08/Placement-of-the-Current-Final-Year-Students-Passing-in-July-2024-14th-August-2023.pdf'; 
 
