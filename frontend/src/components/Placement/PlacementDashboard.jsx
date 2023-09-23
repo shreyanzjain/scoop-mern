@@ -2,7 +2,7 @@ import React from "react";
 
 function PlacementDashboard() {
   return (
-    <div className="container bg-whitesmoke w-5/6 text-3xl font-bold" style={{ height: "93vh" }}>
+    <div className="container bg-whitesmoke bg-opacity-30 w-5/6 text-3xl font-bold" style={{ height: "93vh" }}>
       <span className="flex h-1/2">
         <div className="flex items-center justify-center bg-whitesmoke border-2 border-ebony text-licorice text-lg font-normal w-2/6 m-2 rounded-sm">
               Some Analytics
