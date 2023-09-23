@@ -3,6 +3,7 @@ import Menu from "./Menu";
 import Navbar from "./Navbar";
 import Why_tsec from "./Why_tsec";
 import Home from "./Home";
+import OurRecruiters from "./OurRecruiters";
 
 const Container = styled.div`
   display: flex;
@@ -23,6 +24,7 @@ function LandingPage() {
         <Navbar/>
         <Home/>
         <Why_tsec/>
+        <OurRecruiters/>
       </Main>
     </Container>
   )
