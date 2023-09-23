@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import Menu from "./Menu";
 import Navbar from "./Navbar";
-import Why_tsec from "./Why_tsec";
 import Home from "./Home";
+import Why_tsec  from "./Why_tsec";
 import OurRecruiters from "./OurRecruiters";
 import Signup_Login from "./Signup_Login";
+import RecruitmentProcess from "./RecruitmentProcess";
 
 const Container = styled.div`
   display: flex;
@@ -16,19 +17,19 @@ const Main = styled.div`
 const Wrapper = styled.div``;
 
 function LandingPage() {
-
-  return (
+    
+  return (   
     <Container>
       <Menu/>
-
       <Main>
         <Navbar/>
         <Home/>
         <Why_tsec/>
         <Signup_Login/>
         <OurRecruiters/>
+        <RecruitmentProcess />
       </Main>
-    </Container>
+    </Container>  
   )
 }
 

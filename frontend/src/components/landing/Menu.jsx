@@ -69,11 +69,11 @@ const Button = styled.button`
     gap: 5px;
 `
 const Menu = () => {
-  return (
+  return ( 
     <Container>
         <Wrapper>
 
-            <Logo>
+        <Logo>
                 <Img src={vTube}/>   
                 Scoop        
             </Logo>
@@ -85,7 +85,7 @@ const Menu = () => {
 
             <Item>
                 <HelpIcon/>
-                Why TSEC?
+                Why TSEC
             </Item>
 
             <Hr/>
@@ -127,7 +127,7 @@ const Menu = () => {
             </Item>
 
         </Wrapper>
-    </Container>
+    </Container>  
   )
 }
 
