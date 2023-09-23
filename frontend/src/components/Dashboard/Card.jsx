@@ -14,7 +14,7 @@ export default function ({
   console.log(jobId, companyName, jobTitle, jobLocation, jobCompensation);
   return (
     <div>
-      <div className="job-card rounded-xl">
+      <div className="job-card rounded-md">
         <div className="card-top flex flex-row items-center">
           <img className="company-logo" src={logo} />
           <div className="company-title text-3xl font-bold">{companyName}</div>

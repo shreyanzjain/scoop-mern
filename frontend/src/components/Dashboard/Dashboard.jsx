@@ -19,9 +19,9 @@ export default function () {
     <div>
       <div>
         <section className="dashboard-wrapper ">
-          <div className="dashboard-container  flex flex-row">
-            <div className="cardlist  flex flex-col">{cardList}</div>
-            <div className="main-card ps-1">
+          <div className="dashboard-container  flex flex-row border-b-2">
+            <div className="cardlist  flex flex-col overflow-y-auto shadow-2xl">{cardList}</div>
+            <div className="main-card ps-1 overflow-y-auto shadow-2xlxl">
               Once you click a card more details for that specific job will be
               displayed here
             </div>

@@ -1,12 +1,18 @@
 .dashboard-wrapper {
     margin: 0 auto;
+    height: 84vh;
+    border: 1px solid black;
 }
 .dashboard-container {
+    border: 1px solid black;
     margin: 1em;
     padding: 0.5rem;
+    height: 100%;
 }
 .cardlist {
     width: 45%;
+    box-shadow: 0 0 50px #000000;
+    /* border: 1px solid black; */
 }
 .main-card {
     display: flex;
@@ -14,6 +20,7 @@
 }
 .job-card {
     margin: 10px;
+    box-shadow: 0 0 10px rgba(3, 3, 3, 0.25);
     border: 1px solid black;
 }
 .card-top>img {
@@ -38,5 +45,13 @@
 }
 .main-card {
     border-radius: 3px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
+::-webkit-scrollbar {
+    background: black;
+    width: 0px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
