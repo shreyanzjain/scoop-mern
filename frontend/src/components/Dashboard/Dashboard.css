@@ -6,11 +6,11 @@
     padding: 0.5rem;
 }
 .cardlist {
-    width: 55%;
+    width: 45%;
 }
 .main-card {
     display: flex;
-    width: 45%;
+    width: 55%;
 }
 .job-card {
     margin: 10px;
