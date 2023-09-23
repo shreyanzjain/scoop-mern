@@ -102,7 +102,7 @@ const Menu = () => {
                 Placement Department
             </Item>
 
-            <Item>
+            <Item >
                 <BarChartIcon/>
                 Placement Statistics
             </Item>
