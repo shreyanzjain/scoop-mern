@@ -1,0 +1,107 @@
+[
+  {
+    "jobId": "123456",
+    "companyName": "Infosys",
+    "jobTitle": "Software Engineer",
+    "jobLocation": "Bangalore, Karnataka",
+    "jobCompensation": "12,00,000"
+  },
+  {
+    "jobId": "234567",
+    "companyName": "Tata Consultancy Services",
+    "jobTitle": "Data Scientist",
+    "jobLocation": "Mumbai, Maharashtra",
+    "jobCompensation": "15,00,000"
+  },
+  {
+    "jobId": "345678",
+    "companyName": "Wipro",
+    "jobTitle": "Frontend Developer",
+    "jobLocation": "Pune, Maharashtra",
+    "jobCompensation": "10,00,000"
+  },
+  {
+    "jobId": "456789",
+    "companyName": "Tech Mahindra",
+    "jobTitle": "DevOps Engineer",
+    "jobLocation": "Hyderabad, Telangana",
+    "jobCompensation": "14,00,000"
+  },
+  {
+    "jobId": "567890",
+    "companyName": "HCL Technologies",
+    "jobTitle": "Machine Learning Engineer",
+    "jobLocation": "Delhi, NCR",
+    "jobCompensation": "16,00,000"
+  },
+  {
+    "jobId": "678901",
+    "companyName": "Facebook",
+    "jobTitle": "Senior Software Engineer",
+    "jobLocation": "Mumbai, Maharashtra",
+    "jobCompensation": "25,00,000"
+  },
+  {
+    "jobId": "789012",
+    "companyName": "Amazon",
+    "jobTitle": "Cloud Solutions Architect",
+    "jobLocation": "Bangalore, Karnataka",
+    "jobCompensation": "20,00,000"
+  },
+  {
+    "jobId": "890123",
+    "companyName": "Apple",
+    "jobTitle": "iOS App Developer",
+    "jobLocation": "Hyderabad, Telangana",
+    "jobCompensation": "18,00,000"
+  },
+  {
+    "jobId": "901234",
+    "companyName": "Netflix",
+    "jobTitle": "Data Analyst",
+    "jobLocation": "Mumbai, Maharashtra",
+    "jobCompensation": "22,00,000"
+  },
+  {
+    "jobId": "123789",
+    "companyName": "Google",
+    "jobTitle": "Machine Learning Researcher",
+    "jobLocation": "Bangalore, Karnataka",
+    "jobCompensation": "30,00,000"
+  },
+  {
+    "jobId": "234890",
+    "companyName": "IBM",
+    "jobTitle": "Full Stack Developer",
+    "jobLocation": "Chennai, Tamil Nadu",
+    "jobCompensation": "14,00,000"
+  },
+  {
+    "jobId": "345901",
+    "companyName": "Microsoft",
+    "jobTitle": "Cloud Solutions Engineer",
+    "jobLocation": "Hyderabad, Telangana",
+    "jobCompensation": "18,00,000"
+  },
+  {
+    "jobId": "456012",
+    "companyName": "Adobe",
+    "jobTitle": "UX Designer",
+    "jobLocation": "Noida, Uttar Pradesh",
+    "jobCompensation": "16,00,000"
+  },
+  {
+    "jobId": "567123",
+    "companyName": "Salesforce",
+    "jobTitle": "Salesforce Developer",
+    "jobLocation": "Pune, Maharashtra",
+    "jobCompensation": "20,00,000"
+  },
+  {
+    "jobId": "678234",
+    "companyName": "Intel",
+    "jobTitle": "Hardware Engineer",
+    "jobLocation": "Bengaluru, Karnataka",
+    "jobCompensation": "19,00,000"
+  }
+]
