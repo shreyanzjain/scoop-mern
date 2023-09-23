@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import Why_tsec from "./Why_tsec";
 import Home from "./Home";
 import OurRecruiters from "./OurRecruiters";
+import Signup_Login from "./Signup_Login";
 
 const Container = styled.div`
   display: flex;
@@ -24,6 +25,7 @@ function LandingPage() {
         <Navbar/>
         <Home/>
         <Why_tsec/>
+        <Signup_Login/>
         <OurRecruiters/>
       </Main>
     </Container>
