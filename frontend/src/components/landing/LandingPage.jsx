@@ -5,7 +5,7 @@ import Why_tsec from "./Why_tsec";
 import Home from "./Home";
 import OurRecruiters from "./OurRecruiters";
 import Signup_Login from "./Signup_Login";
-
+import PlacementStats from "./PlacementStats";
 const Container = styled.div`
   display: flex;
 `;
@@ -27,6 +27,7 @@ function LandingPage() {
         <Why_tsec/>
         <Signup_Login/>
         <OurRecruiters/>
+        <PlacementStats/>
       </Main>
     </Container>
   )
