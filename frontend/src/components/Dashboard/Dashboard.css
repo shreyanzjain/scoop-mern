@@ -1,18 +1,18 @@
 .dashboard-wrapper {
     margin: 0 auto;
-    height: 84vh;
+    height: 80vh;
     border: 1px solid black;
 }
 .dashboard-container {
     border: 1px solid black;
     margin: 1em;
-    padding: 0.5rem;
+    padding: 0.25rem;
     height: 100%;
 }
 .cardlist {
     width: 45%;
-    box-shadow: 0 0 50px #000000;
-    /* border: 1px solid black; */
+    box-shadow: 0 0 10px #000000;
+    border: 1px solid black;
 }
 .main-card {
     display: flex;
@@ -45,13 +45,13 @@
 }
 .main-card {
     border-radius: 3px;
-    /* border: 1px solid black; */
+    border: 1px solid black;
 }
 ::-webkit-scrollbar {
     background: black;
     width: 0px;
-  }
+}
 
-  ::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background: transparent;
-  }
+}

@@ -10,6 +10,7 @@ export default function ({
   jobTitle,
   jobLocation,
   jobCompensation,
+  setMainJobId
 }) {
   console.log(jobId, companyName, jobTitle, jobLocation, jobCompensation);
   return (
@@ -35,7 +36,7 @@ export default function ({
         </div>
         <div className="card-bottom flex justify-end">
           <span>
-            <button className="button">More</button>
+            <button className="button" onClick={() =>setMainJobId(jobId)}>More</button>
           </span>
           <span>
             <button className="button">Apply</button>
