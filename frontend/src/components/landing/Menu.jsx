@@ -10,6 +10,7 @@ import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import CallIcon from '@mui/icons-material/Call';
 import PersonIcon from '@mui/icons-material/Person';
 
+
 const Container = styled.div`
     flex: 1;
     background-color: #F0F0F0;
@@ -69,7 +70,7 @@ const Button = styled.button`
     gap: 5px;
 `
 const Menu = () => {
-  return ( 
+  return (  
     <Container>
         <Wrapper>
 
@@ -128,6 +129,7 @@ const Menu = () => {
 
         </Wrapper>
     </Container>  
+   
   )
 }
 

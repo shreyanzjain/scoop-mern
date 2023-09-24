@@ -9,8 +9,8 @@ export default function () {
       <PlacementNavbar />
       <span className="flex mx-0">
         <SideBar />
-        <PlacementDashboard/>
-        {/* <PlacementJobs/> */}
+        {/* <PlacementDashboard/> */}
+        <PlacementJobs/>
       </span>
     </div>
   );

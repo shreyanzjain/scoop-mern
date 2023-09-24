@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import Dashboard from "./components/Dashboard/Dashboard.jsx";
 import { Link, Routes, Route } from "react-router-dom";
 
+import UserUI from "./components/UserUI/UserUI";
 
 import "./App.css";
 import "../index.css";
@@ -27,6 +28,9 @@ function App() {
           <li>
             <Link to="/placement-cell"> Placement </Link>
           </li>
+          <li>
+            <Link to="/user-page">User Home Page</Link>
+          </li>
         </ul>
       </nav>
 
@@ -35,6 +39,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/landing" element={<LandingPage />} />
         <Route path="/placement-cell" element={<Placement />} />
+        <Route path="/user-page" element={<UserUI />} />
       </Routes>
     </>
   );
