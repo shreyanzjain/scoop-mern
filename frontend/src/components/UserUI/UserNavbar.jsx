@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PersonIcon from '@mui/icons-material/Person';
-import LightbulbIcon from '@mui/icons-material/Lightbulb';
-import AutoGraphIcon from '@mui/icons-material/AutoGraph';
+import BugReportIcon from '@mui/icons-material/BugReport';
 
 const Container = styled.div`
   position: sticky;
@@ -28,6 +27,7 @@ const Item = styled.div`
 const Input = styled.input``
 
 const Button = styled.button`
+    
     padding: 5px 15px;
     background-color: transparent;
     border: 2px solid #3E5FD0;
@@ -59,11 +59,11 @@ const UserNavbar = () => {
     <Container>
       <Wrapper>
         <Item>
-        <Button1><LightbulbIcon/>Report Issue</Button1>
+        <Button1><BugReportIcon/>Report Issue</Button1>
         </Item>
 
         <Item>
-        <Button><PersonIcon/>SIGN - OUT</Button>
+        <Button><PersonIcon/>Sign Out</Button>
         </Item>       
         
         
