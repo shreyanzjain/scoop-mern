@@ -22,6 +22,7 @@ const authorization = (req, res, next) => {
         const data = jwt.verify(token, process.env.JWT_SECRET_KEY);
         req.userId = data.id;
         req.userEmail = data.email;
+        req.userRole = data.userRole;
         return next();
     }   catch {
         return res.status(403).send("Unauthorized.")
@@ -52,6 +53,10 @@ app.post("/user/login", jsonParser, async(req, res) => {
 
 app.get("/protected", authorization, (req, res) => {
     res.send({userId: req.userId});
+})
+
+app.get("/user/role", authorization, (req, res) => {
+    res.send()
 })
 
 app.listen(port, ()=>{
