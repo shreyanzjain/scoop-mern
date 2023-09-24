@@ -1,0 +1,26 @@
+[
+  {
+    "title": "SDE 1",
+    "company": "Apple",
+    "status": "Completed",
+    "salary": "Rs. 4,00,000"
+  },
+  {
+    "title": "Options Trader",
+    "company": "Uber",
+    "status": "Recieving Applications",
+    "salary": "Rs. 6,00,000"
+  },
+  {
+    "title": "Analyst",
+    "company": "Kotak Bank",
+    "status": "Interviewing",
+    "salary": "Rs. 3,68,235"
+  },
+  {
+    "title": "Securities Scientist",
+    "company": "IIFL",
+    "status": "Interviewing",
+    "salary": "Rs. 14,00,000"
+  }
+]
