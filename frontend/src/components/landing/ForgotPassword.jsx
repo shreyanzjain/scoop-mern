@@ -40,7 +40,7 @@ const ForgotPassword = () => {
   return (
     <div className="bg-white py-6 sm:py-8 lg:py-12">
       <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-        <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl">Get Your Password</h2>
+        <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl">Get Your Reset Password Link</h2>
 
         <form className="mx-auto max-w-lg rounded-lg border">
           <div className="flex flex-col gap-4 p-4 md:p-8">
@@ -64,7 +64,7 @@ const ForgotPassword = () => {
               <div
                 className="mt-2 p-2 rounded-lg text-white text-center bg-green-500"
               >
-                Check your email for password.
+                Check your email for reset password link.
                 <p className="text-white text-base mt-2">Email: {emailValue}</p>
               </div>
             )}
@@ -72,7 +72,7 @@ const ForgotPassword = () => {
               onClick={handleButtonClick}
               className="block rounded-lg bg-gray-800 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-gray-700 focus-visible:ring active-bg-gray-600 md:text-base"
             >
-              Get Your Password
+              Reset Your Password
             </button>
           </div>
         </form>
