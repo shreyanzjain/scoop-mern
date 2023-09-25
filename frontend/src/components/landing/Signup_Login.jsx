@@ -5,17 +5,17 @@ const Signup_Login = () => {
   const [emailValue, setEmailValue] = useState('');
   const [isValidEmail, setIsValidEmail] = useState(true);
   const [buttonClicked, setButtonClicked] = useState(false);
-  const [emailError, setEmailError] = useState(false); // New state for email error
-  const [showPassword, setShowPassword] = useState(false); // State to show/hide password
-  const [password, setPassword] = useState(''); // State to store the password entered by the user
-  const [passwordError, setPasswordError] = useState(false); // New state for password error
+  const [emailError, setEmailError] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [password, setPassword] = useState('');
+  const [passwordError, setPasswordError] = useState(false);
+  const [selectedRole, setSelectedRole] = useState('Student'); // State to store the selected role
 
   const handleEmailChange = (e) => {
     const email = e.target.value;
     const isValid = validateEmail(email);
     setEmailValue(email);
     setIsValidEmail(isValid);
-    // Reset buttonClicked and emailError when email changes
     setButtonClicked(false);
     setEmailError(false);
   };
@@ -23,21 +23,23 @@ const Signup_Login = () => {
   const handlePasswordChange = (e) => {
     const newPassword = e.target.value;
     setPassword(newPassword);
-    // Reset passwordError when the password changes
     setPasswordError(false);
+  };
+
+  const handleRoleChange = (e) => {
+    const role = e.target.value;
+    setSelectedRole(role);
   };
 
   const handleButtonClick = (e) => {
     e.preventDefault();
 
     if (!emailValue) {
-      // If email is empty, show error and return
       setEmailError(true);
       return;
     }
 
     if (!password) {
-      // If password is empty, show error and return
       setPasswordError(true);
       return;
     }
@@ -58,12 +60,27 @@ const Signup_Login = () => {
   };
 
   return (
-    <div className="bg-white py-6 sm:py-8 lg:py-12">
+    <div className="z-0 bg-white py-6 sm:py-8 lg:py-12">
       <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
         <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl">Login</h2>
 
         <form className="mx-auto max-w-lg rounded-lg border">
           <div className="flex flex-col gap-4 p-4 md:p-8">
+            <div>
+              <label htmlFor="Role" className="mb-2 inline-block text-sm text-gray-800 sm:text-base">Role</label>
+              <div className="relative">
+                <select
+                  name="role"
+                  id="role"
+                  value={selectedRole}
+                  onChange={handleRoleChange}
+                  className={`w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring`}
+                >
+                  <option value="Student">Student</option>
+                  <option value="Admin">Admin</option>
+                </select>
+              </div>
+            </div>
             <div>
               <label htmlFor="email" className="mb-2 inline-block text-sm text-gray-800 sm:text-base">Email</label>
               <input
@@ -80,10 +97,10 @@ const Signup_Login = () => {
                 <p className="mt-1 text-sm text-red-500">Please enter a valid email address.</p>
               )}
             </div>
-            
+
             <div>
               <label htmlFor="password" className="mb-2 inline-block text-sm text-gray-800 sm:text-base">Password</label>
-              <div className="relative">
+              <div className={`relative ${passwordError || (password === '' && buttonClicked) ? 'border-red-500' : ''}`}>
                 <input
                   type={showPassword ? "text" : "password"}
                   name="password"
@@ -104,12 +121,12 @@ const Signup_Login = () => {
                     </svg>
                   ) : (
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10 2.5a.5.5 0 01.5.5V4h2a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2h2V3a.5.5 0 01.5-.5zm1 2.49l-1 .01a1 1 0 00-1 1v10a1 1 0 001 1l1-.01a1 1 0 001-1v-10a1 1 0 00-1-1z" clipRule="evenodd" />
+                      <path fillRule="evenodd" d="M10 2.5a.5.5 0 01.5.5V4h2a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2h2V3a.5.5 0 01.5-.5zm1 2.49l-1 .01a1 1 0 00-1 1v10a1 1 0 001-1l1-.01a1 1 0 001-1v-10a1 1 0 00-1-1z" clipRule="evenodd" />
                     </svg>
                   )}
                 </button>
               </div>
-              {passwordError && (
+              {(passwordError || (password === '' && buttonClicked)) && (
                 <p className="mt-1 text-sm text-red-500">Please enter your password.</p>
               )}
             </div>
@@ -121,16 +138,16 @@ const Signup_Login = () => {
               Login
             </button>
             <p className="text-center text-sm text-gray-500">Forgot your password? </p>
-            
+
             {/* Green div below the Login button */}
-            {showMessage && buttonClicked && isValidEmail && (
+            {showMessage && buttonClicked && isValidEmail && password && (
               <div
                 className="mt-2 p-2 rounded-lg text-white text-center bg-green-500"
               >
-                
                 <p className="text-white text-base mt-2">Email: {emailValue}</p>
-                {/* Display the entered password */}
                 <p className="text-white text-base mt-2">Password: {password}</p>
+                {/* Display the selected role */}
+                <p className="text-white text-base mt-2">Role: {selectedRole}</p>
               </div>
             )}
           </div>

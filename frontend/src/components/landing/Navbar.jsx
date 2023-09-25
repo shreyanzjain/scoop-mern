@@ -56,7 +56,7 @@ const Button1 = styled.button`
 
 const Navbar = () => {
   return (
-    <Container>
+    <Container className="z-10">
       <Wrapper>
 
         <Item>
