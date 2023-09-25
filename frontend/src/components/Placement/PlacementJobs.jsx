@@ -9,12 +9,12 @@ function PlacementJobs() {
     (<JobRow title={title} company={company} status={status}/>)
   );
   return (
-    <div className="container pb-6 w-5/6 bg-whitesmoke bg-opacity-30" style={{height: "93vh"}}>
-      <div className="flex text-2xl font-bold text-whitesmoke mt-2 ms-2 me-2 rounded-t-lg h-1/6 bg-licorice items-center justify-start">
-        <WorkIcon className="ms-6"/>
+    <div className="container m-2 w-5/6 bg-whitesmoke bg-opacity-30">
+      <div className="flex text-2xl font-bold text-whitesmoke rounded-t-lg h-1/6 bg-licorice items-center justify-start">
+        <WorkIcon className="ms-4"/>
         <p className="ms-2">Jobs List</p>
       </div>
-      <div className="flex-col text-lg mt-2 ms-2 me-2 h-5/6 bg-whitesmoke text-licorice">
+      <div className="flex-col h-5/6 text-lg mt-2 bg-whitesmoke text-licorice">
         {jobList}
         {/* When there are jobs posted */}    
         {/* When there are no jobs posted */}
