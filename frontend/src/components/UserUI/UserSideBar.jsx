@@ -2,10 +2,11 @@ import React from 'react'
 import logo from '../img/Logo.png'
 import styled from 'styled-components'
 
+
 const SideBar = () => {
   return (
-   
-<aside class="flex flex-col w-64 h-screen px-4 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
+
+    <aside class="flex flex-col w-64 h-screen px-4 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
     <a href="#" class="mx-auto">
         <img class="w-28 h-6 sm:h-9" src={logo} alt="" />
     </a>
@@ -55,6 +56,8 @@ const SideBar = () => {
         </nav>
     </div>
 </aside>
+
+
 
   )
 }
