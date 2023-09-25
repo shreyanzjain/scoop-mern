@@ -3,6 +3,7 @@ import UserSideBar from './UserSideBar'
 import UserNavbar from './UserNavbar'
 import styled from "styled-components";
 import Dashboard from "../Dashboard/Dashboard.jsx"
+import UserProfile from './UserProfile';
 
 const Container = styled.div`
   display: flex;
@@ -19,7 +20,8 @@ const UserUI = () => {
       <UserSideBar />
       <Main>
         <UserNavbar />
-        <Dashboard />
+        {/* <Dashboard /> */}
+        <UserProfile />
       </Main>
     </Container>
     
