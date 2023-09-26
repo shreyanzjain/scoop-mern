@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import bcrypt from 'bcryptjs'; // Import bcrypt.js for hashing
 
 const Signup_Login = () => {
   const [showMessage, setShowMessage] = useState(false);
@@ -10,6 +11,7 @@ const Signup_Login = () => {
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState(false);
   const [selectedRole, setSelectedRole] = useState('Student'); // State to store the selected role
+  const [hashedPassword, setHashedPassword] = useState(''); // State to store hashed password
 
   const handleEmailChange = (e) => {
     const email = e.target.value;
@@ -45,8 +47,18 @@ const Signup_Login = () => {
     }
 
     if (isValidEmail) {
-      setShowMessage(true);
-      setButtonClicked(true);
+      // Hash the password using bcrypt
+      const saltRounds = 8; // Number of salt rounds
+      bcrypt.hash(password, saltRounds, (err, hash) => {
+        if (err) {
+          console.error('Error hashing password:', err);
+        } else {
+          // Store the hashed password in state
+          setHashedPassword(hash);
+          setShowMessage(true);
+          setButtonClicked(true);
+        }
+      });
     }
   };
 
@@ -145,7 +157,8 @@ const Signup_Login = () => {
                 className="mt-2 p-2 rounded-lg text-white text-center bg-green-500"
               >
                 <p className="text-white text-base mt-2">Email: {emailValue}</p>
-                <p className="text-white text-base mt-2">Password: {password}</p>
+                {/* Display the hashed password */}
+                <p className="text-white text-base mt-2">Hashed Password: {hashedPassword}</p>
                 {/* Display the selected role */}
                 <p className="text-white text-base mt-2">Role: {selectedRole}</p>
               </div>
