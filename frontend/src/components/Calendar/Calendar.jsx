@@ -3,17 +3,21 @@ import calendarData from './calendarData.json';
 
 function Calendar() {
   const currentYear = new Date().getFullYear();
+  const minYear = currentYear - 5;
+  const maxYear = currentYear + 2;
+
   const [displayedYear, setDisplayedYear] = useState(currentYear);
   const [selectedMonth, setSelectedMonth] = useState(null);
+  const [selectedDay, setSelectedDay] = useState(null);
 
   const goToPrevYear = () => {
-    if (displayedYear > currentYear - 5) {
+    if (displayedYear > minYear) {
       setDisplayedYear(displayedYear - 1);
     }
   };
 
   const goToNextYear = () => {
-    if (displayedYear < currentYear) {
+    if (displayedYear < maxYear) {
       setDisplayedYear(displayedYear + 1);
     }
   };
@@ -26,16 +30,65 @@ function Calendar() {
 
     // Display the activities for the selected month
     setSelectedMonth(activitiesForMonth);
+    setSelectedDay(null); // Reset selected day when a new month is clicked
+  };
+
+  const handleDayClick = (day) => {
+    // Find the activity for the selected day
+    const activityForDay = selectedMonth ? selectedMonth.find((entry) => entry.day === day) : null;
+
+    // Display the activity for the selected day
+    setSelectedDay(activityForDay ? activityForDay.activity : '');
+  };
+
+  const renderLeftSide = () => {
+    const categories = ['Placement', 'College'];
+    const totalDays = selectedMonth ? new Date(displayedYear, selectedMonth[0].month, 0).getDate() : 0;
+
+    const dayRows = [];
+    for (let day = 1; day <= totalDays; day++) {
+      const activitiesForDay = selectedMonth
+        ? selectedMonth.filter((entry) => entry.day === day)
+        : [];
+
+      const placementActivity = activitiesForDay.find((entry) => entry.catgeory === 'Placement');
+      const collegeActivity = activitiesForDay.find((entry) => entry.catgeory === 'College');
+
+      dayRows.push(
+        <tr key={day} onClick={() => handleDayClick(day)} >
+          <td className="px-4 py-2 text-center">{placementActivity ? placementActivity.activity : '-'}</td>
+          <td className="px-4 py-2 text-center">{day}</td>
+          <td className="px-4 py-2 text-center">{collegeActivity ? collegeActivity.activity : '-'}</td>
+        </tr>
+      );
+    }
+
+    return (
+      <div className="w-full flex justify-center absolute top-8 center-5">
+        <table className="w-4/5">
+          <thead>
+            <tr>
+              <th className="px-4 py-2">Placement</th>
+              <th className="px-4 py-2">Day</th>
+              <th className="px-4 py-2">College</th>
+            </tr>
+          </thead>
+          <tbody>
+            {dayRows}
+          </tbody>
+        </table>
+      </div>
+    );
   };
 
   const renderCalendar = () => {
     return (
-      <div className="p-4 border rounded-lg text-center bg-gradient-to-b from-purple-300 via-purple-300 to-purple-300  absolute top-8 right-4">
+      <div className="p-4 border rounded-lg text-center bg-gradient-to-b from-purple-300 via-purple-300 to-purple-300 absolute top-8 right-4">
         <div className="flex justify-between mb-4">
           <button
             onClick={goToPrevYear}
             className={`w-12 h-12 rounded-full border bg-blue-500 hover:bg-indigo-600 text-white text-2xl`}
-            disabled={displayedYear <= currentYear - 5}
+            disabled={displayedYear <= minYear}
           >
             &lt;
           </button>
@@ -43,7 +96,7 @@ function Calendar() {
           <button
             onClick={goToNextYear}
             className={`w-12 h-12 rounded-full border bg-blue-500 hover:bg-green-600 text-white text-2xl`}
-            disabled={displayedYear >= currentYear}
+            disabled={displayedYear >= maxYear}
           >
             &gt;
           </button>
@@ -61,25 +114,13 @@ function Calendar() {
         </div>
       </div>
     );
+
   };
 
   return (
-    <div className="flex flex-col items-center mt-8">
-      {renderCalendar()}
-      <div className="mt-4">
-        {selectedMonth ? (
-          <div>
-            <h2>Selected Month Info</h2>
-            {selectedMonth.map((activity, index) => (
-              <p key={index}>{`${activity.activity} on ${activity.month}/${activity.day}/${activity.year}`}</p>
-            ))}
-          </div>
-        ) : (
-          <div>
-            <h2>Select a Month</h2>
-          </div>
-        )}
-      </div>
+    <div className="mt-8">
+      {renderLeftSide()}
+      <div className="w-2/3 mx-auto">{renderCalendar()}</div>
     </div>
   );
 }
