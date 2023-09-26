@@ -1,6 +1,11 @@
 import React from 'react'
 import UserProfileNav from './UserProfileNav'
 import Personal from './Personal'
+import Edu from "./Edu"
+import CurrentEdu from "./CurrentEdu"
+import Address from "./Address"
+import AdditionalInfo from "./AdditionalInfo"
+
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -17,6 +22,10 @@ const UserProfile = () => {
     <Container>
         
         <Personal />
+        {/* <Edu />
+        <CurrentEdu />
+        <Address />
+        <AdditionalInfo /> */}
     </Container>
     </div>
     
