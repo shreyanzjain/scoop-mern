@@ -1,8 +1,14 @@
 import React from 'react'
+import styled from 'styled-components'
 
+const Container = styled.div`
+    
+`
 const UserProfileNav = () => {
   return (
+    <Container>
     <div>
+        
         <div class="flex overflow-x-auto whitespace-nowrap">
     <button class="inline-flex items-center h-12 px-2 py-2 text-center text-gray-700 border border-b-0 border-gray-300 sm:px-4 dark:border-gray-500 rounded-t-md -px-1 dark:text-white whitespace-nowrap focus:outline-none">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mx-1 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -20,7 +26,7 @@ const UserProfileNav = () => {
         </svg>
 
         <span class="mx-1 text-sm sm:text-base">
-            Edu
+            Education
         </span>
     </button>
 
@@ -30,7 +36,7 @@ const UserProfileNav = () => {
         </svg>
 
         <span class="mx-1 text-sm sm:text-base">
-            Current Edu
+            Current Education
         </span>
     </button>
 
@@ -56,6 +62,7 @@ const UserProfileNav = () => {
     </button>
     </div>
     </div>
+    </Container>
   )
 }
 

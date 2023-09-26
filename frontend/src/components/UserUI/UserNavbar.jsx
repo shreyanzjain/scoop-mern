@@ -6,7 +6,7 @@ import BugReportIcon from '@mui/icons-material/BugReport';
 const Container = styled.div`
   position: sticky;
   top: 0;
-  background-color: white;
+  background-color: #F5F5F5;
   height: 56px;
 `
 const Wrapper = styled.div`
