@@ -1,0 +1,27 @@
+[
+    {
+      "year": 2023,
+      "month": 1,
+      "day": 1,
+      "activity": "New Year's Day"
+    },
+    {
+      "year": 2023,
+      "month": 1,
+      "day": 15,
+      "activity": "Google"
+    },
+    {
+        "year":2023,
+        "month":2,
+        "day":16,
+        "activity":"Amazon"
+    },
+    {
+      "year": 2023,
+      "month": 2,
+      "day": 14,
+      "activity": "Valentine's Day"
+    }
+  ]
+  
