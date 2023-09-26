@@ -39,6 +39,11 @@ const Button = styled.button`
     display: flex;
     align-items: center;
     gap: 5px;
+
+    &:hover {
+      background-color: #3E5FD0; /* Change the background color on hover */
+      color: white; /* Change the text color on hover */
+    }
 `
 const Button1 = styled.button`
     padding: 5px 15px;
@@ -52,6 +57,11 @@ const Button1 = styled.button`
     display: flex;
     align-items: center;
     gap: 5px;
+
+    &:hover {
+      background-color: #3E5FD0; /* Change the background color on hover */
+      color: white; /* Change the text color on hover */
+    }
 `
 
 const UserNavbar = () => {
