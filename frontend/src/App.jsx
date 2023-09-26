@@ -7,6 +7,9 @@ import Dashboard from "./components/Dashboard/Dashboard.jsx";
 import { Link, Routes, Route } from "react-router-dom";
 
 import UserUI from "./components/UserUI/UserUI";
+import Calendar from "./components/Calendar/Calendar"
+
+import ResetPwd from "./components/ResetPassword/ResetPwd"
 import "./App.css";
 import "../index.css";
 function App() {
@@ -29,6 +32,12 @@ function App() {
           <li>
             <Link to="/user-page">User Home Page</Link>
           </li> 
+          <li>
+            <Link to="/calendar">Calendar</Link>
+          </li>
+          <li>
+            <Link to="/reset">Reset Password</Link>
+          </li>
         </ul>
       </nav>
 
@@ -37,7 +46,10 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/landing" element={<LandingPage />} />
         <Route path="/placement-cell" element={<Placement />} />
-        <Route path="/user-page" element={<UserUI />} />        
+        <Route path="/user-page" element={<UserUI />} />  
+        <Route path="/calendar" element={<Calendar />} />  
+        <Route path="/reset" element={<ResetPwd />} />  
+             
       </Routes>
     </>
   );
