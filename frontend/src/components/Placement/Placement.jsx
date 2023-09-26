@@ -11,8 +11,8 @@ export default function () {
       <span className="flex mx-0">
         <SideBar />
         {/* <PlacementDashboard/> */}
-        {/* <PlacementJobs/>  */}
-        <PlacementUpload/>
+        <PlacementJobs/> 
+        {/* <PlacementUpload/> */}
       </span>
     </div>
   );

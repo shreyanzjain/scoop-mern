@@ -88,8 +88,10 @@ const Signup_Login = () => {
                   onChange={handleRoleChange}
                   className={`w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring`}
                 >
-                  <option value="Student">Student</option>
+                  
                   <option value="Admin">Admin</option>
+                  <option value="Admin">Envoy</option>
+                  <option value="Student">Student</option>
                 </select>
               </div>
             </div>
