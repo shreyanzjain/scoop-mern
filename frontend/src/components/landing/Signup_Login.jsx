@@ -140,19 +140,6 @@ const Signup_Login = () => {
               className="block rounded-lg bg-gray-800 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-gray-700 focus-visible:ring active-bg-gray-600 md:text-base"
             />
             <p className="text-center text-sm text-gray-500">Forgot your password? </p>
-
-            {/* Green div below the Login button */}
-            {showMessage && buttonClicked && isValidEmail && password && (
-              <div
-                className="mt-2 p-2 rounded-lg text-white text-center bg-green-500"
-              >
-                <p className="text-white text-base mt-2">Email: {emailValue}</p>
-                {/* Display the hashed password */}
-                <p className="text-white text-base mt-2">Password: {password}</p>
-                {/* Display the selected role */}
-                <p className="text-white text-base mt-2">Role: {selectedRole}</p>
-              </div>
-            )}
           </div>
         </form>
       </div>
