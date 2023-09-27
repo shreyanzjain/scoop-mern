@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 const Signup_Login = () => {
   const [showMessage, setShowMessage] = useState(false);
   const [emailValue, setEmailValue] = useState('');
@@ -9,7 +10,12 @@ const Signup_Login = () => {
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState(false);
   const [selectedRole, setSelectedRole] = useState('Student');
-  
+
+  // Function to check if both email and password are filled
+  const isSubmitDisabled = () => {
+    return !emailValue || !password || !isValidEmail || emailError || passwordError || buttonClicked;
+  };
+
   const handleEmailChange = (e) => {
     const email = e.target.value;
     const isValid = validateEmail(email);
@@ -44,10 +50,8 @@ const Signup_Login = () => {
     }
 
     if (isValidEmail) {
-       
       setShowMessage(true);
       setButtonClicked(true);
-        
     }
   };
 
@@ -77,7 +81,6 @@ const Signup_Login = () => {
                   onChange={handleRoleChange}
                   className={`w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring`}
                 >
-                  
                   <option value="Admin">Admin</option>
                   <option value="Envoy">Envoy</option>
                   <option value="Student">Student</option>
@@ -137,7 +140,8 @@ const Signup_Login = () => {
             <input
               type="submit"
               value="Login"
-              className="block rounded-lg bg-gray-800 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-gray-700 focus-visible:ring active-bg-gray-600 md:text-base"
+              className={`block rounded-lg bg-gray-800 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-gray-700 focus-visible:ring active-bg-gray-600 md:text-base ${isSubmitDisabled() ? 'opacity-50 cursor-not-allowed' : ''}`}
+              disabled={isSubmitDisabled()}
             />
             <p className="text-center text-sm text-gray-500">Forgot your password? </p>
           </div>
