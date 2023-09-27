@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import bcrypt from 'bcryptjs'; // Import bcrypt.js for hashing
-
 const Signup_Login = () => {
   const [showMessage, setShowMessage] = useState(false);
   const [emailValue, setEmailValue] = useState('');
@@ -10,9 +8,8 @@ const Signup_Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState(false);
-  const [selectedRole, setSelectedRole] = useState('Student'); // State to store the selected role
-  const [hashedPassword, setHashedPassword] = useState(''); // State to store hashed password
-
+  const [selectedRole, setSelectedRole] = useState('Student');
+  
   const handleEmailChange = (e) => {
     const email = e.target.value;
     const isValid = validateEmail(email);
@@ -47,18 +44,10 @@ const Signup_Login = () => {
     }
 
     if (isValidEmail) {
-      // Hash the password using bcrypt
-      const saltRounds = 8; // Number of salt rounds
-      bcrypt.hash(password, saltRounds, (err, hash) => {
-        if (err) {
-          console.error('Error hashing password:', err);
-        } else {
-          // Store the hashed password in state
-          setHashedPassword(hash);
-          setShowMessage(true);
-          setButtonClicked(true);
-        }
-      });
+       
+      setShowMessage(true);
+      setButtonClicked(true);
+        
     }
   };
 
@@ -90,7 +79,7 @@ const Signup_Login = () => {
                 >
                   
                   <option value="Admin">Admin</option>
-                  <option value="Admin">Envoy</option>
+                  <option value="Envoy">Envoy</option>
                   <option value="Student">Student</option>
                 </select>
               </div>
@@ -145,12 +134,11 @@ const Signup_Login = () => {
               )}
             </div>
 
-            <button
-              onClick={handleButtonClick}
+            <input
+              type="submit"
+              value="Login"
               className="block rounded-lg bg-gray-800 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-gray-700 focus-visible:ring active-bg-gray-600 md:text-base"
-            >
-              Login
-            </button>
+            />
             <p className="text-center text-sm text-gray-500">Forgot your password? </p>
 
             {/* Green div below the Login button */}
@@ -160,7 +148,7 @@ const Signup_Login = () => {
               >
                 <p className="text-white text-base mt-2">Email: {emailValue}</p>
                 {/* Display the hashed password */}
-                <p className="text-white text-base mt-2">Hashed Password: {hashedPassword}</p>
+                <p className="text-white text-base mt-2">Password: {password}</p>
                 {/* Display the selected role */}
                 <p className="text-white text-base mt-2">Role: {selectedRole}</p>
               </div>
