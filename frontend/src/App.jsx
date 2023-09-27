@@ -8,7 +8,7 @@ import { Link, Routes, Route } from "react-router-dom";
 
 import UserUI from "./components/UserUI/UserUI";
 import Calendar from "./components/Calendar/Calendar"
-
+import AdminCalendar from "./components/Calendar/adminCalendar";
 import ResetPwd from "./components/ResetPassword/ResetPwd"
 import "./App.css";
 import "../index.css";
@@ -34,6 +34,9 @@ function App() {
           </li> 
           <li>
             <Link to="/calendar">Calendar</Link>
+          </li> 
+          <li>
+            <Link to="/adminCalendar">Admin Calendar</Link>
           </li>
           <li>
             <Link to="/reset">Reset Password</Link>
@@ -48,6 +51,7 @@ function App() {
         <Route path="/placement-cell" element={<Placement />} />
         <Route path="/user-page" element={<UserUI />} />  
         <Route path="/calendar" element={<Calendar />} />  
+        <Route path="/adminCalendar" element={<AdminCalendar/>} />
         <Route path="/reset" element={<ResetPwd />} />  
              
       </Routes>
