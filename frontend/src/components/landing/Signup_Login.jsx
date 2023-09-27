@@ -36,7 +36,7 @@ const Signup_Login = () => {
     setSelectedRole(role);
   };
 
-  const handleButtonClick = (e) => {
+  const handleButtonClick = async (e) => {
     e.preventDefault();
 
     if (!emailValue) {
@@ -50,8 +50,29 @@ const Signup_Login = () => {
     }
 
     if (isValidEmail) {
-      setShowMessage(true);
-      setButtonClicked(true);
+      try {
+        const response = await fetch('http://localhost:3000/user/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: emailValue,
+            password: password,
+          }),
+        });
+
+        if (response.status === 200) {
+          // Successfully logged in
+          setShowMessage(true);
+          setButtonClicked(true);
+        } else {
+          // Handle login error (e.g., show an error message)
+          console.error('Login failed');
+        }
+      } catch (error) {
+        console.error('An error occurred:', error);
+      }
     }
   };
 
@@ -142,6 +163,7 @@ const Signup_Login = () => {
               value="Login"
               className={`block rounded-lg bg-gray-800 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-gray-700 focus-visible:ring active-bg-gray-600 md:text-base ${isSubmitDisabled() ? 'opacity-50 cursor-not-allowed' : ''}`}
               disabled={isSubmitDisabled()}
+              onClick={handleButtonClick} // Handle the button click event
             />
             <p className="text-center text-sm text-gray-500">Forgot your password? </p>
           </div>
