@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken');
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
+const cors = require('cors');
 
 // setting the locations of the key.pem and cert.pem files
 const options = {
@@ -19,6 +20,10 @@ require('dotenv').config();
 const app = express();
 const port = 3000;
 
+app.use(cors({
+    origin: 'https://127.0.0.1:5173',
+    credentials: true
+}));
 app.use(cookieParser());
 
 // authorization middleware
@@ -52,7 +57,7 @@ app.post("/user/login", jsonParser, async(req, res) => {
         return res
         .cookie("access_token", token, {
             httpOnly: true,
-            secure: process.env.NODE_ENV === "production",
+            secure: true,
         })
         .status(200)
         .json({message: "Logged In Successfully"});
@@ -72,5 +77,5 @@ app.get("/user/role", authorization, (req, res) => {
 const httpsServer = https.createServer(options, app);
 
 httpsServer.listen(port, ()=>{
-    console.log(`App listening on http://localhost:${port}`);
+    console.log(`App listening on https://localhost:${port}`);
 })
