@@ -1,0 +1,38 @@
+[
+  {
+    "f_name": "Shreyans",
+    "l_name": "Jain",
+    "branch": "Information Technology",
+    "cgpa": 8.64,
+    "tenth_grade": 86.67,
+    "twelfth_grade": 78.0,
+    "verified": true
+  },
+  {
+    "f_name": "Varun",
+    "l_name": "Iyer",
+    "branch": "Information Technology",
+    "cgpa": 9,
+    "tenth_grade": 100,
+    "twelfth_grade": 95,
+    "verified": false
+  },
+  {
+    "f_name": "Mohit",
+    "l_name": "Nautiyal",
+    "branch": "Information Technology",
+    "cgpa": 10,
+    "tenth_grade": 92,
+    "twelfth_grade": 100,
+    "verified": true
+  },
+  {
+    "f_name": "Nikunj",
+    "l_name": "Mistry",
+    "branch": "Information Technology",
+    "cgpa": 10,
+    "tenth_grade": 92,
+    "twelfth_grade": 100,
+    "verified": false
+  }
+]
