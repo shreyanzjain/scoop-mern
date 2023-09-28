@@ -1,9 +1,19 @@
-var {create_user, login_user, get_data_for_jwt} = require('./methods/user_methods');
-var bodyParser = require('body-parser');
-var jsonParser = bodyParser.json();
+const {create_user, login_user, get_data_for_jwt} = require('./methods/user_methods');
+const bodyParser = require('body-parser');
+const jsonParser = bodyParser.json();
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
+const https = require('https');
+const fs = require('fs');
+const path = require('path');
+
+// setting the locations of the key.pem and cert.pem files
+const options = {
+    key: fs.readFileSync(path.join(__dirname, './cert/key.pem')),
+    cert: fs.readFileSync(path.join(__dirname, './cert/cert.pem'))
+}
+
 require('dotenv').config();
 
 const app = express();
@@ -59,6 +69,8 @@ app.get("/user/role", authorization, (req, res) => {
     res.send()
 })
 
-app.listen(port, ()=>{
+const httpsServer = https.createServer(options, app);
+
+httpsServer.listen(port, ()=>{
     console.log(`App listening on http://localhost:${port}`);
 })
