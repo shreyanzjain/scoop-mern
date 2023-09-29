@@ -3,6 +3,7 @@ import SideBar from "./SideBar";
 import PlacementDashboard from "./PlacementDashboard";
 import PlacementJobs from "./PlacementJobs";
 import PlacementUpload from "./PlacementUpload";
+import PlacementStudents from "./PlacementStudents";
 
 export default function () {
   return (
@@ -11,8 +12,9 @@ export default function () {
       <span className="flex mx-0">
         <SideBar />
         {/* <PlacementDashboard/> */}
-        <PlacementJobs/> 
+        {/* <PlacementJobs/>  */}
         {/* <PlacementUpload/> */}
+        <PlacementStudents/>
       </span>
     </div>
   );
