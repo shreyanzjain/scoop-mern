@@ -10,6 +10,7 @@ const Container = styled.div`
 `
 const Black = styled.div`
   color: black;
+  text-align: justify;
 `
 const Button1 = styled.button`
     width: 130px;
