@@ -58,6 +58,7 @@ app.post("/user/login", jsonParser, async(req, res) => {
         .cookie("access_token", token, {
             httpOnly: true,
             secure: true,
+            sameSite: true
         })
         .status(200)
         .json({message: "Logged In Successfully"});
@@ -70,8 +71,9 @@ app.get("/protected", authorization, (req, res) => {
     res.send({userId: req.userId});
 })
 
-app.get("/user/role", authorization, (req, res) => {
-    res.send()
+app.get("/user/logout", authorization, (req, res) => {
+    return res
+    .de
 })
 
 const httpsServer = https.createServer(options, app);

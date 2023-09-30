@@ -13,8 +13,8 @@ export default function () {
         <SideBar />
         {/* <PlacementDashboard/> */}
         {/* <PlacementJobs/>  */}
-        {/* <PlacementUpload/> */}
-        <PlacementStudents/>
+        <PlacementUpload/>
+        {/* <PlacementStudents/> */}
       </span>
     </div>
   );

@@ -14,8 +14,8 @@ function PlacementUpload() {
       </div>
 
       <div className="container h-5/6 mt-2">
-        <div className="flex bg-whitesmoke h-full justify-center items-center">
-          <form className="w-full max-w-lg border-2 rounded pt-2 px-2 border-licorice">
+        <div className="flex bg-whitesmoke items-start">
+          <form className="w-full pt-2 px-2">
             <div className="flex flex-wrap -mx-3">
               <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                 <label
@@ -45,8 +45,64 @@ function PlacementUpload() {
                   placeholder="Apple"
                 />
               </div>
+              <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <label
+                  className="block uppercase tracking-wide text-licorice text-xs font-bold mb-2"
+                  for="grid-cgpa-cutoff"
+                >
+                  Cgpa Cutoff
+                </label>
+                <input
+                  className="appearance-none block w-full bg-white text-licorice rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-2 focus:border-licorice"
+                  id="grid-cgpa-cutoff"
+                  type="text"
+                  placeholder="7.00"
+                />
+              </div>
+              <div className="w-full md:w-1/2 px-3">
+                <label
+                  className="block uppercase tracking-wide text-licorice text-xs font-bold mb-2"
+                  for="grid-tenth-percentage-cuttof"
+                >
+                  Tenth Cutoff
+                </label>
+                <input
+                  className="appearance-none block w-full bg-white text-licorice rounded py-3 px-4 leading-tight focus:outline-none focus:border-2 focus:border-licorice"
+                  id="grid-tenth-percentage-cutoff"
+                  type="text"
+                  placeholder="75%"
+                />
+              </div>
+              <div className="w-full md:w-1/2 px-3">
+                <label
+                  className="block uppercase tracking-wide text-licorice text-xs font-bold mb-2"
+                  for="grid-twelfth-percentage-cuttof"
+                >
+                  Twelfth Cutoff
+                </label>
+                <input
+                  className="appearance-none block w-full bg-white text-licorice rounded py-3 px-4 leading-tight focus:outline-none focus:border-2 focus:border-licorice"
+                  id="grid-twelfth-percentage-cutoff"
+                  type="text"
+                  placeholder="75%"
+                />
+              </div>
+              <div className="w-full md:w-1/2 px-3">
+                <label
+                  className="block uppercase tracking-wide text-licorice text-xs font-bold mb-2"
+                  for="grid-branch-cutoff"
+                >
+                  Branches
+                </label>
+                <input
+                  className="appearance-none block w-full bg-white text-licorice rounded py-3 px-4 leading-tight focus:outline-none focus:border-2 focus:border-licorice"
+                  id="grid-branch-cutoff"
+                  type="text"
+                  placeholder="IT, CS"
+                />
+              </div>
             </div>
-            <div className="flex flex-wrap -mx-3 mb-6">
+            <div className="flex flex-wrap -mx-3 mt-2 mb-6">
               <div className="w-full px-3">
                 <label
                   className="block uppercase tracking-wide text-licorice text-xs font-bold mb-2"
