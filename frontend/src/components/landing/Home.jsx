@@ -12,6 +12,10 @@ const Black = styled.div`
   color: black;
   text-align: justify;
 `
+
+const Black1 = styled.div`
+  color: black;
+`
 const Button1 = styled.button`
     width: 130px;
     padding: 5px 15px;
@@ -46,15 +50,15 @@ export default class Home extends Component {
         </div>
         <p class="leading-relaxed mb-4"><Black>TSEC Training & Placement Cell aims at building a strong interface between Industry and the Institute for training and placement of students. To make recruitment session smoother for students, Training & Placement Cell has a web portal for handling the placements.</Black></p>
         <div class="flex border-t border-gray-200 py-2">
-          <span class="text-gray-500"><Black>Student portal for easy job application.</Black></span>
+          <span class="text-gray-500"><Black1>Student portal for easy job application.</Black1></span>
           <span class="ml-auto text-gray-900"><Button1><SchoolIcon/>Student</Button1></span>
         </div>
         <div class="flex border-t border-gray-200 py-2">
-          <span class="text-gray-500"><Black>Admin portal for handling placements.</Black></span>
+          <span class="text-gray-500"><Black1>Admin portal for handling placements.</Black1></span>
           <span class="ml-auto text-gray-900"><Button1><AssuredWorkloadIcon/>T & P O</Button1></span>
         </div>
         <div class="flex border-t border-b mb-6 border-gray-200 py-2">
-          <span class="text-gray-500"><Black>Envoy access for smooth conduction of placements.</Black></span>
+          <span class="text-gray-500"><Black1>Envoy access for smooth conduction of placements.</Black1></span>
           <span class="ml-auto text-gray-900"><Button1><ManageAccountsIcon/>Envoys</Button1></span>
         </div>
         {/* <div class="flex">

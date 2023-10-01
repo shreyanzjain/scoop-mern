@@ -8,6 +8,39 @@ import Signup_Login from "./Signup_Login";
 import RecruitmentProcess from "./RecruitmentProcess";
 import PlacementStats from "./PlacementStats";
 import ForgotPassword from "./ForgotPassword";
+
+import { Routes, Route, Link } from "react-router-dom";
+
+// const Ghar = () => {
+//   return(
+//     <>
+//     <Container>
+//     <Menu/>
+//     <Main>
+//       <Navbar/>
+//       <Home/>
+      
+//     </Main>
+//   </Container>  
+//     </>
+//   )
+// }
+
+// const WhyTsec = () => {
+//   return(
+//     <>
+//     <Container>
+//     <Menu/>
+//     <Main>
+//       <Navbar/>
+//       <Why_tsec/>
+      
+//     </Main>
+//   </Container>  
+//     </>
+//   )
+// }
+
 const Container = styled.div`
   display: flex;
 `;
@@ -21,18 +54,13 @@ function LandingPage() {
 
   return (   
     <Container>
-      <Menu/>
-      <Main>
-        <Navbar/>
-        <Home/>
-        <Why_tsec/>
-        <Signup_Login/>
-        <ForgotPassword/>
-        <OurRecruiters/>
-        <RecruitmentProcess />
-        <PlacementStats/>
-      </Main>
-    </Container>  
+    <Menu/>
+    <Main>
+      <Navbar/>
+      <Home/>
+      
+    </Main>
+  </Container> 
   )
 }
 
