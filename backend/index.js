@@ -21,7 +21,8 @@ const app = express();
 const port = 3000;
 
 app.use(cors({
-    origin: 'https://127.0.0.1:5173',
+    origin: ['https://127.0.0.1:5173',
+            'https://localhost:5173'],
     credentials: true
 }));
 app.use(cookieParser());
@@ -58,7 +59,7 @@ app.post("/user/login", jsonParser, async(req, res) => {
         .cookie("access_token", token, {
             httpOnly: true,
             secure: true,
-            sameSite: true
+            sameSite: "none"
         })
         .status(200)
         .json({message: "Logged In Successfully"});
