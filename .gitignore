@@ -4,5 +4,5 @@ node_modules
 # Keep environment variables out of version control
 .env
 
-# Keep SSL files, or in general files ending with .pem out of version control
-*.pem
+# Keep csr SSL file, or in general files ending with .pem out of version control
+csr.pem
