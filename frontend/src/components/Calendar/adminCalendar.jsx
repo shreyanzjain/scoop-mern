@@ -31,7 +31,23 @@ function AdminCalendar() {
   };
 
   const scheduleEvent = () => {
-    if (selectedDate && eventTitle && eventDuration) {
+    if (!selectedDate) {
+      // Check if a date is selected, and if not, show an alert
+      alert('Please select a date before scheduling an event.');
+      return;
+    }
+    else if (!eventTitle) {
+      // Check if a date is selected, and if not, show an alert
+      alert('Please write a title before scheduling an event.');
+      return;
+    }
+    else if (!eventDuration) {
+      // Check if a date is selected, and if not, show an alert
+      alert('Please write the duration of the event before scheduling an event.');
+      return;
+    }
+
+    if (eventTitle && eventDuration) {
       const startDate = new Date(selectedDate);
       const endDate = new Date(selectedDate);
       endDate.setDate(endDate.getDate() + parseInt(eventDuration, 10));
@@ -102,9 +118,9 @@ function AdminCalendar() {
           <ul className="list-disc mt-2">
             {events.map((event, index) => (
               <li key={index} className="text-lg">
-                {`Start Date: ${event.startDate.toDateString()}, Event Title: "${event.title}", Category: ${event.category}`}
+                {`Date: ${event.startDate.toDateString()}, Event Title: "Start of ${event.title}", Category: ${event.category}`}
                 <p></p>
-                {`End Date: ${event.endDate.toDateString()}, Event Title: "${event.title}", Category: ${event.category}`}
+                {`Date: ${event.endDate.toDateString()}, Event Title: "End of ${event.title}", Category: ${event.category}`}
               </li>
             ))}
           </ul>
