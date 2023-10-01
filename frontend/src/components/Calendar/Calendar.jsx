@@ -28,9 +28,15 @@ function Calendar() {
       (entry) => entry.year === displayedYear && entry.month === month
     );
 
-    // Display the activities for the selected month
-    setSelectedMonth(activitiesForMonth);
-    setSelectedDay(null); // Reset selected day when a new month is clicked
+    if (activitiesForMonth.length > 0) {
+      // Display the activities for the selected month
+      setSelectedMonth(activitiesForMonth);
+      setSelectedDay(null); // Reset selected day when a new month is clicked
+    } else {
+      // No data for the selected month, display a message
+      setSelectedMonth([]);
+      setSelectedDay(null);
+    }
   };
 
   const handleDayClick = (day) => {
@@ -55,28 +61,30 @@ function Calendar() {
       const collegeActivity = activitiesForDay.find((entry) => entry.catgeory === 'College');
 
       dayRows.push(
-        <tr key={day} onClick={() => handleDayClick(day)} >
+        <tr key={day} onClick={() => handleDayClick(day)} className="cursor-pointer">
           <td className="px-4 py-2 text-center">{placementActivity ? placementActivity.activity : '-'}</td>
-          <td className="px-4 py-2 text-center">{day}</td>
+          <td className="px-4 py-2 text-center font-bold">{day}</td>
           <td className="px-4 py-2 text-center">{collegeActivity ? collegeActivity.activity : '-'}</td>
         </tr>
       );
     }
 
     return (
-      <div className="w-full flex justify-center absolute top-8 center-5">
-        <table className="w-4/5">
-          <thead>
-            <tr>
-              <th className="px-4 py-2">Placement</th>
-              <th className="px-4 py-2">Day</th>
-              <th className="px-4 py-2">College</th>
-            </tr>
-          </thead>
-          <tbody>
-            {dayRows}
-          </tbody>
-        </table>
+      <div className="w-full absolute top-8 left-4">
+        {selectedMonth && selectedMonth.length > 0 ? (
+          <table className="w-4/5">
+            <thead>
+              <tr>
+                <th className="px-4 py-2">Placement</th>
+                <th className="px-4 py-2">Day</th>
+                <th className="px-4 py-2">College</th>
+              </tr>
+            </thead>
+            <tbody>{dayRows}</tbody>
+          </table>
+        ) : (
+          <p className="text-gray-500 text-center">No current events on this month</p>
+        )}
       </div>
     );
   };
@@ -87,7 +95,9 @@ function Calendar() {
         <div className="flex justify-between mb-4">
           <button
             onClick={goToPrevYear}
-            className={`w-12 h-12 rounded-full border bg-blue-500 hover:bg-indigo-600 text-white text-2xl`}
+            className={`w-12 h-12 rounded-full border bg-blue-500 hover:bg-indigo-600 text-white text-2xl ${
+              displayedYear <= minYear ? 'opacity-50 cursor-not-allowed' : ''
+            }`}
             disabled={displayedYear <= minYear}
           >
             &lt;
@@ -95,7 +105,9 @@ function Calendar() {
           <h2 className="text-xl font-bold text-white">{displayedYear}</h2>
           <button
             onClick={goToNextYear}
-            className={`w-12 h-12 rounded-full border bg-blue-500 hover:bg-green-600 text-white text-2xl`}
+            className={`w-12 h-12 rounded-full border bg-blue-500 hover:bg-green-600 text-white text-2xl ${
+              displayedYear >= maxYear ? 'opacity-50 cursor-not-allowed' : ''
+            }`}
             disabled={displayedYear >= maxYear}
           >
             &gt;
@@ -114,7 +126,6 @@ function Calendar() {
         </div>
       </div>
     );
-
   };
 
   return (
