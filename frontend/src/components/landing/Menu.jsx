@@ -10,6 +10,7 @@ import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import CallIcon from '@mui/icons-material/Call';
 import PersonIcon from '@mui/icons-material/Person';
 
+import { NavLink } from 'react-router-dom';
 
 const Container = styled.div`
     flex: 1;
@@ -81,19 +82,19 @@ const Menu = () => {
 
             <Item>
                 <HomeIcon/>
-                Home
+                <NavLink to="/">Home</NavLink>
             </Item>
 
             <Item>
                 <HelpIcon/>
-                Why TSEC
+                <NavLink to="/whytsec">Why TSEC?</NavLink>
             </Item>
 
             <Hr/>
 
             <Login>
                 Sign In to use the placement portal.
-                <Button><PersonIcon/>SIGN IN</Button>
+                <Button><PersonIcon/><NavLink to="/login">SIGN IN</NavLink></Button>
             </Login>
 
             <Hr/>

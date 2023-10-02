@@ -20,8 +20,8 @@ const UserUI = () => {
       <UserSideBar />
       <Main>
         <UserNavbar />
-        {/* <Dashboard /> */}
-        <UserProfile />
+        <Dashboard />
+        {/* <UserProfile /> */}
       </Main>
     </Container>
     

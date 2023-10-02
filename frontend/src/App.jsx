@@ -1,8 +1,11 @@
 import styled from "styled-components";
-import LandingPage from "./components/landing/LandingPage";
 
+import LandingPage from "./components/landing/LandingPage";
+import Wt from "./components/landing/Wt";
+import SiLo from "./components/landing/SiLo"
 import Placement from "./components/Placement/Placement";
-import Home from "./components/Home";
+// import Home from "./components/Home";
+import Home from "./components/landing/Home";
 import Dashboard from "./components/Dashboard/Dashboard.jsx";
 import { Link, Routes, Route } from "react-router-dom";
 
@@ -12,48 +15,28 @@ import AdminCalendar from "./components/Calendar/adminCalendar";
 import ResetPwd from "./components/ResetPassword/ResetPwd"
 import "./App.css";
 import "../index.css";
-function App() {
+
+const Container = styled.div`
+  display: flex;
+`;
+
+const Main = styled.div`
+  flex:7
+`;
+const Wrapper = styled.div``;
+
+
+
+const App = () => {
   return (
     <>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home </Link>
-          </li>
-          <li>
-            <Link to="/dashboard">Dashboard </Link>
-          </li>
-          <li>
-            <Link to="/landing">Landing </Link>
-          </li>
-          <li>
-            <Link to="/placement-cell"> Placement </Link>
-          </li>
-          <li>
-            <Link to="/user-page">User Home Page</Link>
-          </li> 
-          <li>
-            <Link to="/calendar">Calendar</Link>
-          </li> 
-          <li>
-            <Link to="/adminCalendar">Admin Calendar</Link>
-          </li>
-          <li>
-            <Link to="/reset">Reset Password</Link>
-          </li>
-        </ul>
-      </nav>
-
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/landing" element={<LandingPage />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/whytsec" element={<Wt />} />
+        <Route path="/login" element={<SiLo />} />
         <Route path="/placement-cell" element={<Placement />} />
-        <Route path="/user-page" element={<UserUI />} />  
-        <Route path="/calendar" element={<Calendar />} />  
-        <Route path="/adminCalendar" element={<AdminCalendar/>} />
-        <Route path="/reset" element={<ResetPwd />} />  
-             
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/user-page" element={<UserUI />} />
       </Routes>
     </>
   );

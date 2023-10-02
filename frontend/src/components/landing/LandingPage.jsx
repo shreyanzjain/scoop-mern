@@ -9,37 +9,8 @@ import RecruitmentProcess from "./RecruitmentProcess";
 import PlacementStats from "./PlacementStats";
 import ForgotPassword from "./ForgotPassword";
 
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
-// const Ghar = () => {
-//   return(
-//     <>
-//     <Container>
-//     <Menu/>
-//     <Main>
-//       <Navbar/>
-//       <Home/>
-      
-//     </Main>
-//   </Container>  
-//     </>
-//   )
-// }
-
-// const WhyTsec = () => {
-//   return(
-//     <>
-//     <Container>
-//     <Menu/>
-//     <Main>
-//       <Navbar/>
-//       <Why_tsec/>
-      
-//     </Main>
-//   </Container>  
-//     </>
-//   )
-// }
 
 const Container = styled.div`
   display: flex;
@@ -58,7 +29,6 @@ function LandingPage() {
     <Main>
       <Navbar/>
       <Home/>
-      
     </Main>
   </Container> 
   )

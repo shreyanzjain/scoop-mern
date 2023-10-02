@@ -4,6 +4,8 @@ import PersonIcon from '@mui/icons-material/Person';
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import AutoGraphIcon from '@mui/icons-material/AutoGraph';
 
+import { NavLink } from 'react-router-dom';
+
 const Container = styled.div`
   position: sticky;
   top: 0;
@@ -60,6 +62,14 @@ const Navbar = () => {
       <Wrapper>
 
         <Item>
+        <Button1><AutoGraphIcon/><NavLink to="/placement-cell">PL</NavLink></Button1>
+        </Item>
+
+        <Item>
+        <Button1><AutoGraphIcon/><NavLink to="/user-page">UP</NavLink></Button1>
+        </Item>
+
+        <Item>
         <Button1><AutoGraphIcon/>Employers</Button1>
         </Item>
 
@@ -68,7 +78,7 @@ const Navbar = () => {
         </Item>
 
         <Item>
-        <Button><PersonIcon/>SIGN - IN</Button>
+        <Button><PersonIcon/><NavLink to="/login">SIGN - IN</NavLink></Button>
         </Item>       
         
         
