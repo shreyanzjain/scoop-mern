@@ -102,7 +102,7 @@ app.post("/jobs/create", authorization, jsonParser, async (req, res) => {
     req.body.twelfth,
     req.body.kt_allowed,
     req.body.drop_allowed_ug,
-    req.body.branches
+    (req.body.branches != undefined ? req.body.branches : ['ALL'])
   )
     .then(() => {
       res.status(200).send("Added Data");

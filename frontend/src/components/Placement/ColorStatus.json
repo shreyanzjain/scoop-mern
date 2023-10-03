@@ -1,5 +1,7 @@
 {
-    "Completed": "#c5d8c5",
-    "Recieving Applications": "#f4f2f3",
-    "Interviewing": "#D3B88C"
+    "complete": "#c5d8c5",
+    "recieving_applications": "#f4f2f3",
+    "applications_closed": "#D3B88C",
+    "interviewing": "#D3B88C",
+    "completed": "#D3B88C"
 }
