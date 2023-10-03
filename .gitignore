@@ -12,3 +12,6 @@ python
 
 # Keep vscode out of vc
 .vscode
+
+# Keep migrations out of VC
+migrations
