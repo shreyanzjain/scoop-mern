@@ -12,7 +12,7 @@ import { Link, Routes, Route } from "react-router-dom";
 import UserUI from "./components/UserUI/UserUI";
 import Calendar from "./components/Calendar/Calendar"
 import AdminCalendar from "./components/Calendar/adminCalendar";
-import LearnMore from "./components/landing/LearnMore";
+import LearnMore from "./components/landing/LM";
 import ResetPwd from "./components/ResetPassword/ResetPwd"
 import "./App.css";
 import "../index.css";

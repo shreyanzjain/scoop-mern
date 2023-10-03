@@ -82,7 +82,7 @@ const Navbar = () => {
         </Item>
 
         <Item>
-        <Button1><LightbulbIcon/>Learn More</Button1>
+        <Button1><LightbulbIcon/><NavLink to="/learnMore">Learn More</NavLink></Button1>
         </Item>
 
         <Item>
