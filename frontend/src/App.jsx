@@ -12,10 +12,12 @@ import { Link, Routes, Route } from "react-router-dom";
 import UserUI from "./components/UserUI/UserUI";
 import Calendar from "./components/Calendar/Calendar"
 import AdminCalendar from "./components/Calendar/adminCalendar";
+import UploadJob from "./components/Placement/JobUp";
 import LearnMore from "./components/landing/LM";
 import ResetPwd from "./components/ResetPassword/ResetPwd"
 import "./App.css";
 import "../index.css";
+import JobUp from "./components/Placement/JobUp";
 
 const Container = styled.div`
   display: flex;
@@ -41,6 +43,7 @@ const App = () => {
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/adminCalendar" element={<AdminCalendar />} />
         <Route path="/learnMore" element={<LearnMore />} />
+        <Route path="/uploadJob" element={<JobUp />} />
 
       </Routes>
     </>
