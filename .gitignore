@@ -6,3 +6,9 @@ node_modules
 
 # Keep csr SSL file, or in general files ending with .pem out of version control
 csr.pem
+
+# Keep python folder out of vc
+python
+
+# Keep vscode out of vc
+.vscode
