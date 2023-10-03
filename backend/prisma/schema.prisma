@@ -62,6 +62,6 @@ model Job {
 model JobBranch {
   id Int @id @default(autoincrement())
   branch JobBranchesEnum
-  job Job @relation(fields: [job_id], references: [id])
+  job Job @relation(fields: [job_id], references: [id], onDelete: Cascade)
   job_id Int
 }
