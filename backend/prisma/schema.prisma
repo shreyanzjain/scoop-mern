@@ -16,6 +16,22 @@ enum Role {
   ENVOY
 }
 
+enum JobBranchesEnum {
+  CS
+  IT
+  EXTC
+  CHEM
+  AIDS
+}
+
+enum JobStatus {
+  about_to_open
+  recieving_applications
+  applications_closed
+  interviewing
+  completed
+}
+
 model User {
   id Int @id @default(autoincrement())
   email String @unique @db.VarChar(255)
@@ -25,4 +41,27 @@ model User {
   last_modified_date DateTime @default(now()) @db.Timestamp(6)
 
   @@map("users")
+}
+
+model Job {
+  id Int @id @default(autoincrement())
+  company String @db.VarChar(255)
+  job_role String @db.VarChar(255)
+  job_description String @db.Text
+  salary Float @db.DoublePrecision
+  status JobStatus @default(about_to_open)
+  location String @db.Text
+  cgpa_cutoff Float @db.Real @default(0)
+  tenth Float @db.Real @default(0)
+  twelfth Float @db.Real @default(0)
+  kt_allowed Boolean @default(false)
+  drop_allowed_ug Boolean @default(false)
+  branches JobBranch[]
+}
+
+model JobBranch {
+  id Int @id @default(autoincrement())
+  branch JobBranchesEnum
+  job Job @relation(fields: [job_id], references: [id])
+  job_id Int
 }
