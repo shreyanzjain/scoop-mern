@@ -62,11 +62,19 @@ const Navbar = () => {
       <Wrapper>
 
         <Item>
-        <Button1><AutoGraphIcon/><NavLink to="/placement-cell">PL</NavLink></Button1>
+        <Button1><NavLink to="/placement-cell">PL</NavLink></Button1>
         </Item>
 
         <Item>
-        <Button1><AutoGraphIcon/><NavLink to="/user-page">UP</NavLink></Button1>
+        <Button1><NavLink to="/user-page">UP</NavLink></Button1>
+        </Item>
+
+        <Item>
+        <Button1><NavLink to="/calendar">Cal</NavLink></Button1>
+        </Item>
+
+        <Item>
+        <Button1><NavLink to="/adminCalendar">AdCal</NavLink></Button1>
         </Item>
 
         <Item>
@@ -74,7 +82,7 @@ const Navbar = () => {
         </Item>
 
         <Item>
-        <Button1><LightbulbIcon/>Learn More</Button1>
+        <Button1><LightbulbIcon/><NavLink to="/learnMore">Learn More</NavLink></Button1>
         </Item>
 
         <Item>

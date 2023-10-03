@@ -12,6 +12,7 @@ import { Link, Routes, Route } from "react-router-dom";
 import UserUI from "./components/UserUI/UserUI";
 import Calendar from "./components/Calendar/Calendar"
 import AdminCalendar from "./components/Calendar/adminCalendar";
+import LearnMore from "./components/landing/LM";
 import ResetPwd from "./components/ResetPassword/ResetPwd"
 import "./App.css";
 import "../index.css";
@@ -37,6 +38,10 @@ const App = () => {
         <Route path="/placement-cell" element={<Placement />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/user-page" element={<UserUI />} />
+        <Route path="/calendar" element={<Calendar />} />
+        <Route path="/adminCalendar" element={<AdminCalendar />} />
+        <Route path="/learnMore" element={<LearnMore />} />
+
       </Routes>
     </>
   );

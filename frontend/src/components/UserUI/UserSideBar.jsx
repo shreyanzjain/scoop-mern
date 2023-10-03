@@ -6,12 +6,19 @@ import styled from 'styled-components';
 const StyledSidebar = styled.aside`
 background-color: #F5F5F5;
 height: 100%;
-  
+  position: sticky;
+  top: 0;
+`;
+
+const Container = styled.div`
+  height: 100vh; /* 100% of the viewport height */
+  overflow: hidden; /* Hide any overflow content */
 `;
 
 const SideBar = () => {
   return (
     <div>
+    <Container>
       <StyledSidebar className="flex flex-col w-64 h-screen px-4 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
         {/* Rest of your sidebar content */}
         <a href="#" class="mx-auto">
@@ -82,6 +89,7 @@ const SideBar = () => {
     </div>
         
       </StyledSidebar>
+      </Container>
     </div>
   );
 }
