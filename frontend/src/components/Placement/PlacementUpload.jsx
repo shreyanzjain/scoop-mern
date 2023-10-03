@@ -1,7 +1,39 @@
 import React from "react";
+import { useState } from "react";
 import CloudIcon from "@mui/icons-material/Cloud";
+import axios from "axios";
 
 function PlacementUpload() {
+  const [role, setRole] = useState();
+  const [company, setCompany] = useState();
+  const [cgpa_cutoff, setCgpaCutoff] = useState();
+  const [tenth, setTenth] = useState();
+  const [location, setLocation] = useState();
+  const [salary, setSalary] = useState();
+  const [description, setDescription] = useState();
+
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+    await axios.post('https://127.0.0.1:3000/jobs/create/', {
+      company: company,
+      job_role: role,
+      cgpa_cutoff: parseFloat(cgpa_cutoff),
+      tenth: parseFloat(tenth),
+      location: location,
+      salary: parseFloat(salary),
+      job_description: description
+    },
+    {
+      withCredentials: true
+    })
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }
+
   return (
     // placeholder bg color for visibility of the container
     <div className="container w-5/6 bg-whitesmoke bg-opacity-30 m-2">
@@ -20,15 +52,17 @@ function PlacementUpload() {
               <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                 <label
                   className="block uppercase tracking-wide text-licorice text-xs font-bold mb-2"
-                  for="grid-title"
+                  for="grid-role"
                 >
-                  Title
+                  Role
                 </label>
                 <input
+                value={role}
                   className="appearance-none block w-full bg-white text-licorice rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-2 focus:border-licorice"
-                  id="grid-title"
+                  id="grid-role"
                   type="text"
                   placeholder="SDE 1"
+                  onChange={e=>setRole(e.target.value)}
                 />
               </div>
               <div className="w-full md:w-1/2 px-3">
@@ -39,10 +73,12 @@ function PlacementUpload() {
                   Company
                 </label>
                 <input
+                value={company}
                   className="appearance-none block w-full bg-white text-licorice rounded py-3 px-4 leading-tight focus:outline-none focus:border-2 focus:border-licorice"
                   id="grid-company-name"
                   type="text"
                   placeholder="Apple"
+                  onChange={e=>setCompany(e.target.value)}
                 />
               </div>
               <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -53,10 +89,12 @@ function PlacementUpload() {
                   Cgpa Cutoff
                 </label>
                 <input
+                value={cgpa_cutoff}
                   className="appearance-none block w-full bg-white text-licorice rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-2 focus:border-licorice"
                   id="grid-cgpa-cutoff"
-                  type="text"
+                  type="number"
                   placeholder="7.00"
+                  onChange={e=>setCgpaCutoff(e.target.value)}
                 />
               </div>
               <div className="w-full md:w-1/2 px-3">
@@ -67,24 +105,28 @@ function PlacementUpload() {
                   Tenth Cutoff
                 </label>
                 <input
+                value={tenth}
                   className="appearance-none block w-full bg-white text-licorice rounded py-3 px-4 leading-tight focus:outline-none focus:border-2 focus:border-licorice"
                   id="grid-tenth-percentage-cutoff"
-                  type="text"
+                  type="number"
                   placeholder="75%"
+                  onChange={e=>setTenth(e.target.value)}
                 />
               </div>
               <div className="w-full md:w-1/2 px-3">
                 <label
                   className="block uppercase tracking-wide text-licorice text-xs font-bold mb-2"
-                  for="grid-twelfth-percentage-cuttof"
+                  for="grid-location"
                 >
-                  Twelfth Cutoff
+                  Location
                 </label>
                 <input
+                value={location}
                   className="appearance-none block w-full bg-white text-licorice rounded py-3 px-4 leading-tight focus:outline-none focus:border-2 focus:border-licorice"
-                  id="grid-twelfth-percentage-cutoff"
+                  id="grid-location"
                   type="text"
-                  placeholder="75%"
+                  placeholder="Mumbai, California, Karnataka, etc."
+                  onChange={e=>setLocation(e.target.value)}
                 />
               </div>
               <div className="w-full md:w-1/2 px-3">
@@ -92,13 +134,15 @@ function PlacementUpload() {
                   className="block uppercase tracking-wide text-licorice text-xs font-bold mb-2"
                   for="grid-branch-cutoff"
                 >
-                  Branches
+                  Salary
                 </label>
                 <input
+                value={salary}
                   className="appearance-none block w-full bg-white text-licorice rounded py-3 px-4 leading-tight focus:outline-none focus:border-2 focus:border-licorice"
                   id="grid-branch-cutoff"
-                  type="text"
-                  placeholder="IT, CS"
+                  type="number"
+                  placeholder="999999"
+                  onChange={e=>setSalary(e.target.value)}
                 />
               </div>
             </div>
@@ -111,13 +155,15 @@ function PlacementUpload() {
                   Description
                 </label>
                 <textarea
+                value={description}
                   className="appearance-none resize-y block w-full bg-white text-licorice rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-2 focus:border-licorice"
                   id="grid-description"
                   type="textarea"
+                  onChange={e=>setDescription(e.target.value)}
                 />
                 <div className="flex items-center justify-end">
                   
-                  <button type="submit" className="bg-tan bg-opacity-50 text-licorice rounded px-6 py-1 hover:bg-tan hover:border-licorice">Upload</button>
+                  <button type="submit" className="bg-tan bg-opacity-50 text-licorice rounded px-6 py-1 hover:bg-tan hover:border-licorice" onClick={handleSubmit}>Upload</button>
                 </div>
               </div>
             </div>

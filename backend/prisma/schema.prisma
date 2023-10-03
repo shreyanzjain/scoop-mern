@@ -22,6 +22,7 @@ enum JobBranchesEnum {
   EXTC
   CHEM
   AIDS
+  ALL
 }
 
 enum JobStatus {
@@ -61,7 +62,7 @@ model Job {
 
 model JobBranch {
   id Int @id @default(autoincrement())
-  branch JobBranchesEnum
+  branch JobBranchesEnum @default(ALL)
   job Job @relation(fields: [job_id], references: [id], onDelete: Cascade)
   job_id Int
 }
