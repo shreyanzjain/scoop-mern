@@ -134,6 +134,7 @@ function Calendar() {
       <div className="w-2/3 mx-auto">{renderCalendar()}</div>
     </div>
   );
+  
 }
 
 export default Calendar;

@@ -9,7 +9,9 @@ function AdminCalendar() {
   const [eventDuration, setEventDuration] = useState('');
   const [category, setCategory] = useState('College');
   const [events, setEvents] = useState([]);
-
+  const [editingIndex, setEditingIndex] = useState(null); // To track which event is being edited
+  const [editEventTitle, setEditEventTitle] = useState('');
+  const [editEventDuration, setEditEventDuration] = useState('');
   const handleDateChange = (newDate) => {
     setDate(newDate);
   };
@@ -29,6 +31,7 @@ function AdminCalendar() {
   const handleCategoryChange = (e) => {
     setCategory(e.target.value);
   };
+  
 
   const scheduleEvent = () => {
     if (!selectedDate) {
@@ -66,6 +69,44 @@ function AdminCalendar() {
       setEventDuration('');
       setCategory('College');
     }
+  };
+  // Function to toggle the modal
+  const toggleModal = (index) => {
+    setEditingIndex(index);
+  };
+  
+  const handleDeleteEvent = (index) => {
+    const updatedEvents = [...events];
+    updatedEvents.splice(index, 1);
+    setEvents(updatedEvents);
+  };
+
+  const handleEditEvent = (index) => {
+    setEditingIndex(index);
+    const event = events[index];
+    setEditEventTitle(event.title);
+    setEditEventDuration(event.duration.toString());
+  };
+
+  const handleUpdateEvent = () => {
+    if (editingIndex !== null) {
+      const updatedEvents = [...events];
+      const event = updatedEvents[editingIndex];
+      event.title = editEventTitle;
+      event.duration = parseInt(editEventDuration, 10);
+      setEvents(updatedEvents);
+      setEditingIndex(null);
+      // Clear the edit form inputs
+      setEditEventTitle('');
+      setEditEventDuration('');
+    }
+  };
+
+  const handleCancelEdit = () => {
+    setEditingIndex(null);
+    // Clear the edit form inputs
+    setEditEventTitle('');
+    setEditEventDuration('');
   };
 
   return (
@@ -113,6 +154,42 @@ function AdminCalendar() {
           </button>
         </div>
         
+        {/* Modal for Editing Event */}
+        {editingIndex !== null && (
+          <div className="modal-overlay">
+            <div className="modal-content">
+              <h2>Edit Event</h2>
+              <input
+                type="text"
+                placeholder="Edit event title"
+                className="border p-2 w-64 mx-auto rounded-md"
+                value={editEventTitle}
+                onChange={(e) => setEditEventTitle(e.target.value)}
+              />
+              <input
+                type="number"
+                placeholder="Edit event duration (in days)"
+                className="border p-2 w-64 mx-auto rounded-md mt-2"
+                value={editEventDuration}
+                onChange={(e) => setEditEventDuration(e.target.value)}
+              />
+              <button
+                onClick={handleUpdateEvent}
+                className="mt-2 bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-md"
+              >
+                Update
+              </button>
+              <button
+                onClick={handleCancelEdit}
+                className="mt-2 bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-md ml-2"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        )}
+        
+        {/* Event Editing Section */}
         <div className="mt-6">
           <h2 className="text-2xl font-semibold">Scheduled Events</h2>
           <ul className="list-disc mt-2">
@@ -121,6 +198,18 @@ function AdminCalendar() {
                 {`Date: ${event.startDate.toDateString()}, Event Title: "Start of ${event.title}", Category: ${event.category}`}
                 <p></p>
                 {`Date: ${event.endDate.toDateString()}, Event Title: "End of ${event.title}", Category: ${event.category}`}
+                <button
+                  onClick={() => handleEditEvent(index)}
+                  className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-4 rounded-md ml-2"
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => handleDeleteEvent(index)}
+                  className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-md ml-2"
+                >
+                  Delete
+                </button>
               </li>
             ))}
           </ul>
@@ -128,6 +217,7 @@ function AdminCalendar() {
       </div>
     </div>
   );
+  
 }
 
 export default AdminCalendar;
