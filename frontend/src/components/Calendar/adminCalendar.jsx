@@ -224,6 +224,7 @@ function AdminCalendar() {
     <thead>
       <tr className="bg-blue-100">
         <th className="border p-2">No.</th>
+        <th className="border p-2">Date</th>
         <th className="border p-2">Description</th>
         <th className="border p-2">Category</th>
         <th className="border p-2">Edit</th>
@@ -233,15 +234,20 @@ function AdminCalendar() {
     <tbody>
       {events.map((event, index) => (
         <tr key={index}>
-          <td className="border p-2">{index + 1}</td>
-          <td className="border p-2 text-center">
-            Date: {event.startDate.toDateString()}, Start of {event.title}<br />
-            Date: {event.endDate.toDateString()}, End of {event.title}
+          <td className="border p-2 px-4 py-2 ">{index + 1}</td>
+          <td className='border p2 px-4 py-2  text-center'>
+            {event.startDate.toDateString()}<br/>
+            {event.endDate.toDateString()}<br/>
+            
           </td>
-          <td className="border p-2 text-center">
+          <td className="border p2 px-4 py-2 text-center">
+           Start of {event.title}<br />
+            End of {event.title}
+          </td>
+          <td className="border p2 px-4 py-2  text-center">
             {event.category}
           </td>
-          <td className="border p-2">
+          <td className="border p2 px-4 py-2 ">
             <button
               onClick={() => handleEditEvent(index)}
               className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-1 px-2 rounded-md"
@@ -249,7 +255,7 @@ function AdminCalendar() {
               Edit
             </button>
           </td>
-          <td className="border p-2">
+          <td className="border p2 px-4 py-2 ">
             <button
               onClick={() => handleDeleteEvent(index)}
               className="bg-red-500 hover-bg-red-600 text-white font-semibold py-1 px-2 rounded-md"
