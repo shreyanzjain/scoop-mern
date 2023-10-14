@@ -13,8 +13,17 @@ function AdminCalendar() {
   const [editEventTitle, setEditEventTitle] = useState('');
   const [editEventDuration, setEditEventDuration] = useState('');
   const [activeButton, setActiveButton] = useState('Add'); // Add is the default active button
-
+  const [editCategory, setEditCategory] = useState('College');
+  const [editStartDate, setEditStartDate] = useState(null);
   
+  const handleCategoryChangeEdit = (e) => {
+    setEditCategory(e.target.value);
+  };
+  
+  const handleStartDateChangeEdit = (newDate) => {
+    setEditStartDate(newDate);
+  };
+
   const handleDateChange = (newDate) => {
     setDate(newDate);
   };
@@ -38,7 +47,12 @@ function AdminCalendar() {
   const toggleButton = (button) => {
     setActiveButton(button);
   };
-  
+  const generateRandomEventID = () => {
+    // Generate a random number between 1 and 10000 (you can adjust the range as needed)
+    const min = 1;
+    const max = 10000;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
   const scheduleEvent = () => {
     if (!selectedDate) {
       // Check if a date is selected, and if not, show an alert
@@ -59,8 +73,9 @@ function AdminCalendar() {
       const startDate = new Date(selectedDate);
       const endDate = new Date(selectedDate);
       endDate.setDate(endDate.getDate() + parseInt(eventDuration, 10));
-
+      const event_id = generateRandomEventID();
       const newEvent = {
+        event_id,
         startDate,
         endDate,
         title: eventTitle,
@@ -88,10 +103,17 @@ function AdminCalendar() {
 
   const handleEditEvent = (index) => {
     setEditingIndex(index);
-    const event = events[index];
-    //console.log(`Editing event with event_id: ${event.generateEventID}`);
-    setEditEventTitle(event.title);
-    setEditEventDuration(event.duration.toString());
+  const event = events[index];
+  console.log(`Editing event with event_id: ${event.event_id}`);
+  setEditEventTitle(event.title);
+  setEditEventDuration(event.duration.toString());
+
+  // Set the editStartDate to the current start date of the event
+  setEditStartDate(event.startDate.toISOString().split('T')[0]);
+  // Calculate and set the editEndDate based on the current start date and duration
+  const newEndDate = new Date(event.startDate);
+  newEndDate.setDate(newEndDate.getDate() + event.duration);
+  setEditEndDate(newEndDate.toISOString().split('T')[0]);
   };
 
   const handleUpdateEvent = () => {
@@ -103,11 +125,19 @@ function AdminCalendar() {
     // Recalculate the end date based on the new duration
     event.endDate = new Date(event.startDate);
     event.endDate.setDate(event.endDate.getDate() + event.duration);
+    event.category = editCategory; 
+    if (event.startDate.toString() !== editStartDate || event.duration.toString() !== editEventDuration) {
+      event.startDate = new Date(editStartDate); // Set the start date
+      event.endDate = new Date(event.startDate);
+      event.endDate.setDate(event.endDate.getDate() + event.duration);
+    }
     setEvents(updatedEvents);
     setEditingIndex(null);
     // Clear the edit form inputs
     setEditEventTitle('');
     setEditEventDuration('');
+    setEditStartDate(null); // Reset the edited start date
+    setEditEndDate(null); 
     }
   };
 
@@ -169,6 +199,7 @@ function AdminCalendar() {
                 value={eventDuration}
                 onChange={handleEventDurationChange}
               />
+              
               <select
                 className="border p-2 w-64 mx-auto rounded-md mt-2"
                 value={category}
@@ -205,6 +236,21 @@ function AdminCalendar() {
         value={editEventDuration}
         onChange={(e) => setEditEventDuration(e.target.value)}
       />
+      <input
+          type="date"
+          placeholder="Edit start date"
+          className="border p-2 w-64 mx-auto rounded-md mt-2"
+          value={editStartDate}
+          onChange={(e) => handleStartDateChangeEdit(e.target.value)}
+        />
+      <select
+          className="border p-2 w-64 mx-auto rounded-md mt-2"
+          value={editCategory}
+          onChange={handleCategoryChangeEdit}
+        >
+          <option value="College">College</option>
+          <option value="Placement">Placement</option>
+        </select>
       <button
         onClick={handleUpdateEvent}
         className="mt-2 bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-md"
