@@ -13,7 +13,6 @@ function AdminCalendar() {
   const [editEventTitle, setEditEventTitle] = useState('');
   const [editEventDuration, setEditEventDuration] = useState('');
   const [activeButton, setActiveButton] = useState('Add'); // Add is the default active button
-  const initialState = { hiddenColumns: ['event_id'] };
 
   
   const handleDateChange = (newDate) => {
@@ -56,7 +55,6 @@ function AdminCalendar() {
       alert('Please write the duration of the event before scheduling an event.');
       return;
     }
-    
     if (eventTitle && eventDuration) {
       const startDate = new Date(selectedDate);
       const endDate = new Date(selectedDate);

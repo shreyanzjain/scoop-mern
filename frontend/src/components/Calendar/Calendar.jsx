@@ -91,7 +91,7 @@ function Calendar() {
 
   const renderCalendar = () => {
     return (
-      <div className="p-4 border rounded-lg text-center bg-gradient-to-b from-purple-300 via-purple-300 to-purple-300 absolute top-8 right-4">
+      <div className="p-4 border rounded-lg text-center bg-gradient-to-b from-purple-300 via-purple-300 to-purple-300 fixed top-8 right-4">
         <div className="flex justify-between mb-4">
           <button
             onClick={goToPrevYear}
