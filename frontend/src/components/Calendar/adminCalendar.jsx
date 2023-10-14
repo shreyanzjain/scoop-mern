@@ -13,7 +13,9 @@ function AdminCalendar() {
   const [editEventTitle, setEditEventTitle] = useState('');
   const [editEventDuration, setEditEventDuration] = useState('');
   const [activeButton, setActiveButton] = useState('Add'); // Add is the default active button
+  const initialState = { hiddenColumns: ['event_id'] };
 
+  
   const handleDateChange = (newDate) => {
     setDate(newDate);
   };
@@ -37,7 +39,7 @@ function AdminCalendar() {
   const toggleButton = (button) => {
     setActiveButton(button);
   };
-
+  
   const scheduleEvent = () => {
     if (!selectedDate) {
       // Check if a date is selected, and if not, show an alert
@@ -54,7 +56,7 @@ function AdminCalendar() {
       alert('Please write the duration of the event before scheduling an event.');
       return;
     }
-
+    
     if (eventTitle && eventDuration) {
       const startDate = new Date(selectedDate);
       const endDate = new Date(selectedDate);
@@ -89,6 +91,7 @@ function AdminCalendar() {
   const handleEditEvent = (index) => {
     setEditingIndex(index);
     const event = events[index];
+    //console.log(`Editing event with event_id: ${event.generateEventID}`);
     setEditEventTitle(event.title);
     setEditEventDuration(event.duration.toString());
   };
@@ -186,44 +189,48 @@ function AdminCalendar() {
           </div>
         )}
         {/* Modal for Editing Event */}
-        {editingIndex !== null && (
-          <div className="modal-overlay">
-            <div className="modal-content">
-              <h2>Edit Event</h2>
-              <input
-                type="text"
-                placeholder="Edit event title"
-                className="border p-2 w-64 mx-auto rounded-md"
-                value={editEventTitle}
-                onChange={(e) => setEditEventTitle(e.target.value)}
-              />
-              <input
-                type="number"
-                placeholder="Edit event duration (in days)"
-                className="border p-2 w-64 mx-auto rounded-md mt-2"
-                value={editEventDuration}
-                onChange={(e) => setEditEventDuration(e.target.value)}
-              />
-              <button
-                onClick={handleUpdateEvent}
-                className="mt-2 bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-md"
-              >
-                Update
-              </button>
-              <button
-                onClick={handleCancelEdit}
-                className="mt-2 bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-md ml-2"
-              >
-                Cancel
-              </button>
-            </div>
-          </div>
-        )}
+{activeButton === 'Modify' && editingIndex !== null && (
+  <div className="modal-overlay">
+    <div className="modal-content">
+      {/* <h2>Edit Event</h2> */}
+      <input
+        type="text"
+        placeholder="Edit event title"
+        className="border p-2 w-64 mx-auto rounded-md"
+        value={editEventTitle}
+        onChange={(e) => setEditEventTitle(e.target.value)}
+      />
+      <input
+        type="number"
+        placeholder="Edit event duration (in days)"
+        className="border p-2 w-64 mx-auto rounded-md mt-2"
+        value={editEventDuration}
+        onChange={(e) => setEditEventDuration(e.target.value)}
+      />
+      <button
+        onClick={handleUpdateEvent}
+        className="mt-2 bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-md"
+      >
+        Update
+      </button>
+      <button
+        onClick={handleCancelEdit}
+        className="mt-2 bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-md ml-2"
+      >
+        Cancel
+      </button>
+    </div>
+  </div>
+)}
+
         {activeButton === 'Modify' && (
   <table className="w-full mt-4 border">
     <thead>
       <tr className="bg-blue-100">
         <th className="border p-2">No.</th>
+        {/* {!initialState.hiddenColumns.includes('event_id') && (
+          <th className="border p-2">Event ID</th>
+        )} */}
         <th className="border p-2">Date</th>
         <th className="border p-2">Description</th>
         <th className="border p-2">Category</th>
@@ -235,13 +242,17 @@ function AdminCalendar() {
       {events.map((event, index) => (
         <tr key={index}>
           <td className="border p-2 px-4 py-2 ">{index + 1}</td>
+          {/* {!initialState.hiddenColumns.includes('event_id') && (
+            <td className='border p2 px-4 py-2  text-center'>
+              {generateEventID()}
+            </td>
+          )} */}
           <td className='border p2 px-4 py-2  text-center'>
             {event.startDate.toDateString()}<br/>
             {event.endDate.toDateString()}<br/>
-            
           </td>
-          <td className="border p2 px-4 py-2 text-center">
-           Start of {event.title}<br />
+          <td className='border p2 px-4 py-2  text-center'>
+            Start of {event.title}<br />
             End of {event.title}
           </td>
           <td className="border p2 px-4 py-2  text-center">
