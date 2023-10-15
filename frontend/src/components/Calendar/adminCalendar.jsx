@@ -109,7 +109,8 @@ function AdminCalendar() {
   setEditEventDuration(event.duration.toString());
 
   // Set the editStartDate to the current start date of the event
-  setEditStartDate(event.startDate.toISOString().split('T')[0]);
+  setEditStartDate(new Date(event.startDate));
+
   // Calculate and set the editEndDate based on the current start date and duration
   const newEndDate = new Date(event.startDate);
   newEndDate.setDate(newEndDate.getDate() + event.duration);
