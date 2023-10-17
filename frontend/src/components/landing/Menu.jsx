@@ -82,7 +82,7 @@ const Menu = () => {
 
             <Item>
                 <HomeIcon/>
-                <NavLink to="/">Home</NavLink>
+                <NavLink to="/home">Home</NavLink>
             </Item>
 
             <Item>

@@ -9,7 +9,7 @@ import RecruitmentProcess from "./RecruitmentProcess";
 import PlacementStats from "./PlacementStats";
 import ForgotPassword from "./ForgotPassword";
 
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Outlet } from "react-router-dom";
 
 
 const Container = styled.div`
@@ -19,7 +19,7 @@ const Container = styled.div`
 const Main = styled.div`
   flex:7
 `;
-const Wrapper = styled.div``;
+
 
 function LandingPage() {
 
@@ -28,7 +28,7 @@ function LandingPage() {
     <Menu/>
     <Main>
       <Navbar/>
-      <Home/>
+      <Outlet />
     </Main>
   </Container> 
   )
