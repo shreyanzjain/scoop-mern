@@ -177,69 +177,121 @@
 // };
 // export default CalendarComponent
 
-import React, { useState } from 'react';
+// Calendar.jsx
+import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import jsonData from './calendardata.json';
 
-const MonthCalendar = () => {
-  const today = new Date();
-  const [year, setYear] = useState(today.getFullYear());
-  const currentMonth = today.getMonth();
-  const [selectedMonth, setSelectedMonth] = useState(null);
+const CalendarComponent = () => {
+  const [date, setDate] = useState(new Date());
+  const [highlightedDates, setHighlightedDates] = useState([]);
+  const [selectedEvent, setSelectedEvent] = useState(null);
 
-  const months = [
-    'January', 'February', 'March', 'April',
-    'May', 'June', 'July', 'August',
-    'September', 'October', 'November', 'December',
-  ];
+  useEffect(() => {
+    // Process your JSON data to extract the date information and set it in the state
+    const dates = jsonData.map(({ year, month, day }) => new Date(year, month - 1, day));
+    setHighlightedDates(dates);
+  }, []);
 
-  const handlePrevYear = () => {
-    setYear(year - 1);
+  const centerStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    minHeight: '70vh', // Adjust the height as needed
   };
 
-  const handleNextYear = () => {
-    setYear(year + 1);
+  const calendarStyle = {
+    width: '600px', // Adjust the width to make the calendar larger
+    height: '600px', // Adjust the height to make the calendar larger
   };
 
-  const handleMonthClick = (monthIndex) => {
-    setSelectedMonth(monthIndex);
+  const modalStyle = {
+    position: 'fixed',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '600px',
+    height: '450px',
+    border: '1px solid #000',
+    backgroundColor: '#fff',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  };
+
+  const closeButtonStyle = {
+    position: 'absolute',
+    top: '10px', // Adjust the top position for the button
+    right: '10px', // Adjust the right position for the button
+    cursor: 'pointer',
+    fontSize: '24px',
+  };
+
+  const modalContentStyle = {
+    padding: '20px',
+    fontSize: '24px',
+    textAlign: 'center',
+  };
+
+  const tileClassName = ({ date }) => {
+    if (highlightedDates.find((d) => d.toDateString() === date.toDateString())) {
+      return 'highlighted-date';
+    }
+    return '';
+  };
+
+  const handleDateClick = (value) => {
+    const clickedDate = value.toDateString();
+    const event = jsonData.find((item) => new Date(item.year, item.month - 1, item.day).toDateString() === clickedDate);
+    setSelectedEvent(event);
+  };
+
+  const closeModal = () => {
+    setSelectedEvent(null);
   };
 
   return (
-    <div className="full-height-container"> {/* Add a container for full height */}
-      <div className="flex p-4">
-        <div className="flex-grow"></div>
-        <div className="calendar-container border-black border-2">
-          <div className="calendar-year flex items-center justify-center">
-            <button onClick={handlePrevYear} className="mr-2">&lt;</button>
-            {year}
-            <button onClick={handleNextYear} className="ml-2">&gt;</button>
+    <div style={centerStyle}>
+      <style>
+        {`
+          .highlighted-date {
+            background-color: #FFA500;
+            color: #fff;
+            border-radius: 50%;
+            padding: 6px;
+            font-weight: bold;
+          }
+
+          .modal-content {
+            padding: 20px;
+            font-size: 24px;
+            text-align: center;
+          }
+        `}
+      </style>
+      <Calendar
+        onChange={setDate}
+        value={date}
+        tileClassName={tileClassName}
+        style={calendarStyle}
+        onClickDay={handleDateClick}
+      />
+      {selectedEvent && (
+        <div className="modal" style={modalStyle}>
+          <span className="close" style={closeButtonStyle} onClick={closeModal}>
+            &times;
+          </span>
+          <div className="modal-content" style={modalContentStyle}>
+            <h2>Event Information</h2>
+            <p>Date: {selectedEvent.day}/{selectedEvent.month}/{selectedEvent.year}</p>
+            <p>Activity: {selectedEvent.activity}</p>
           </div>
-          <div className="grid grid-cols-3 grid-rows-4 gap-4 p-4">
-            {months.map((month, index) => (
-              <div
-                key={index}
-                className={`text-lg bg-white rounded-lg border border-gray-300 p-2
-                ${index === currentMonth ? 'bg-blue-200' : ''}
-                hover:bg-yellow-200 hover:bg-opacity-75 cursor-pointer`}
-                onClick={() => handleMonthClick(index)}
-              >
-                {month}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-      {selectedMonth !== null && (
-        <div className="calendar-calendar p-4" style={{ position: 'absolute', bottom: 4 ,right:2}}>
-          <Calendar
-            value={new Date(year, selectedMonth)}
-            onChange={(value) => setSelectedMonth(value.getMonth())}
-          />
         </div>
       )}
     </div>
   );
 };
 
-export default MonthCalendar;
+export default CalendarComponent;
