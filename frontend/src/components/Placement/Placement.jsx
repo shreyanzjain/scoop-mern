@@ -4,6 +4,8 @@ import PlacementDashboard from "./PlacementDashboard";
 import PlacementJobs from "./PlacementJobs";
 import PlacementUpload from "./PlacementUpload";
 import PlacementStudents from "./PlacementStudents";
+import {Routes, Route, Outlet} from "react-router-dom";
+import Wt from "../landing/Wt";
 
 export default function () {
   return (
@@ -11,8 +13,9 @@ export default function () {
       <PlacementNavbar />
       <span className="flex mx-0">
         <SideBar />
+        <Outlet/>
         {/* <PlacementDashboard/> */}
-        <PlacementJobs/> 
+        {/* <PlacementJobs/>  */}
         {/* <PlacementUpload/> */}
         {/* <PlacementStudents/> */}
       </span>
