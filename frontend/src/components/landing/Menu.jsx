@@ -106,7 +106,7 @@ const Menu = () => {
 
             <Item >
                 <BarChartIcon/>
-                Placement Statistics
+                <NavLink to="/PlacementStats">Placement Statistics</NavLink>
             </Item>
 
             <Hr/>
@@ -125,7 +125,7 @@ const Menu = () => {
 
             <Item>
             <CallIcon/>
-                Contact Us
+            <NavLink to="/ContactUs">Contact Us</NavLink>
             </Item>
 
         </Wrapper>
