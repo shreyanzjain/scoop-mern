@@ -178,10 +178,12 @@
 // export default CalendarComponent
 
 // Calendar.jsx
+
 import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import jsonData from './calendardata.json';
+import './CustomCalendar.css';
 
 const CalendarComponent = () => {
   const [date, setDate] = useState(new Date());
@@ -202,8 +204,8 @@ const CalendarComponent = () => {
   };
 
   const calendarStyle = {
-    width: '600px', // Adjust the width to make the calendar larger
-    height: '600px', // Adjust the height to make the calendar larger
+    width: '800px', // Adjust the width to make the calendar larger
+    height: '800px', // Adjust the height to make the calendar larger
   };
 
   const modalStyle = {
