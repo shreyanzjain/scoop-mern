@@ -1,51 +1,160 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const PlacementStats = () => {
-    const batch_2023 = 'https://tsec.edu/wp-content/uploads/2023/08/Placement-of-the-Current-Final-Year-Students-Passing-in-July-2024-14th-August-2023.pdf'; 
-    const batch_2022 = 'https://tsecadmission.org/pages/Placement%20of%20the%202022%20Batch.pdf'; 
-    const batch_2021 = 'https://tsec.edu/wp-content/uploads/2020/10/Placement-of-Current-Final-Year-Students-passing-in-July-2021-Report-till-14th-October-2020.pdf'; 
-    const batch_2020 = 'https://tsec.edu/wp-content/uploads/2023/08/Placement-of-the-Current-Final-Year-Students-Passing-in-July-2024-14th-August-2023.pdf'; 
-    const batch_2019 = 'https://tsec.edu/wp-content/uploads/2023/08/Placement-of-the-Current-Final-Year-Students-Passing-in-July-2024-14th-August-2023.pdf'; 
+  const [selectedTab, setSelectedTab] = useState('IT');
+  const [lowSalary, setLowSalary] = useState(0);
+  const [avgSalary, setAvgSalary] = useState(0);
+  const [highSalary, setHighSalary] = useState(0);
 
-    const openBatchLink = (link) => {
-        window.open(link, '_blank');
-      };
+  const handleTabChange = (newTab) => {
+    setSelectedTab(newTab);
+    updateSalaries(newTab); // Call the animation when the tab changes
+  };
+
+  const updateSalaries = (newTab) => {
+    const increment = 5000; // Change this value based on your animation speed
+    let currentLowSalary = 100000;
+    let currentAvgSalary = 300000;
+    let currentHighSalary = 700000;
+
+    const timer = setInterval(() => {
+      if (currentLowSalary < placementData[newTab].lowSalary) {
+        currentLowSalary += increment;
+        setLowSalary(currentLowSalary);
+      }
+
+      if (currentAvgSalary < placementData[newTab].avgSalary) {
+        currentAvgSalary += increment;
+        setAvgSalary(currentAvgSalary);
+      }
+
+      if (currentHighSalary < placementData[newTab].highSalary) {
+        currentHighSalary += increment;
+        setHighSalary(currentHighSalary);
+      }
+
+      if (
+        currentLowSalary >= placementData[newTab].lowSalary &&
+        currentAvgSalary >= placementData[newTab].avgSalary &&
+        currentHighSalary >= placementData[newTab].highSalary
+      ) {
+        clearInterval(timer);
+      }
+    }, 30);
+  };
+
+  useEffect(() => {
+    updateSalaries(selectedTab); // Initial animation when the component mounts
+  }, [selectedTab]);
+
+  const placementData = {
+    IT: {
+      lowSalary: 500000,
+      avgSalary: 750000,
+      highSalary: 1100000,
+    },
+    CS: {
+      lowSalary: 480000,
+      avgSalary: 720000,
+      highSalary: 1050000,
+    },
+    'AI&DS': {
+      lowSalary: 490000,
+      avgSalary: 740000,
+      highSalary: 1080000,
+    },
+    EXTC: {
+      lowSalary: 470000,
+      avgSalary: 710000,
+      highSalary: 1040000,
+    },
+    Chemical: {
+      lowSalary: 460000,
+      avgSalary: 700000,
+      highSalary: 1020000,
+    },
+  };
 
   return (
-    <div className="bg-white py-6 sm:py-8 lg:py-12">
-      <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-        <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl">Placement Stats</h2>
+    <div>
+      <h1 className="text-2xl font-bold mb-4">Placement Statistics</h1>
+      <div className="flex justify-center space-x-4">
+        {/* Your tab buttons here */}
+        <button
+          className={`px-4 py-2 rounded-full ${
+            selectedTab === 'CS'
+              ? 'bg-blue-500 text-white'
+              : 'bg-white text-blue-500 border border-blue-500'
+          } mx-2`}
+          onClick={() => handleTabChange('CS')}
+        >
+          CS
+        </button>
+        <button
+          className={`px-4 py-2 rounded-full ${
+            selectedTab === 'IT'
+              ? 'bg-blue-500 text-white'
+              : 'bg-white text-blue-500 border border-blue-500'
+          } mx-2`}
+          onClick={() => handleTabChange('IT')}
+        >
+          IT
+        </button>
+        <button
+          className={`px-4 py-2 rounded-full ${
+            selectedTab === 'AI&DS'
+              ? 'bg-blue-500 text-white'
+              : 'bg-white text-blue-500 border border-blue-500'
+          } mx-2`}
+          onClick={() => handleTabChange('AI&DS')}
+        >
+          AI&DS
+        </button>
+        <button
+          className={`px-4 py-2 rounded-full ${
+            selectedTab === 'EXTC'
+              ? 'bg-blue-500 text-white'
+              : 'bg-white text-blue-500 border border-blue-500'
+          } mx-2`}
+          onClick={() => handleTabChange('EXTC')}
+        >
+          EXTC
+        </button>
+        <button
+          className={`px-4 py-2 rounded-full ${
+            selectedTab === 'Chemical'
+              ? 'bg-blue-500 text-white'
+              : 'bg-white text-blue-500 border border-blue-500'
+          } mx-2`}
+          onClick={() => handleTabChange('Chemical')}
+        >
+          Chemical
+        </button>
+      </div>
 
-        <div className="flex flex-wrap justify-center">
-          <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/5 p-4">
-            <div className="bg-gray-100 p-4 rounded-lg h-40 md:h-32 lg:h-40 flex flex-col justify-center">
-              <p className="text-center font-bold text-lg h-1/2 cursor-pointer" onClick={() => openBatchLink(batch_2023)}>2023-2024</p>
+      <div>
+        <div>
+          <br/>
+          <div className="flex space-x-4">
+            <div className="flex-1 text-center bg-white p-4 border border-blue-500 rounded-md
+        transition duration-300 ease-in-out hover:bg-blue-500 hover:border-blue-500 hover:text-white">
+              <div className="text-lg font-semibold">Lowest Salary</div>
+              <div className="text-2xl">{Math.round(lowSalary)}</div>
             </div>
-          </div>
-          <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/5 p-4">
-            <div className="bg-gray-100 p-4 rounded-lg h-40 md:h-32 lg:h-40 flex flex-col justify-center">
-              <p className="text-center font-bold text-lg h-1/2 cursor-pointer" onClick={() => openBatchLink(batch_2022)}>2022-2023</p>
+            <div className="flex-1 text-center bg-white p-4 border border-blue-500 rounded-md
+        transition duration-300 ease-in-out hover:bg-blue-500 hover:border-blue-500 hover:text-white">
+              <div className="text-lg font-semibold">Average Salary</div>
+              <div className="text-2xl">{Math.round(avgSalary)}</div>
             </div>
-          </div>
-          <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/5 p-4">
-            <div className="bg-gray-100 p-4 rounded-lg h-40 md:h-32 lg:h-40 flex flex-col justify-center">
-              <p className="text-center font-bold text-lg h-1/2 cursor-pointer" onClick={() => openBatchLink(batch_2021)}>2021-2022</p>
-            </div>
-          </div>
-          <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/5 p-4">
-            <div className="bg-gray-100 p-4 rounded-lg h-40 md:h-32 lg:h-40 flex flex-col justify-center">
-              <p className="text-center font-bold text-lg h-1/2 cursor-pointer" onClick={() => openBatchLink(batch_2020)}>2020-2019</p>
-            </div>
-          </div>
-          <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/5 p-4">
-            <div className="bg-gray-100 p-4 rounded-lg h-40 md:h-32 lg:h-40 flex flex-col justify-center">
-              <p className="text-center font-bold text-lg h-1/2 cursor-pointer" onClick={() => openBatchLink(batch_2019)}>2019-2018</p>
+            <div className="flex-1 text-center bg-white p-4 border border-blue-500 rounded-md
+        transition duration-300 ease-in-out hover:bg-blue-500 hover:border-blue-500 hover:text-white">
+              <div className="text-lg font-semibold">Highest Salary</div>
+              <div className="text-2xl">{Math.round(highSalary)}</div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
   );
 };
 
