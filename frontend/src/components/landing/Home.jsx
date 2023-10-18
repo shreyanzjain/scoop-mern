@@ -32,6 +32,15 @@ const Button1 = styled.button`
 `
 
 export default class Home extends Component {
+  componentDidMount() {
+    // Disable scrolling on the entire page
+    document.body.style.overflow = 'hidden';
+  }
+
+  componentWillUnmount() {
+    // Re-enable scrolling when the component is unmounted
+    document.body.style.overflow = 'auto';
+  }
   render() {
     return (
       <Container>
