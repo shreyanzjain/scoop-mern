@@ -77,8 +77,8 @@ const PlacementStats = () => {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">Placement Statistics</h1>
-      <div className="flex justify-center space-x-4">
+      <h1 className="text-2xl font-bold text-center mt-10 h-[1.25rem]">Placement Statistics</h1>
+      <div className="flex justify-center space-x-4 mt-10">
         {/* Your tab buttons here */}
         <button
           className={`px-4 py-2 rounded-full ${

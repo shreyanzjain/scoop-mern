@@ -25,7 +25,7 @@ import PlacementStudents from "./components/Placement/PlacementStudents";
 import PlacementUpload from "./components/Placement/PlacementUpload";
 import PlacementStats from "./components/landing/PlacementStats";
 import ContactUs from "./components/landing/ContactUs";
-
+import OurRecruiters from "./components/landing/OurRecruiters";
 const Container = styled.div`
   display: flex;
 `;
@@ -47,6 +47,7 @@ const App = () => {
           <Route path="learnMore" element={<LearnMore />} />
           <Route path="PlacementStats" element={<PlacementStats />} />
           <Route path="ContactUs" element={<ContactUs />} />
+          <Route path="OurRecruiters" element={<OurRecruiters />} />
         </ Route>
         
         <Route path="placement-cell" element={<Placement />}>

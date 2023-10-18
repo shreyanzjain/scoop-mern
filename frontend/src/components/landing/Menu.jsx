@@ -113,12 +113,12 @@ const Menu = () => {
 
             <Item>
                 <BusinessIcon/>
-                Our Recruiters
+                <NavLink to="/OurRecruiters">Our Recruiters</NavLink>
             </Item>
 
             <Item>
             <AccountTreeIcon/>
-                Recruitment Process
+               Recruitment Process
             </Item>
 
             <Hr/>
