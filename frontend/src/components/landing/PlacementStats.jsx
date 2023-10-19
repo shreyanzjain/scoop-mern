@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from 'react';
 
+
 const PlacementStats = () => {
   const [selectedTab, setSelectedTab] = useState('IT');
   const [lowSalary, setLowSalary] = useState(0);
   const [avgSalary, setAvgSalary] = useState(0);
   const [highSalary, setHighSalary] = useState(0);
-
+  
+  
   const handleTabChange = (newTab) => {
     setSelectedTab(newTab);
     updateSalaries(newTab); // Call the animation when the tab changes
   };
+   
+
 
   const updateSalaries = (newTab) => {
     const increment = 5000; // Change this value based on your animation speed
@@ -52,29 +56,131 @@ const PlacementStats = () => {
       lowSalary: 500000,
       avgSalary: 750000,
       highSalary: 1100000,
+      // Year1: {
+      //   totalStudents: 100,
+      //   totalPlaced: 70,
+      // },
+      // Year2: {
+      //   totalStudents: 110,
+      //   totalPlaced: 75,
+      // },
+      // Year3: {
+      //   totalStudents: 120,
+      //   totalPlaced: 80,
+      // },
+      // Year4: {
+      //   totalStudents: 130,
+      //   totalPlaced: 85,
+      // },
+      // Year5: {
+      //   totalStudents: 140,
+      //   totalPlaced: 90,
+      // },
     },
     CS: {
       lowSalary: 480000,
       avgSalary: 720000,
       highSalary: 1050000,
+      // Year1: {
+      //   totalStudents: 90,
+      //   totalPlaced: 60,
+      // },
+      // Year2: {
+      //   totalStudents: 95,
+      //   totalPlaced: 65,
+      // },
+      // Year3: {
+      //   totalStudents: 100,
+      //   totalPlaced: 70,
+      // },
+      // Year4: {
+      //   totalStudents: 105,
+      //   totalPlaced: 75,
+      // },
+      // Year5: {
+      //   totalStudents: 110,
+      //   totalPlaced: 80,
+      // },
     },
     'AI&DS': {
-      lowSalary: 490000,
-      avgSalary: 740000,
-      highSalary: 1080000,
-    },
-    EXTC: {
-      lowSalary: 470000,
-      avgSalary: 710000,
-      highSalary: 1040000,
+      lowSalary: 380000,
+      avgSalary: 820000,
+      highSalary: 1150000,
+      // Year1: {
+      //   totalStudents: 80,
+      //   totalPlaced: 50,
+      // },
+      // Year2: {
+      //   totalStudents: 85,
+      //   totalPlaced: 55,
+      // },
+      // Year3: {
+      //   totalStudents: 90,
+      //   totalPlaced: 60,
+      // },
+      // Year4: {
+      //   totalStudents: 95,
+      //   totalPlaced: 65,
+      // },
+      // Year5: {
+      //   totalStudents: 100,
+      //   totalPlaced: 70,
+      // },
+      
     },
     Chemical: {
       lowSalary: 460000,
       avgSalary: 700000,
       highSalary: 1020000,
+      
+      // Year1: {
+      //   totalStudents: 95,
+      //   totalPlaced: 65,
+      // },
+      // Year2: {
+      //   totalStudents: 100,
+      //   totalPlaced: 70,
+      // },
+      // Year3: {
+      //   totalStudents: 105,
+      //   totalPlaced: 75,
+      // },
+      // Year4: {
+      //   totalStudents: 110,
+      //   totalPlaced: 80,
+      // },
+      // Year5: {
+      //   totalStudents: 115,
+      //   totalPlaced: 85,
+      // },
+    },
+    EXTC: {
+      lowSalary: 470000,
+      avgSalary: 710000,
+      highSalary: 1040000,
+      // Year1: {
+      //   totalStudents: 85,
+      //   totalPlaced: 55,
+      // },
+      // Year2: {
+      //   totalStudents: 90,
+      //   totalPlaced: 60,
+      // },
+      // Year3: {
+      //   totalStudents: 95,
+      //   totalPlaced: 65,
+      // },
+      // Year4: {
+      //   totalStudents: 100,
+      //   totalPlaced: 70,
+      // },
+      // Year5: {
+      //   totalStudents: 105,
+      //   totalPlaced: 75,
+      // },
     },
   };
-
+  
   return (
     <div>
       <h1 className="text-2xl font-bold text-center mt-10 h-[1.25rem]">Placement Statistics</h1>
@@ -130,6 +236,7 @@ const PlacementStats = () => {
         >
           Chemical
         </button>
+        
       </div>
 
       <div>
