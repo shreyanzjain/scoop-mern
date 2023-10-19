@@ -27,6 +27,7 @@ import PlacementStats from "./components/landing/PlacementStats";
 import ContactUs from "./components/landing/ContactUs";
 import OurRecruiters from "./components/landing/OurRecruiters";
 import CollegeEnvoys from "./components/landing/CollegeEnvoys";
+import UserProfile from "./components/UserUI/UserProfile";
 const Container = styled.div`
   display: flex;
 `;
@@ -60,7 +61,11 @@ const App = () => {
         </Route>
 
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/user-page" element={<UserUI />} />
+        <Route path="user-page" element={<UserUI />} >
+          <Route index element={<Dashboard />} />
+          <Route path="user-profile" element={<UserProfile />} />
+          <Route path="dashboard" element={<Dashboard />} />
+        </Route>
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/adminCalendar" element={<AdminCalendar />} />
         
