@@ -78,7 +78,7 @@ const Navbar = () => {
         </Item>
 
         <Item>
-        <Button1><AutoGraphIcon/>Employers</Button1>
+        <Button1><AutoGraphIcon/><NavLink to="/CollegeEnvoys">Employers</NavLink> </Button1>
         </Item>
 
         <Item>
