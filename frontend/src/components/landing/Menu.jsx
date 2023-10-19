@@ -101,7 +101,7 @@ const Menu = () => {
 
             <Item>
                 <GroupsIcon/>
-                Placement Department
+                <NavLink to="/CollegeEnvoys">Placement Department</NavLink>
             </Item>
 
             <Item >
