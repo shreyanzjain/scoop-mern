@@ -5,9 +5,63 @@ const Justify = styled.div`
     text-align: justify;
     text-justify: inter-word;
 `
+const BannerContainer = styled.div`
+  background-color: #00008B;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  border-radius: 3px;
+  animation: moveBanner 10s linear infinite;
+  position: sticky; /* Make the banner sticky */
+  top: 0; /* Stick to the top of the viewport */
+  z-index: 1;
+  @keyframes moveBanner {
+    0% {
+      transform: translateX(100%);
+    }
+  }
+`
+
+const DepartmentContainer = styled.div`
+  text-align: center;
+  flex-grow: 1;
+  border: 2px solid #fff; /* Add a white border around each department container */
+  padding: 10px; /* Add some padding to create space between the content and the border */
+  margin: 5px; /* Add margin to create space between department containers */
+`
+
+const TopSalariesBanner = () => {
+  return (
+    <BannerContainer>
+      <DepartmentContainer>
+        <p>Department 1</p>
+        <p>Top Salary</p>
+      </DepartmentContainer>
+      <DepartmentContainer>
+        <p>Department 2</p>
+        <p>Top Salary</p>
+      </DepartmentContainer>
+      <DepartmentContainer>
+        <p>Department 3</p>
+        <p>Top Salary</p>
+      </DepartmentContainer>
+      <DepartmentContainer>
+        <p>Department 4</p>
+        <p>Top Salary</p>
+      </DepartmentContainer>
+      <DepartmentContainer>
+        <p>Department 5</p>
+        <p>Top Salary</p>
+      </DepartmentContainer>
+    </BannerContainer>
+  );
+}
+
 const Why_tsec = () => {
   return (
     <section class="text-gray-600 body-font">
+  <TopSalariesBanner />
   <div class="container px-5 py-24 mx-auto">
     <div class="text-center mb-20">
       <h1 class="sm:text-3xl text-2xl font-medium text-center title-font text-gray-900 mb-4">TSEC At a Glance</h1>

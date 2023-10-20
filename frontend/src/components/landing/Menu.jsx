@@ -82,7 +82,7 @@ const Menu = () => {
 
             <Item>
                 <HomeIcon/>
-                <NavLink to="/">Home</NavLink>
+                <NavLink to="/home">Home</NavLink>
             </Item>
 
             <Item>
@@ -101,31 +101,31 @@ const Menu = () => {
 
             <Item>
                 <GroupsIcon/>
-                Placement Department
+                <NavLink to="/CollegeEnvoys">Placement Department</NavLink>
             </Item>
 
             <Item >
                 <BarChartIcon/>
-                Placement Statistics
+                <NavLink to="/PlacementStats">Placement Statistics</NavLink>
             </Item>
 
             <Hr/>
 
             <Item>
                 <BusinessIcon/>
-                Our Recruiters
+                <NavLink to="/OurRecruiters">Our Recruiters</NavLink>
             </Item>
 
             <Item>
             <AccountTreeIcon/>
-                Recruitment Process
+            <NavLink to="/InterviewBlogs">Interview Blogs</NavLink>
             </Item>
 
             <Hr/>
 
             <Item>
             <CallIcon/>
-                Contact Us
+            <NavLink to="/ContactUs">Contact Us</NavLink>
             </Item>
 
         </Wrapper>

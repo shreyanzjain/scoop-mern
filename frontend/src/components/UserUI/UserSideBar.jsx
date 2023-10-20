@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../img/Logo.png';
 import styled from 'styled-components';
-
+import { NavLink } from 'react-router-dom';
 // Define a styled component for the sidebar with the background color
 const StyledSidebar = styled.aside`
 background-color: #F5F5F5;
@@ -40,7 +40,7 @@ const SideBar = () => {
         <path fill-rule="evenodd" d="M6.664 15.889A8 8 0 1 1 9.336.11a8 8 0 0 1-2.672 15.78zm-4.665-4.283A11.945 11.945 0 0 1 8 10c2.186 0 4.236.585 6.001 1.606a7 7 0 1 0-12.002 0z"/>
         </svg>
 
-                <span class="mx-4 font-medium">Dashboard</span>
+                <span class="mx-4 font-medium"><NavLink className="ms-2" to="/user-page/dashboard">Dashboard</NavLink></span>
             </a>
 
             <a class="flex items-center px-4 py-2 mt-5 text-black-600 transition-colors duration-300 transform rounded-lg dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="#">
@@ -49,7 +49,7 @@ const SideBar = () => {
                     <path d="M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
 
-                <span class="mx-4 font-medium">Profile</span>
+                <span class="mx-4 font-medium"><NavLink className="ms-2" to="/user-page/user-profile">Profile</NavLink></span>
             </a>
 
             <a class="flex items-center px-4 py-2 mt-5 text-black-600 transition-colors duration-300 transform rounded-lg dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="#">

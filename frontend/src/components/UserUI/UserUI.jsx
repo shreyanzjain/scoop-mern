@@ -4,7 +4,8 @@ import UserNavbar from './UserNavbar'
 import styled from "styled-components";
 import Dashboard from "../Dashboard/Dashboard.jsx"
 import UserProfile from './UserProfile';
-
+import { Outlet } from 'react-router-dom';
+import CalendarComponent from '../Calendar/Calendar';
 const Container = styled.div`
   display: flex;
 `;
@@ -20,8 +21,10 @@ const UserUI = () => {
       <UserSideBar />
       <Main>
         <UserNavbar />
-        <Dashboard />
+        <Outlet />
+        {/* <Dashboard /> */}
         {/* <UserProfile /> */}
+        <CalendarComponent />
       </Main>
     </Container>
     
