@@ -28,6 +28,7 @@ import ContactUs from "./components/landing/ContactUs";
 import OurRecruiters from "./components/landing/OurRecruiters";
 import CollegeEnvoys from "./components/landing/CollegeEnvoys";
 import UserProfile from "./components/UserUI/UserProfile";
+import InterviewBlogs from "./components/landing/InterviewBlogs";
 const Container = styled.div`
   display: flex;
 `;
@@ -51,6 +52,7 @@ const App = () => {
           <Route path="ContactUs" element={<ContactUs />} />
           <Route path="OurRecruiters" element={<OurRecruiters />} />
           <Route path="CollegeEnvoys" element={<CollegeEnvoys />} />
+          <Route path="InterviewBlogs" element={<InterviewBlogs/>} />
         </ Route>
         
         <Route path="placement-cell" element={<Placement />}>

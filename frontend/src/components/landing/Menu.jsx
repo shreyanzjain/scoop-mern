@@ -118,7 +118,7 @@ const Menu = () => {
 
             <Item>
             <AccountTreeIcon/>
-               Recruitment Process
+            <NavLink to="/InterviewBlogs">Interview Blogs</NavLink>
             </Item>
 
             <Hr/>
