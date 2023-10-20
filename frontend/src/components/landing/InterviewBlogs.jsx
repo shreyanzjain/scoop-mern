@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-
 const companyData = {
-    "Company A": [
+    "Deutsche bank": [
         {
             user: "Anonymous User 1",
             batchYear: "2022",
@@ -20,14 +19,38 @@ const companyData = {
             batchYear: "2023",
             role: "Role 3",
             information: "Additional information for User 3."
+        },
+        {
+            user: "Anonymous User 4",
+            batchYear: "2022",
+            role: "Role 1",
+            information: "Anonymous User 1 is a talented individual who joined Company A in 2022. They play a crucial role in the company, serving as Role 1. With their dedication and skills, they contribute significantly to the success of the team. Anonymous User 1 is known for their excellent problem-solving abilities and teamwork, making them an invaluable asset to the company."
+        },
+        {
+            user: "Anonymous User 5",
+            batchYear: "2022",
+            role: "Role 1",
+            information: "Anonymous User 1 is a talented individual who joined Company A in 2022. They play a crucial role in the company, serving as Role 1. With their dedication and skills, they contribute significantly to the success of the team. Anonymous User 1 is known for their excellent problem-solving abilities and teamwork, making them an invaluable asset to the company."
+        },
+        {
+            user: "Anonymous User 6",
+            batchYear: "2022",
+            role: "Role 1",
+            information: "Anonymous User 1 is a talented individual who joined Company A in 2022. They play a crucial role in the company, serving as Role 1. With their dedication and skills, they contribute significantly to the success of the team. Anonymous User 1 is known for their excellent problem-solving abilities and teamwork, making them an invaluable asset to the company."
+        },
+        {
+            user: "Anonymous User 1",
+            batchYear: "2022",
+            role: "Role 1",
+            information: "Anonymous User 1 is a talented individual who joined Company A in 2022. They play a crucial role in the company, serving as Role 1. With their dedication and skills, they contribute significantly to the success of the team. Anonymous User 1 is known for their excellent problem-solving abilities and teamwork, making them an invaluable asset to the company.Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique consectetur, eveniet dolorem veniam ratione voluptatibus tenetur quae expedita, sequi voluptatum possimus praesentium odit corporis laudantium, ipsa quaerat omnis libero distinctio!"
         }
     ],
-    "Company B": [
+    "General Mills": [
         {
             user: "User X",
             batchYear: "2020",
             role: "Role X",
-            information: "Additional information for User X."
+            information: "Additional information for User X.Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique consectetur, eveniet dolorem veniam ratione voluptatibus tenetur quae expedita, sequi voluptatum possimus praesentium odit corporis laudantium, ipsa quaerat omnis libero distinctio!"
         },
         {
             user: "User Y",
@@ -81,23 +104,25 @@ function InterviewBlogs() {
                 {selectedCompany ? (
                     <div className="absolute top-16 left-0 right-0 bg-white border-gray-300 p-4">
                         {selectedUserIndex === null ? (
-                            companyData[selectedCompany].map((user, index) => (
-                                <div
-                                    key={index}
-                                    className="mb-4 p-2 border border-gray-400 cursor-pointer"
-                                    onClick={() => selectUser(index)}
-                                >
-                                    <div className="flex justify-between">
-                                        <div className="text-xl font-bold">{user.user}</div>
-                                        <div className="text-right">Batch Year: {user.batchYear}</div>
+                            <div className="user-list-container" style={{ maxHeight: '500px', overflowY: 'auto',scrollbarWidth: 'thin', scrollbarColor: 'black black'  }}>
+                                {companyData[selectedCompany].map((user, index) => (
+                                    <div
+                                        key={index}
+                                        className="mb-4 p-2 border border-gray-400 cursor-pointer"
+                                        onClick={() => selectUser(index)}
+                                    >
+                                        <div className="flex justify-between">
+                                            <div className="text-xl font-bold">{user.user}</div>
+                                            <div className="text-right">Batch Year: {user.batchYear}</div>
+                                        </div>
+                                        <div className="text-left text-bottom">Role: {user.role}</div>
                                     </div>
-                                    <div className="text-left text-bottom">Role: {user.role}</div>
-                                </div>
-                            ))
+                                ))}
+                            </div>
                         ) : (
                             <div className="mb-4 p-2 border border-gray-400 relative">
                                 <div className="text-xl font-bold text-center mb-4">
-                                {companyData[selectedCompany][selectedUserIndex].user}, {companyData[selectedCompany][selectedUserIndex].batchYear} - {companyData[selectedCompany][selectedUserIndex].role}
+                                    {companyData[selectedCompany][selectedUserIndex].user}, {companyData[selectedCompany][selectedUserIndex].batchYear} - {companyData[selectedCompany][selectedUserIndex].role}
                                 </div>
                                 <div className="text-justify" style={{ padding: '0 15%' }}>{companyData[selectedCompany][selectedUserIndex].information}</div>
                                 <div className="text-left text-bottom">
@@ -122,3 +147,5 @@ function InterviewBlogs() {
 }
 
 export default InterviewBlogs;
+
+
