@@ -5,7 +5,6 @@ import PlacementJobs from "./PlacementJobs";
 import PlacementUpload from "./PlacementUpload";
 import PlacementStudents from "./PlacementStudents";
 import {Outlet} from "react-router-dom";
-import Wt from "../landing/Wt";
 
 export default function () {
   return (
