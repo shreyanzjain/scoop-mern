@@ -6,22 +6,22 @@ function SideBar() {
   return (
     <ul
       className="container bg-whitesmoke h-screen w-1/6 border-e-2 border-ebony border-op lg:text-md sm:text-base">
-      <li className="flex w-full h-12 border-b-2 border-ebony border-op items-center justify-start font-bold text-licorice hover:border-licorice hover:bg-tan">
+      <NavLink to="/placement-cell/dashboard" className="flex w-full h-12 border-b-2 border-ebony border-op items-center justify-start font-bold text-licorice hover:border-licorice hover:bg-tan">
         <ApiIcon className="ms-2" />
-        <NavLink className="ms-2" to="/placement-cell/dashboard">Analytics Dashboard</NavLink>
-      </li>
-      <li className="flex w-full h-12 border-b-2 border-ebony border-op items-center justify-start font-bold text-licorice hover:border-licorice hover:bg-tan">
+        <p className="ms-2">Analytics Dashboard</p>
+      </NavLink>
+      <NavLink to="/placement-cell/jobs" className="flex w-full h-12 border-b-2 border-ebony border-op items-center justify-start font-bold text-licorice hover:border-licorice hover:bg-tan">
         <ApiIcon className="ms-2 text-ebony" />
-        <NavLink className="ms-2" to="/placement-cell/jobs">Jobs</NavLink>
-      </li>
-      <li className="flex w-full h-12 border-b-2 border-ebony border-op items-center justify-start font-bold text-licorice hover:border-licorice hover:bg-tan">
+        <p className="ms-2">Jobs</p>
+      </NavLink>
+      <NavLink to="/placement-cell/students" className="flex w-full h-12 border-b-2 border-ebony border-op items-center justify-start font-bold text-licorice hover:border-licorice hover:bg-tan">
         <ApiIcon className="ms-2 text-ebony" />
-        <NavLink className="ms-2" to="/placement-cell/students">Students</NavLink>
-      </li>
-      <li className="flex w-full h-12 border-b-2 border-ebony border-op items-center justify-start font-bold text-licorice hover:border-licorice hover:bg-tan">
+        <p className="ms-2">Students</p>
+      </NavLink>
+      <NavLink to="/placement-cell/upload" className="flex w-full h-12 border-b-2 border-ebony border-op items-center justify-start font-bold text-licorice hover:border-licorice hover:bg-tan">
         <ApiIcon className="ms-2 text-ebony" />
-        <NavLink className="ms-2" to="/placement-cell/upload">Job Upload</NavLink>
-      </li>
+        <p className="ms-2">Job Upload</p>
+      </NavLink>
     </ul>
   );
 }

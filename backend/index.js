@@ -14,6 +14,8 @@ const fs = require("fs");
 const path = require("path");
 const cors = require("cors");
 const { error } = require("console");
+const multer = require('multer');
+const upload = multer({dest: './uploads'});
 
 // setting the locations of the key.pem and cert.pem files
 const options = {
@@ -116,6 +118,12 @@ app.post("/jobs/create", authorization, jsonParser, async (req, res) => {
 app.get("/jobs/get", authorization, jsonParser, async (req, res) => {
   res.send(await get_jobs());
 })
+
+app.post('/students/upload', upload.single('file'), (req, res) => {
+    console.log(req.file); // Contains file details
+    res.json({fileId: req.file.id});
+});
+
 
 const httpsServer = https.createServer(options, app);
 
