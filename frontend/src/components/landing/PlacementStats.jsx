@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-
 const PlacementStats = () => {
   const [selectedTab, setSelectedTab] = useState('IT');
   const [lowSalary, setLowSalary] = useState(0);
@@ -46,8 +45,8 @@ const PlacementStats = () => {
       }
     }, 30);
   };
-
   useEffect(() => {
+    
     updateSalaries(selectedTab); // Initial animation when the component mounts
   }, [selectedTab]);
 
