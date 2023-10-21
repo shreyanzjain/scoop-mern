@@ -6,8 +6,8 @@ const Justify = styled.div`
     text-justify: inter-word;
 `
 const BannerContainer = styled.div`
-  background-color: #00008B;
-  color: #fff;
+  background-color: #6366F1;
+  color: #f0f0f0;
   padding: 10px;
   text-align: center;
   display: flex;

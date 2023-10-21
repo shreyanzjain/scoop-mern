@@ -24,7 +24,7 @@ const UserUI = () => {
         <Outlet />
         {/* <Dashboard /> */}
         {/* <UserProfile /> */}
-        <CalendarComponent />
+        {/* <CalendarComponent /> */}
       </Main>
     </Container>
     
