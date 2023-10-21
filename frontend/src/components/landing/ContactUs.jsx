@@ -21,8 +21,8 @@ const peopleData = [
 
 const ContactUs = () => {
   return (
-    <div className="relative text-center mt-8"> {/* Increased top margin */}
-      <div className="text-4xl font-bold mb-10">About Us</div> {/* Increased margin-bottom */}
+    <div className="relative text-center mt-20"> {/* Increased top margin */}
+      {/* <div className="text-4xl font-bold mb-10">About Us</div> Increased margin-bottom */}
       <div className="flex flex-wrap justify-center space-x-8 mb-8"> {/* Added margin-bottom */}
         {peopleData.map((person, index) => (
           <div
@@ -42,7 +42,7 @@ const ContactUs = () => {
         ))}
       </div>
       <div className="absolute bottom-0 w-full text-4xl font-bold pb-4"> {/* Increased text size */}
-        Contacts on{' '}
+        Contact us on{' '}
         <a href="mailto:xyz.email.com" className="text-blue-500">
           xyz.email.com
         </a>

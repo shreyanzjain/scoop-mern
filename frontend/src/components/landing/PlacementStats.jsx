@@ -183,54 +183,54 @@ const PlacementStats = () => {
   
   return (
     <div>
-      <h1 className="text-2xl font-bold text-center mt-10 h-[1.25rem]">Placement Statistics</h1>
+      <h1 className="text-3xl text-indigo-500 tracking-widest font-medium title-font text-center mt-10 h-[1.25rem]">Placement Statistics</h1>
       <div className="flex justify-center space-x-4 mt-10">
         {/* Your tab buttons here */}
         <button
-          className={`px-4 py-2 rounded-full ${
+          className={`p-2 px-4 border-2 border-gray-200 cursor-pointer ${
             selectedTab === 'CS'
-              ? 'bg-blue-500 text-white'
-              : 'bg-white text-blue-500 border border-blue-500'
+            ? 'bg-indigo-500 text-white'
+            : 'hover:bg-gray-200'
           } mx-2`}
           onClick={() => handleTabChange('CS')}
         >
           CS
         </button>
         <button
-          className={`px-4 py-2 rounded-full ${
+          className={`p-2 px-4 border-2 border-gray-200 cursor-pointer ${
             selectedTab === 'IT'
-              ? 'bg-blue-500 text-white'
-              : 'bg-white text-blue-500 border border-blue-500'
+            ? 'bg-indigo-500 text-white'
+            : 'hover:bg-gray-200'
           } mx-2`}
           onClick={() => handleTabChange('IT')}
         >
           IT
         </button>
         <button
-          className={`px-4 py-2 rounded-full ${
+          className={`p-2 px-4 border-2 border-gray-200 cursor-pointer ${
             selectedTab === 'AI&DS'
-              ? 'bg-blue-500 text-white'
-              : 'bg-white text-blue-500 border border-blue-500'
+              ? 'bg-indigo-500 text-white'
+              : 'hover:bg-gray-200'
           } mx-2`}
           onClick={() => handleTabChange('AI&DS')}
         >
           AI&DS
         </button>
         <button
-          className={`px-4 py-2 rounded-full ${
+          className={`p-2 px-4 border-2 border-gray-200 cursor-pointer  ${
             selectedTab === 'EXTC'
-              ? 'bg-blue-500 text-white'
-              : 'bg-white text-blue-500 border border-blue-500'
+            ? 'bg-indigo-500 text-white'
+            : 'hover:bg-gray-200'
           } mx-2`}
           onClick={() => handleTabChange('EXTC')}
         >
           EXTC
         </button>
         <button
-          className={`px-4 py-2 rounded-full ${
+          className={`p-2 px-4 border-2 border-gray-200 cursor-pointer ${
             selectedTab === 'Chemical'
-              ? 'bg-blue-500 text-white'
-              : 'bg-white text-blue-500 border border-blue-500'
+            ? 'bg-indigo-500 text-white'
+            : 'hover:bg-gray-200'
           } mx-2`}
           onClick={() => handleTabChange('Chemical')}
         >
@@ -244,22 +244,22 @@ const PlacementStats = () => {
           <br/>
           <div className="flex space-x-4">
             <div className="flex-1 text-center bg-white p-4 border border-blue-500 rounded-md
-        transition duration-300 ease-in-out hover:bg-blue-500 hover:border-blue-500 hover:text-white">
+        transition duration-300 ease-in-out hover:bg-indigo-500 hover:border-blue-500 hover:text-white">
               <div className="text-lg font-semibold">Lowest Salary</div>
               <div className="text-2xl">{Math.round(lowSalary)}</div>
             </div>
             <div className="flex-1 text-center bg-white p-4 border border-blue-500 rounded-md
-        transition duration-300 ease-in-out hover:bg-blue-500 hover:border-blue-500 hover:text-white">
+        transition duration-300 ease-in-out hover:bg-indigo-500 hover:border-blue-500 hover:text-white">
               <div className="text-lg font-semibold">Average Salary</div>
               <div className="text-2xl">{Math.round(avgSalary)}</div>
             </div>
             <div className="flex-1 text-center bg-white p-4 border border-blue-500 rounded-md
-        transition duration-300 ease-in-out hover:bg-blue-500 hover:border-blue-500 hover:text-white">
+        transition duration-300 ease-in-out hover:bg-indigo-500 hover:border-blue-500 hover:text-white">
               <div className="text-lg font-semibold">Highest Salary</div>
               <div className="text-2xl">{Math.round(highSalary)}</div>
             </div>
           </div>
-        </div>
+        </div> 
       </div>
     </div>
   );

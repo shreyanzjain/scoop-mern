@@ -49,7 +49,7 @@ export default class Home extends Component {
     <div class="lg:w-4/5 mx-auto flex flex-wrap">
       <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
         
-        <h1 class="text-gray-900 text-5xl title-font font-medium mb-4">Campus Placement</h1>
+        <h1 class="text-indigo-500 text-5xl title-font font-medium mb-4">Campus Placement</h1>
         <h1 class="text-gray-900 text-3xl title-font font-small mb-2">Made Easy!</h1>
         
         <div class="flex mb-4">
