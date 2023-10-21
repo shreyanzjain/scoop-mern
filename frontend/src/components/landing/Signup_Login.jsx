@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { NavLink } from 'react-router-dom';
+
 const Signup_Login = () => {
   const [showMessage, setShowMessage] = useState(false);
   const [emailValue, setEmailValue] = useState('');
@@ -154,7 +156,7 @@ const Signup_Login = () => {
                 </button>
               </div>
               {(passwordError || (password === '' && buttonClicked)) && (
-                <p className="mt-1 text-sm text-red-500">Please enter your password.</p>
+                <p className="mt-1 text-sm text-red-500"> Please enter your password.</p>
               )}
             </div>
 
@@ -165,7 +167,7 @@ const Signup_Login = () => {
               disabled={isSubmitDisabled()}
               onClick={handleButtonClick} // Handle the button click event
             />
-            <p className="text-center text-sm text-gray-500">Forgot your password? </p>
+            <p className="text-center text-sm text-gray-500"><NavLink to="/forgotPassword">Forgot your password?</NavLink> </p>
           </div>
         </form>
       </div>

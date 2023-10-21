@@ -29,6 +29,8 @@ import OurRecruiters from "./components/landing/OurRecruiters";
 import CollegeEnvoys from "./components/landing/CollegeEnvoys";
 import UserProfile from "./components/UserUI/UserProfile";
 import InterviewBlogs from "./components/landing/InterviewBlogs";
+import ForgotPassword from "./components/landing/ForgotPassword";
+import CalendarComponent from "./components/Calendar/Calendar";
 const Container = styled.div`
   display: flex;
 `;
@@ -47,6 +49,7 @@ const App = () => {
           <Route path="home" element={<Home />} />
           <Route path="whytsec" element={<Why_tsec />} />
           <Route path="login" element={<Signup_Login />} />
+          <Route path="forgotPassword" element={<ForgotPassword />} />
           <Route path="learnMore" element={<LearnMore />} />
           <Route path="PlacementStats" element={<PlacementStats />} />
           <Route path="ContactUs" element={<ContactUs />} />
