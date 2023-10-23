@@ -11,6 +11,7 @@ import CallIcon from '@mui/icons-material/Call';
 import PersonIcon from '@mui/icons-material/Person';
 
 import { NavLink } from 'react-router-dom';
+import Business from '@mui/icons-material/Business';
 
 const Container = styled.div`
     flex: 1;
@@ -121,8 +122,10 @@ const Menu = () => {
             <NavLink to="/InterviewBlogs">Interview Blogs</NavLink>
             </Item>
 
+            <Item>
+            <BusinessIcon/> <NavLink to="/Alumnie">Alumnie Directory</NavLink>
+            </Item>
             <Hr/>
-
             <Item>
             <CallIcon/>
             <NavLink to="/ContactUs">Contact Us</NavLink>

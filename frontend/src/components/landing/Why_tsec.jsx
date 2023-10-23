@@ -16,10 +16,16 @@ const BannerContainer = styled.div`
   position: sticky; /* Make the banner sticky */
   top: 0; /* Stick to the top of the viewport */
   z-index: 1;
+  overflow: hidden;
   @keyframes moveBanner {
     0% {
       transform: translateX(100%);
     }
+    100% {
+      transform: translateX(0%);
+    }
+    
+    
   }
 `
 

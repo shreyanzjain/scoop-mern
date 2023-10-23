@@ -31,6 +31,7 @@ import UserProfile from "./components/UserUI/UserProfile";
 import InterviewBlogs from "./components/landing/InterviewBlogs";
 import ForgotPassword from "./components/landing/ForgotPassword";
 import CalendarComponent from "./components/Calendar/Calendar";
+import Alumnie from "./components/landing/Alumnie";
 const Container = styled.div`
   display: flex;
 `;
@@ -56,6 +57,7 @@ const App = () => {
           <Route path="OurRecruiters" element={<OurRecruiters />} />
           <Route path="CollegeEnvoys" element={<CollegeEnvoys />} />
           <Route path="InterviewBlogs" element={<InterviewBlogs/>} />
+          <Route path="Alumnie" element={<Alumnie/>} />
         </ Route>
         
         <Route path="placement-cell" element={<Placement />}>
