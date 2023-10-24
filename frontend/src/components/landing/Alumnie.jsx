@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
 const alumniData = {
@@ -8,6 +8,8 @@ const alumniData = {
       { alumni_name: 'John Doe', Company_name: 'TechCorp', yearOfGrad: 2020, linkedin: 'https://www.linkedin.com/in/johndoe' },
       { alumni_name: 'Jane Smith', Company_name: 'Web Solutions', yearOfGrad: 2019 },
       { alumni_name: 'Mike Johnson', Company_name: 'DataTech', yearOfGrad: 2020 },
+      { alumni_name: 'Mike Johnson', Company_name: 'x', yearOfGrad: 2020 },
+      
       // Add more alumni as needed
     ],
   },
@@ -43,6 +45,15 @@ const Alumnie = () => {
   const filterAlumniByCompanies = (alumni, selectedCompanies) => {
     return alumni.filter((alumnus) => selectedCompanies.includes(alumnus.Company_name));
   };
+  // Effect to reset filters when the selected tab changes
+  useEffect(() => {
+    setCompanyFilters([]); // Reset companyFilters when the department changes
+    setIsDropdownOpen(false);
+  }, [selectedTab]);
+  useEffect(() => {
+    const allCompanyNames = alumniData[selectedTab].alumni.map((alumnus) => alumnus.Company_name);
+    setCompanyFilters(allCompanyNames);
+  }, [selectedTab]);
 
   // Combine year and company filters to get the final filtered data
   let filteredAlumni = alumniData[selectedTab].alumni;
@@ -71,45 +82,15 @@ const Alumnie = () => {
             ))}
           </div>
 
-          <div className="my-4">
-            <div>
-              <span className="ml-4">Filter by Company: </span>
-              <div className="dropdown">
-                <button onClick={toggleDropdown} style={dropdownButtonStyle}>
-                  Select Companies
-                </button>
-                {isDropdownOpen && (
-                  <div className="dropdown-content">
-                    {Array.from(
-                      new Set(alumniData[selectedTab].alumni.map((alumnus) => alumnus.Company_name))
-                    )
-                      .sort()
-                      .map((company) => (
-                        <label key={company} style={dropdownLabelStyle}>
-                          <input
-                            type="checkbox"
-                            value={company}
-                            checked={companyFilters.includes(company)}
-                            onChange={(e) => {
-                              const selectedCompany = e.target.value;
-                              if (companyFilters.includes(selectedCompany)) {
-                                setCompanyFilters(companyFilters.filter((c) => c !== selectedCompany));
-                              } else {
-                                setCompanyFilters([...companyFilters, selectedCompany]);
-                              }
-                            }}
-                          />
-                          {company}
-                        </label>
-                      ))}
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-
           {filteredAlumni.length > 0 ? (
-            <div className="p-4 border-2 border-gray-200 bg-white mt-4">
+            <div className="relative p-4 border-2 border-gray-200 bg-white mt-4">
+              {/* Dropdown icon */}
+              <div className="absolute top-0 right-0 m-4 cursor-pointer max-h-48 overflow-y-auto" onClick={toggleDropdown}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className={`h-6 w-6 ${isDropdownOpen ? 'transform rotate-180' : ''}`}>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+
               <h2 className="text-2xl font-medium mb-2">{alumniData[selectedTab].department_name} Department</h2>
               <table className="w-full text-left table-auto">
                 <thead>
@@ -134,15 +115,44 @@ const Alumnie = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <button className="text-indigo-500 border-2 border-indigo-500 py-2 px-4 focus:outline-none hover-bg-indigo-500 hover:text-white rounded text-base">
+                          <button className="text-indigo-500 border-2 border-indigo-500 py-2 px-4 focus:outline-none hover:bg-indigo-500 hover:text-white rounded text-base">
                             Get Profile
-                          </button>
+                            </button>
+
                         </a>
                       </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
+
+              {/* Dropdown content */}
+              {isDropdownOpen && (
+                <div className="absolute top-12 right-4 p-4 border-2 border-gray-200 bg-white h-36 max-h-36 overflow-y-scroll">
+                  {Array.from(
+                    new Set(alumniData[selectedTab].alumni.map((alumnus) => alumnus.Company_name))
+                  )
+                    .sort()
+                    .map((company) => (
+                      <label key={company} style={dropdownLabelStyle}>
+                        <input
+                          type="checkbox"
+                          value={company}
+                          checked={companyFilters.includes(company)}
+                          onChange={(e) => {
+                            const selectedCompany = e.target.value;
+                            if (companyFilters.includes(selectedCompany)) {
+                              setCompanyFilters(companyFilters.filter((c) => c !== selectedCompany));
+                            } else {
+                              setCompanyFilters([...companyFilters, selectedCompany]);
+                            }
+                          }}
+                        />
+                        {company}
+                      </label>
+                    ))}
+                </div>
+              )}
             </div>
           ) : (
             <p className="mt-4">No matching alumni found.</p>
@@ -158,13 +168,6 @@ const Alumnie = () => {
   );
 };
 
-const dropdownButtonStyle = {
-  backgroundColor: '#3498db',
-  color: 'white',
-  padding: '10px',
-  border: 'none',
-  cursor: 'pointer',
-};
 
 const dropdownLabelStyle = {
   display: 'block',
