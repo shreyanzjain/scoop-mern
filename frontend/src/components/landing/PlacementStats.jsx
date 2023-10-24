@@ -243,17 +243,17 @@ const PlacementStats = () => {
           <br/>
           <div className="flex space-x-4">
             <div className="flex-1 text-center bg-white p-4 border border-blue-500 rounded-md
-        transition duration-300 ease-in-out hover:bg-indigo-500 hover:border-blue-500 hover:text-white">
+        transition duration-300 ease-in-out hover:bg-indigo-500 hover:border-blue-500 hover:text-white ml-10">
               <div className="text-lg font-semibold">Lowest Salary</div>
               <div className="text-2xl">{Math.round(lowSalary)}</div>
             </div>
             <div className="flex-1 text-center bg-white p-4 border border-blue-500 rounded-md
-        transition duration-300 ease-in-out hover:bg-indigo-500 hover:border-blue-500 hover:text-white">
+        transition duration-300 ease-in-out hover:bg-indigo-500 hover:border-blue-500 hover:text-white ml-2 mr-2">
               <div className="text-lg font-semibold">Average Salary</div>
               <div className="text-2xl">{Math.round(avgSalary)}</div>
             </div>
             <div className="flex-1 text-center bg-white p-4 border border-blue-500 rounded-md
-        transition duration-300 ease-in-out hover:bg-indigo-500 hover:border-blue-500 hover:text-white">
+        transition duration-300 ease-in-out hover:bg-indigo-500 hover:border-blue-500 hover:text-white mr-4" style={{ marginRight: '40px' }}>
               <div className="text-lg font-semibold">Highest Salary</div>
               <div className="text-2xl">{Math.round(highSalary)}</div>
             </div>
