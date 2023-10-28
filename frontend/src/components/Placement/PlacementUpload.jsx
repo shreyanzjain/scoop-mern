@@ -52,7 +52,7 @@ function PlacementUpload() {
               <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                 <label
                   className="block uppercase tracking-wide text-licorice text-xs font-bold mb-2"
-                  for="grid-role"
+                  htmlFor="grid-role"
                 >
                   Role
                 </label>
@@ -68,7 +68,7 @@ function PlacementUpload() {
               <div className="w-full md:w-1/2 px-3">
                 <label
                   className="block uppercase tracking-wide text-licorice text-xs font-bold mb-2"
-                  for="grid-company-name"
+                  htmlFor="grid-company-name"
                 >
                   Company
                 </label>
@@ -84,7 +84,7 @@ function PlacementUpload() {
               <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                 <label
                   className="block uppercase tracking-wide text-licorice text-xs font-bold mb-2"
-                  for="grid-cgpa-cutoff"
+                  htmlFor="grid-cgpa-cutoff"
                 >
                   Cgpa Cutoff
                 </label>
@@ -100,7 +100,7 @@ function PlacementUpload() {
               <div className="w-full md:w-1/2 px-3">
                 <label
                   className="block uppercase tracking-wide text-licorice text-xs font-bold mb-2"
-                  for="grid-tenth-percentage-cuttof"
+                  htmlFor="grid-tenth-percentage-cuttof"
                 >
                   Tenth Cutoff
                 </label>
@@ -116,7 +116,7 @@ function PlacementUpload() {
               <div className="w-full md:w-1/2 px-3">
                 <label
                   className="block uppercase tracking-wide text-licorice text-xs font-bold mb-2"
-                  for="grid-location"
+                  htmlFor="grid-location"
                 >
                   Location
                 </label>
@@ -132,7 +132,7 @@ function PlacementUpload() {
               <div className="w-full md:w-1/2 px-3">
                 <label
                   className="block uppercase tracking-wide text-licorice text-xs font-bold mb-2"
-                  for="grid-branch-cutoff"
+                  htmlFor="grid-branch-cutoff"
                 >
                   Salary
                 </label>
@@ -150,7 +150,7 @@ function PlacementUpload() {
               <div className="w-full px-3">
                 <label
                   className="block uppercase tracking-wide text-licorice text-xs font-bold mb-2"
-                  for="grid-description"
+                  htmlFor="grid-description"
                 >
                   Description
                 </label>
