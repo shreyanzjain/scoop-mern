@@ -17,11 +17,6 @@ import LearnMore from "./components/landing/LearnMore";
 import ResetPwd from "./components/ResetPassword/ResetPwd";
 import "./App.css";
 import "../index.css";
-
-import PlacementJobs from "./components/Placement/PlacementJobs";
-import PlacementDashboard from "./components/Placement/PlacementDashboard";
-import PlacementStudents from "./components/Placement/PlacementStudents";
-import PlacementUpload from "./components/Placement/PlacementUpload";
 import PlacementStats from "./components/landing/PlacementStats";
 import ContactUs from "./components/landing/ContactUs";
 import OurRecruiters from "./components/landing/OurRecruiters";

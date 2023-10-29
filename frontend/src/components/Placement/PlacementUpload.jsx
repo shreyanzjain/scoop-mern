@@ -40,7 +40,7 @@ function PlacementUpload() {
       {/* Banner */}
       <div className="container h-1/6">
         <div className="flex h-full text-whitesmoke text-2xl font-bold bg-licorice rounded-t-lg items-center justify-start">
-          <CloudIcon className="ms-6" />
+          <CloudIcon className="ms-4" />
           <p className="ms-2">Upload Job</p>
         </div>
       </div>

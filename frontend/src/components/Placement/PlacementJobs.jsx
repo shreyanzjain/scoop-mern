@@ -29,7 +29,7 @@ function PlacementJobs() {
     <div className="container m-2 w-5/6 bg-whitesmoke bg-opacity-30">
       <div className="flex text-2xl font-bold text-whitesmoke rounded-t-lg h-1/6 bg-licorice items-center justify-start">
         <WorkIcon className="ms-4" />
-        <p className="ms-2">Jobs List</p>
+        <p className="ms-2">Jobs</p>
       </div>
       <div className="flex-col h-5/6 text-lg mt-2 bg-whitesmoke text-licorice overflow-y-scroll">
         {jobList}
