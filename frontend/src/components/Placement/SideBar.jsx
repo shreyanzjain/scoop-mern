@@ -1,54 +1,38 @@
-import React from "react";
-import ApiIcon from "@mui/icons-material/Api";
-import { NavLink } from "react-router-dom";
+import SideBarOptions from "./SideBarOptions";
 
 function SideBar({ onClickOption, optionValue }) {
+  const options = [
+    {
+      id: 1,
+      value: "Dashboard",
+    },
+    {
+      id: 2,
+      value: "Jobs",
+    },
+    {
+      id: 3,
+      value: "Students",
+    },
+    {
+      id: 4,
+      value: "Upload",
+    },
+  ];
+
+  const sideBarOptionsList = options.map(({ id, value }) => {
+    return <SideBarOptions
+      onClickOption={onClickOption}
+      optionValue={optionValue}
+      thisOptionValue={id}
+      key={id}
+      thisOptionText={value}
+    />;
+  });
+
   return (
     <ul className="container bg-whitesmoke h-screen w-1/6 border-e-2 border-ebony border-op lg:text-md sm:text-base">
-      <a
-        href=""
-        onClick={(e) => {
-          e.preventDefault();
-          onClickOption(1);
-        }}
-        className="flex w-full h-12 border-b-2 border-ebony border-op items-center justify-start font-bold text-licorice hover:border-licorice hover:bg-tan"
-      >
-        <ApiIcon className={`ms-2 ${optionValue == 1? "": "text-ebony"}`} />
-        <p className="ms-2">Analytics Dashboard</p>
-      </a>
-      <a
-        href=""
-        onClick={(e) => {
-          e.preventDefault();
-          onClickOption(2);
-        }}
-        className="flex w-full h-12 border-b-2 border-ebony border-op items-center justify-start font-bold text-licorice hover:border-licorice hover:bg-tan"
-      >
-        <ApiIcon className={`ms-2 ${optionValue == 2? "": "text-ebony"}`} />
-        <p className="ms-2">Jobs</p>
-      </a>
-      <a
-        href=""
-        onClick={(e) => {
-          e.preventDefault();
-          onClickOption(3);
-        }}
-        className="flex w-full h-12 border-b-2 border-ebony border-op items-center justify-start font-bold text-licorice hover:border-licorice hover:bg-tan"
-      >
-        <ApiIcon className={`ms-2 ${optionValue == 3? "": "text-ebony"}`} />
-        <p className="ms-2">Students</p>
-      </a>
-      <a
-        href=""
-        onClick={(e) => {
-          e.preventDefault();
-          onClickOption(4);
-        }}
-        className="flex w-full h-12 border-b-2 border-ebony border-op items-center justify-start font-bold text-licorice hover:border-licorice hover:bg-tan"
-      >
-        <ApiIcon className={`ms-2 ${optionValue == 4? "": "text-ebony"}`} />
-        <p className="ms-2">Job Upload</p>
-      </a>
+      {sideBarOptionsList}
     </ul>
   );
 }
