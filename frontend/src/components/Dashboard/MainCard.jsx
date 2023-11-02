@@ -1,8 +1,15 @@
 import data from "./Data.json";
+import emptyPlaceholder from "./icons/emptyPlaceholder.gif";
 export default function ({ jobId }) {
   //   jobId = data[0].jobId;
   if (jobId == undefined) {
-    return <div className="main-card-container">Empty</div>;
+    return (
+      <div className="maincard-container">
+        <div className="empty-container">
+          <img src={emptyPlaceholder} alt="Click some card..." />
+        </div>
+      </div>
+    );
   }
   const obj = data.find((ele) => ele.jobId == jobId);
   const status = true,
@@ -56,20 +63,9 @@ export default function ({ jobId }) {
         <div>
           <div className="font-bold">Job Description: </div>
           <div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Neque
-            ornare aenean euismod elementum nisi quis eleifend. At imperdiet dui
-            accumsan sit amet nulla facilisi morbi. Mattis molestie a iaculis at
-            erat pellentesque adipiscing. Id venenatis a condimentum vitae.
-            Dolor sit amet consectetur adipiscing elit ut. Arcu risus quis
-            varius quam quisque id diam. Vel quam elementum pulvinar etiam non.
-            Feugiat pretium nibh ipsum consequat nisl. Elementum sagittis vitae
-            et leo duis ut diam. Sapien et ligula ullamcorper malesuada proin
-            libero. Interdum varius sit amet mattis vulputate. Volutpat commodo
-            sed egestas egestas. Malesuada proin libero nunc consequat interdum
-            varius sit. Donec pretium vulputate sapien nec. Nisi est sit amet
-            facilisis magna etiam. In cursus turpis massa tincidunt dui ut
-            ornare.;
+            {jobDescription}
+            <br />
+            {jobDescription}
           </div>
         </div>
       </div>

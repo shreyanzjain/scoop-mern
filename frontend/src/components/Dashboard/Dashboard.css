@@ -88,3 +88,13 @@
     border: 1px solid black;
     width: 80%;
 }
+.empty-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+}
+.empty-container>img {
+    height: 60px;
+}
