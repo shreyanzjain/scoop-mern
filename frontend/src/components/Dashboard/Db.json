@@ -1,0 +1,44 @@
+[
+  {
+    "jobId": 123456,
+    "company": "Google Inc.",
+    "job_role": "Software Developer",
+    "salary": "12,00,000",
+    "status": true,
+    "location": "Bangalore, Karnataka, India",
+    "cgpa_cutoff": 7.0,
+    "tenth": 70.0,
+    "twelfth": 70.0,
+    "kt_allowed": false,
+    "drop_allowed_ug": true,
+    "job_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In iaculis nunc sed augue lacus viverra vitae congue eu. Lectus urna duis convallis convallis tellus id interdum velit. Purus gravida quis blandit turpis cursus in hac habitasse platea. Lacus sed turpis tincidunt id aliquet risus. Mauris augue neque gravida in fermentum et sollicitudin ac orci. Eget gravida cum sociis natoque. Egestas maecenas pharetra convallis posuere morbi leo urna molestie. In arcu cursus euismod quis viverra nibh cras pulvinar mattis. Tortor consequat id porta nibh venenatis cras sed felis eget"
+  },
+  {
+    "jobId": 654321,
+    "company": "Microsoft Corporation",
+    "job_role": "Network Engineer",
+    "salary": "9,50,000",
+    "status": true,
+    "location": "Hyderabad, Telangana, India",
+    "cgpa_cutoff": 6.5,
+    "tenth": 65.0,
+    "twelfth": 65.0,
+    "kt_allowed": true,
+    "drop_allowed_ug": false,
+    "job_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In iaculis nunc sed augue lacus viverra vitae congue eu. Lectus urna duis convallis convallis tellus id interdum velit. Purus gravida quis blandit turpis cursus in hac habitasse platea. Lacus sed turpis tincidunt id aliquet risus. Mauris augue neque gravida in fermentum et sollicitudin ac orci. Eget gravida cum sociis natoque. Egestas maecenas pharetra convallis posuere morbi leo urna molestie. In arcu cursus euismod quis viverra nibh cras pulvinar mattis. Tortor consequat id porta nibh venenatis cras sed felis eget"
+  },
+  {
+    "jobId": 987654,
+    "company": "Amazon Web Services (AWS)",
+    "job_role": "Cloud Solutions Architect",
+    "salary": "14,50,000",
+    "status": false,
+    "location": "Pune, Maharashtra, India",
+    "cgpa_cutoff": 7.2,
+    "tenth": 68.0,
+    "twelfth": 68.0,
+    "kt_allowed": true,
+    "drop_allowed_ug": true,
+    "job_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In iaculis nunc sed augue lacus viverra vitae congue eu. Lectus urna duis convallis convallis tellus id interdum velit. Purus gravida quis blandit turpis cursus in hac habitasse platea. Lacus sed turpis tincidunt id aliquet risus. Mauris augue neque gravida in fermentum et sollicitudin ac orci. Eget gravida cum sociis natoque. Egestas maecenas pharetra convallis posuere morbi leo urna molestie. In arcu cursus euismod quis viverra nibh cras pulvinar mattis. Tortor consequat id porta nibh venenatis cras sed felis eget"
+  }
+]

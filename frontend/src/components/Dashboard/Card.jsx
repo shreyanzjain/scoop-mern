@@ -12,7 +12,7 @@ export default function ({
   jobCompensation,
   setMainJobId
 }) {
-  console.log(jobId, companyName, jobTitle, jobLocation, jobCompensation);
+  // console.log(jobId, companyName, jobTitle, jobLocation, jobCompensation);
   return (
     <div>
       <div className="job-card rounded-md">
