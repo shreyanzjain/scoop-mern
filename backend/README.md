@@ -3,7 +3,7 @@
 Folder structure:
 
 ```bash
-├───backend/
+├───backend/        # You are here
 |   ├───methods/
 |   ├───middlewares/
 |   ├───prisma/
