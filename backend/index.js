@@ -39,7 +39,7 @@ app.use(cookieParser());
 // authorization middleware
 const authorization = (req, res, next) => {
   const token = req.cookies.access_token;
-  console.log(token);
+  // console.log(token);
   if (!token) {
     return res.status(403).send("Unauthorized.");
   }
