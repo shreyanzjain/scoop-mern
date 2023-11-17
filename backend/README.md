@@ -40,7 +40,7 @@ npm install
 
 Now, create a ```.env``` file inside of the 'backend' folder within your cloned repository. Add these environment variables into it:
 
-```json
+```
 DATABASE_URL = "YOUR_POSTGRES_DB_CONNECTION_STRING"
 
 JWT_SECRET_KEY = "YOUR_SECRET_KEY"
