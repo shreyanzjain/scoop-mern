@@ -52,6 +52,8 @@ Your database connection string can be generated using this generic string. Just
 "postgresql://username:password@localhost:5432/dbname?schema=public"
 ```
 
+You can use any string of characters as a jwt secret key. Alternatively, you can refer to [this](https://stackoverflow.com/questions/52996555/generate-a-sufficient-secret-for-jwt-nodejs-lambda).
+
 In the backend folder, run the command:
 ```bash
 npx prisma migrate dev
