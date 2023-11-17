@@ -14,7 +14,7 @@ function PlacementUpload() {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
-    await axios.post('https://127.0.0.1:3000/jobs/create/', {
+    await axios.post('http://127.0.0.1:3000/jobs/create/', {
       company: company,
       job_role: role,
       cgpa_cutoff: parseFloat(cgpa_cutoff),

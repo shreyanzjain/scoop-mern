@@ -10,7 +10,7 @@ function PlacementJobs() {
   useEffect(() => {
     const getData = async () => {
       await axios
-        .get("https://127.0.0.1:3000/jobs/get", {
+        .get("http://127.0.0.1:3000/jobs/get", {
           withCredentials: true,
         })
         .then((res) => {
