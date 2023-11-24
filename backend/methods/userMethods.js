@@ -1,9 +1,9 @@
-const { PrismaClient } = require('@prisma/client');
+const prisma = require('../instance/init');
 const bcrypt = require('bcrypt');
 
 const SALT_ROUNDS = 8;
 
-const prisma = new PrismaClient();
+
 
 async function create_user(email, role, password) {
 
@@ -37,17 +37,5 @@ async function login_user(email, password) {
     return is_correct_password;
 }
 
-async function get_data_for_jwt(email){
-    const user = await prisma.user.findFirst({
-        select: {
-            id: true,
-        },
-        where: {
-            email: email,
-        }
-    })
 
-    const user_dict = {id: user.id, email: email};
-    return user_dict;
-}
-module.exports = {create_user, login_user, get_data_for_jwt};
+module.exports = {create_user, login_user};

@@ -4,16 +4,18 @@ const bodyParser = require("body-parser");
 const jsonParser = bodyParser.json();
 const jwt = require("jsonwebtoken");
 
-const {
-  create_user,
-  login_user,
-  get_data_for_jwt,
-} = require("../methods/userMethods");
+const { create_user, login_user } = require("../methods/userMethods");
+
+const { get_data_for_jwt } = require("../methods/authMethods");
 
 const { authorization } = require("../middlewares/authorization");
 
-router.get("/protected", authorization, (req, res) => {
-  res.send({ userId: req.userId });
+router.get("/get_user_data", authorization, (req, res) => {
+  res.send({
+    userId: req.userId,
+    userRole: req.userRole,
+    userEmail: req.userEmail,
+  });
 });
 
 router.get("/logout", authorization, (req, res) => {
@@ -32,11 +34,14 @@ router.post("/login", jsonParser, async (req, res) => {
   );
   if (is_correct_password) {
     const user_dict = await get_data_for_jwt(req.body.email);
-    const token = jwt.sign(user_dict, process.env.JWT_SECRET_KEY);
+    const token = jwt.sign(user_dict, process.env.JWT_SECRET_KEY, {
+      expiresIn: "7d",
+    });
     return res
       .cookie("access_token", token, {
         httpOnly: true,
         sameSite: "lax",
+        maxAge: 604800000, // 7 days
       })
       .status(200)
       .json({ message: "Logged In Successfully" });
@@ -44,6 +49,5 @@ router.post("/login", jsonParser, async (req, res) => {
     res.status(403).send("Incorrect Credentials");
   }
 });
-
 
 module.exports = router;

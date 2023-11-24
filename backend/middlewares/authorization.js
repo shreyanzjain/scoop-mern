@@ -12,8 +12,8 @@ const authorization = (req, res, next) => {
   try {
     const data = jwt.verify(token, process.env.JWT_SECRET_KEY);
     req.userId = data.id;
+    req.userRole = data.role;
     req.userEmail = data.email;
-    req.userRole = data.userRole;
 
     // if token is verified
     return next();
