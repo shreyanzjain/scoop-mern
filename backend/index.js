@@ -1,11 +1,11 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+require("dotenv").config();
 
 const userRoutes = require("./routes/userRoutes");
 const jobRoutes = require("./routes/jobRoutes");
-
-require("dotenv").config();
+const adminRoutes = require("./routes/adminRoutes");
 
 const app = express();
 const port = 3000;
@@ -20,6 +20,7 @@ app.use(cookieParser());
 
 app.use('/user', userRoutes);
 app.use('/jobs', jobRoutes);
+app.use('/admin', adminRoutes);
 
 app.listen(port, () => {
   console.log(`App listening on http://localhost:${port}`);
