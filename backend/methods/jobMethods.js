@@ -32,21 +32,12 @@ async function create_job(
 
   if (branches != undefined) {
     branches.map(async (branch) => {
-      await prisma.jobBranch
-        .create({
-          data: {
-            branch: branch,
-            job_id: job.id,
-          },
-        })
-        .then(async () => {
-          await prisma.$disconnect();
-        })
-        .catch(async (e) => {
-          console.log(e);
-          await prisma.$disconnect();
-          process.exit(1);
-        });
+      await prisma.jobBranch.create({
+        data: {
+          branch: branch,
+          job_id: job.id,
+        },
+      });
     });
   }
 }
