@@ -36,12 +36,19 @@ enum JobStatus {
 model User {
   id Int @id @default(autoincrement())
   email String @unique @db.VarChar(255)
-  role Role?
+  role Role 
   hashed_password String @db.VarChar(64)
   last_password String? @db.VarChar(64)
   last_modified_date DateTime @default(now()) @db.Timestamp(6)
 
   @@map("users")
+}
+
+model Admin {
+  id Int @unique @default(autoincrement())
+  name String @db.VarChar(80)
+
+  @@map("admins")
 }
 
 model Job {
@@ -58,6 +65,8 @@ model Job {
   kt_allowed Boolean @default(false)
   drop_allowed_ug Boolean @default(false)
   branches JobBranch[]
+
+  @@map("jobs")
 }
 
 model JobBranch {
@@ -65,4 +74,6 @@ model JobBranch {
   branch JobBranchesEnum @default(ALL)
   job Job @relation(fields: [job_id], references: [id], onDelete: Cascade)
   job_id Int
+
+  @@map("branch")
 }
