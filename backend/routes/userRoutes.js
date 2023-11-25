@@ -4,36 +4,20 @@ const bodyParser = require("body-parser");
 const jsonParser = bodyParser.json();
 const jwt = require("jsonwebtoken");
 
-const { create_user, login_user } = require("../methods/userMethods");
+const { login_user } = require("../methods/userMethods");
 const { get_data_for_jwt } = require("../methods/authMethods");
 const { authorization } = require("../middlewares/authorization");
 
-router.get("/get_user_data", authorization, (req, res) => {
+router.get("/auth_test", authorization, (req, res) => {
   res.send({
-    userId: req.userId,
-    userRole: req.userRole,
-    userEmail: req.userEmail,
+    entityId: req.entityId,
+    entityRole: req.entityRole,
+    entityEmail: req.entityEmail,
   });
 });
 
 router.get("/logout", authorization, (req, res) => {
-  return res.clearCookie("access_token");
-});
-
-router.post("/create", jsonParser, async (req, res) => {
-  const { email, role, password } = req.body;
-  if (email && role && password) {
-    const response = await create_user(
-      req.body.email,
-      req.body.role,
-      req.body.password
-    );
-    return res.status(parseInt(response[0])).send(response[1]);
-  } else {
-    res
-      .status(400)
-      .send("either or all of email, role, password not in req body.");
-  }
+  return res.clearCookie("access_token").status(200).send("Logged Out.");
 });
 
 router.post("/login", jsonParser, async (req, res) => {
@@ -52,7 +36,7 @@ router.post("/login", jsonParser, async (req, res) => {
           maxAge: 604800000, // 7 days
         })
         .status(200)
-        .json({ message: "Logged In Successfully" });
+        .send("Logged In Successfully");
     } else {
       res.status(400).send("Incorrect Credentials");
     }
