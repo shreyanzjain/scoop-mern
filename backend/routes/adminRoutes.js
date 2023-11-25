@@ -2,11 +2,16 @@ const express = require("express");
 const router = express.Router();
 const bodyParser = require("body-parser");
 const jsonParser = bodyParser.json();
+// const path = require("path");
+// const fs = require("fs");
+// const multer = require("multer");
+// const csv = require("fast-csv");
+// modules required (MAYBE) to implement a bulk upload of student email ID's
 
 const { create_admin } = require("../methods/adminMethods");
 const { authorization } = require("../middlewares/authorization");
 
-
+// create an admin user on the first run
 create_admin("admin@admin.com", "ADMIN", "admin");
 
 router.post("/register_admin", authorization, async (req, res) => {
@@ -47,7 +52,7 @@ router.post(
 );
 
 router.post("/register_envoy", authorization, jsonParser, async (req, res) => {
-  if (req.entityEmail === "ADMIN") {
+  if (req.entityRole === "ADMIN") {
     const { email, password } = req.body;
     if (email && password) {
       const response = await create_user(email, "ENVOY", password);
