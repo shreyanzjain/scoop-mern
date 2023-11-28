@@ -15,3 +15,9 @@ python
 
 # Keep migrations out of VC
 migrations
+
+# keep uploaded files out of VC
+public
+
+# keep .csv files out of VC
+*.csv
