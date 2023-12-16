@@ -1,22 +1,23 @@
-import React from 'react'
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const Justify = styled.div`
-    text-align: justify;
-    text-justify: inter-word;
-`
+  text-align: justify;
+  text-justify: inter-word;
+`;
+
 const BannerContainer = styled.div`
-  background-color: #6366F1;
   color: #f0f0f0;
-  padding: 10px;
+  padding: 20px;
   text-align: center;
   display: flex;
-  border-radius: 3px;
+  border-radius: 8px;
   animation: moveBanner 10s linear infinite;
-  position: sticky; /* Make the banner sticky */
-  top: 0; /* Stick to the top of the viewport */
+  position: fixed;
+  top: 75px;
   z-index: 1;
   overflow: hidden;
+
   @keyframes moveBanner {
     0% {
       transform: translateX(100%);
@@ -24,50 +25,88 @@ const BannerContainer = styled.div`
     100% {
       transform: translateX(0%);
     }
-    
-    
   }
-`
+`;
 
 const DepartmentContainer = styled.div`
   text-align: center;
   flex-grow: 1;
-  border: 2px solid #fff; /* Add a white border around each department container */
-  padding: 10px; /* Add some padding to create space between the content and the border */
-  margin: 5px; /* Add margin to create space between department containers */
-`
+  border: 2px solid #fff;
+  padding: 15px;
+  margin-right: 20px; /* Adjusted margin for better spacing */
+  border-radius: 8px;
+  background-color: #6366f1;
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column; /* Updated to column direction */
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+
+  &:last-child {
+    margin-right: 0; /* No margin for the last department container */
+  }
+
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 50px; /* Adjust the left margin as needed */
+    margin-right: 50px;
+  }
+
+  p {
+    margin: 0; /* Remove default paragraph margin */
+    font-size: 18px; /* Adjusted font size for better readability */
+  }
+`;
+
+
 
 const TopSalariesBanner = () => {
   return (
     <BannerContainer>
       <DepartmentContainer>
-        <p>Department 1</p>
-        <p>Top Salary</p>
+      <div className='text-container'>
+          <p>CS</p>
+          <p>Top Salary</p>
+        </div>
       </DepartmentContainer>
       <DepartmentContainer>
-        <p>Department 2</p>
-        <p>Top Salary</p>
+      <div className='text-container'>
+          <p>IT</p>
+          <p>Top Salary</p>
+        </div>
       </DepartmentContainer>
       <DepartmentContainer>
-        <p>Department 3</p>
-        <p>Top Salary</p>
+      <div className='text-container'>
+          <p>AI-DS</p>
+          <p>Top Salary</p>
+        </div>
       </DepartmentContainer>
       <DepartmentContainer>
-        <p>Department 4</p>
-        <p>Top Salary</p>
+      <div className='text-container'>
+          <p>EXTC</p>
+          <p>Top Salary</p>
+        </div>
       </DepartmentContainer>
       <DepartmentContainer>
-        <p>Department 5</p>
-        <p>Top Salary</p>
+      <div className='text-container'>
+          <p>CHEMICAL</p>
+          <p>Top Salary</p>
+        </div>
       </DepartmentContainer>
     </BannerContainer>
   );
-}
-
+};
 const Why_tsec = () => {
+  document.body.style.overflow = 'hidden';
   return (
+    <div style={{ marginTop: '60px' }}>
     <section class="text-gray-600 body-font">
   <TopSalariesBanner />
+  
   <div class="container px-5 py-24 mx-auto">
     <div class="text-center mb-20">
       <h1 class="sm:text-3xl text-2xl font-medium text-center title-font text-indigo-500 mb-4">TSEC At a Glance</h1>
@@ -77,6 +116,7 @@ const Why_tsec = () => {
         </Justify>
       </p>
     </div>
+    
     <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
       <div class="p-2 sm:w-1/2 w-full">
         <div class="bg-gray-100 rounded flex p-4 h-full items-center">
@@ -133,9 +173,10 @@ const Why_tsec = () => {
         </div>
       </div>
     </div>
-    <button class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Home</button>
+    <button class="flex mx-auto mt-8 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Home</button>
   </div>
 </section>
+</div>
   )
 }
 
