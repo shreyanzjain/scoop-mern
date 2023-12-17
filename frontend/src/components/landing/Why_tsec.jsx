@@ -103,7 +103,7 @@ const TopSalariesBanner = () => {
 const Why_tsec = () => {
   document.body.style.overflow = 'hidden';
   return (
-    <div style={{ marginTop: '60px' }}>
+    <div style={{ marginTop: '60px', overflow: 'hidden' }}>
     <section class="text-gray-600 body-font">
   <TopSalariesBanner />
   

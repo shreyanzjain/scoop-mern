@@ -29,6 +29,7 @@ const CalendarComponent = () => {
   };
 
   const modalStyle = {
+    backgroundColor: '#6366f1',
     position: 'fixed',
     top: '50%',
     left: '50%',
@@ -36,7 +37,7 @@ const CalendarComponent = () => {
     width: '600px',
     height: '450px',
     border: '1px solid #000',
-    backgroundColor: '#fff',
+    color: '#fff',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -55,6 +56,7 @@ const CalendarComponent = () => {
     padding: '20px',
     fontSize: '24px',
     textAlign: 'center',
+    
   };
 
   const tileClassName = ({ date }) => {
@@ -74,6 +76,19 @@ const CalendarComponent = () => {
     setSelectedEvent(null);
   };
 
+  const blurredContainerStyle = {
+    position: 'fixed',
+    top: '0',
+    left: '0',
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Adjust the alpha value for the desired level of transparency
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backdropFilter: selectedEvent ? 'blur(5px)' : 'none', // Apply blur when modal is open
+    transition: 'backdrop-filter 0.3s ease', // Add transition for smooth effect
+  };
   return (
     <div style={centerStyle}>
       <style>
@@ -90,6 +105,7 @@ const CalendarComponent = () => {
             padding: 20px;
             font-size: 24px;
             text-align: center;
+            
           }
         `}
       </style>
@@ -101,6 +117,7 @@ const CalendarComponent = () => {
         onClickDay={handleDateClick}
       />
       {selectedEvent && (
+         <div className="blurred-container" style={blurredContainerStyle}>
         <div className="modal" style={modalStyle}>
           <span className="close" style={closeButtonStyle} onClick={closeModal}>
             &times;
@@ -110,6 +127,7 @@ const CalendarComponent = () => {
             <p>Date: {selectedEvent.day}/{selectedEvent.month}/{selectedEvent.year}</p>
             <p>Activity: {selectedEvent.activity}</p>
           </div>
+        </div>
         </div>
       )}
     </div>
