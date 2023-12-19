@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import CloudIcon from "@mui/icons-material/Cloud";
+import Info from "@mui/icons-material/Info";
 import axios from "axios";
 
 function PlacementUpload() {
@@ -148,11 +148,17 @@ function PlacementUpload() {
                   className="block uppercase tracking-wide text-licorice text-xs font-bold mb-2"
                   htmlFor="grid-description"
                 >
-                  Description
+                 <div className="flex gap-1 items-center"> 
+                   <p>Description</p>
+                   <p className="flex normal-case text-gray-600 items-center">
+                    <Info style={{fontSize: '14px'}}/>
+                    Paste the role, responsibilities, and skills required here.
+                    </p>
+                 </div>
                 </label>
                 <textarea
                   value={description}
-                  className="appearance-none resize-y block w-full bg-white text-licorice rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-2 focus:border-licorice"
+                  className="appearance-none resize-y block w-full bg-white text-licorice rounded py-3 px-3 mb-3 leading-tight focus:outline-none focus:border-2 focus:border-licorice"
                   id="grid-description"
                   type="textarea"
                   onChange={(e) => setDescription(e.target.value)}

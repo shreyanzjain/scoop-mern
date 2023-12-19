@@ -17,12 +17,12 @@ export default function () {
   useEffect(() => {
     async function fetchUserData() {
       await axios
-        .get("http://127.0.0.1:3000/user/get_user_data", {
+        .get("http://127.0.0.1:3000/user/auth_test", {
           withCredentials: true,
         })
         .then((res) => {
           console.log(res);
-          setUserText(res.data.email);
+          setUserText(res.data.entityEmail);
         })
         .catch((err) => {
           console.log(err);

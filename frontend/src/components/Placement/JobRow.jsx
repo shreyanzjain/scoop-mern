@@ -1,5 +1,6 @@
 import React from "react";
 import colorStatus from "./ColorStatus.json";
+import statusText from './StatusToText.json';
 import OpenInNewRoundedIcon from '@mui/icons-material/OpenInNewRounded';
 
 function JobRow({title, company, status}) {
@@ -14,7 +15,7 @@ function JobRow({title, company, status}) {
         <div className="flex items-center justify-between gap-2">
           <div>
             <a className="border-2 rounded-xl px-2 py-1 border-licorice" style={{backgroundColor: colorStatus[status]}}>
-              {status}
+              {statusText[status]}
             </a>
           </div>
           <div>

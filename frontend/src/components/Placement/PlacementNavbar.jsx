@@ -5,8 +5,8 @@ import axios from "axios";
 
 function login() {
   axios.post("http://127.0.0.1:3000/user/login", {
-    email: "varun@nikunj.com",
-    password: "varunnikunj",
+    email: "admin@admin.com",
+    password: "admin",
   }, {
     withCredentials: true
   })
@@ -19,7 +19,7 @@ function login() {
 }
 
 function protected_check() {
-  axios.get("http://127.0.0.1:3000/user/protected", {
+  axios.get("http://127.0.0.1:3000/user/auth_test", {
     withCredentials: true
   })
   .then((response)=> {
