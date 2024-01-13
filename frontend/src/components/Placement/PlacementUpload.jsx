@@ -158,7 +158,7 @@ function PlacementUpload() {
                 </label>
                 <textarea
                   value={description}
-                  className="appearance-none resize-y block w-full bg-white text-licorice rounded py-3 px-3 mb-3 leading-tight focus:outline-none focus:border-2 focus:border-licorice"
+                  className="appearance-none resize-y block w-full bg-white text-licorice rounded pt-3 pb-32 px-3 mb-3 leading-tight focus:outline-none focus:border-2 focus:border-licorice"
                   id="grid-description"
                   type="textarea"
                   onChange={(e) => setDescription(e.target.value)}

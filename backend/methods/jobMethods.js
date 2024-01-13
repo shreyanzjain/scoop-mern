@@ -55,4 +55,43 @@ async function get_jobs() {
   return jobs;
 }
 
-module.exports = { create_job, get_jobs };
+async function get_job_by_id(id) {
+  const job = await prisma.job.findFirst({
+    where: {
+      id: id,
+    },
+    include: {
+      branches: {
+        select: {
+          branch: true,
+        },
+      },
+    },
+  });
+  if (job) {
+    return { status: 200, data: job };
+  } else {
+    return { status: 404, data: "No such job exists" };
+  }
+}
+
+async function get_jobs_by_branch(branch) {
+  branch = typeof branch === "string" ? branch : null;
+  if (branch) {
+    const jobs = await prisma.job.findMany({
+      where: {
+        branches: {
+          some: {
+            branch: branch,
+          },
+        },
+      },
+    });
+
+    return { status: 200, data: jobs };
+  } else {
+    return { status: 404, data: "Send branch as query parameter." };
+  }
+}
+
+module.exports = { create_job, get_jobs, get_job_by_id, get_jobs_by_branch };
