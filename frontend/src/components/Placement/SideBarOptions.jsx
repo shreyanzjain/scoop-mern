@@ -13,7 +13,7 @@ function SideBarOptions({
         e.preventDefault();
         onClickOption(thisOptionValue);
       }}
-      className="flex w-full h-12 border-b-2 border-ebony border-op items-center justify-start font-bold text-licorice hover:border-licorice hover:bg-tan"
+      className="flex w-full h-12 border-b-2 border-ebony border-op items-center justify-start font-bold text-licorice hover:border-licorice hover:bg-tan pr-4"
     >
       <ApiIcon
         className={`ms-2 ${optionValue == thisOptionValue ? "" : "text-ebony"}`}

@@ -18,6 +18,10 @@ function SideBar({ onClickOption, optionValue }) {
       id: 4,
       value: "Upload",
     },
+    {
+      id:5,
+      value: "Admin Cal"
+    }
   ];
 
   const sideBarOptionsList = options.map(({ id, value }) => {

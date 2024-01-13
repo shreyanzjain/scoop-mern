@@ -78,7 +78,7 @@ function InterviewBlogs() {
     };
 
     return (
-        <div className="p-2 bg-gray-100 border rounded shadow-md">
+        <div className="p-2 bg-gray-50 border rounded shadow-md">
             <div className="text-left">
                 <h1 className="text-3xl text-indigo-500 tracking-widest font-medium title-font mb-2">Interview Blogs</h1>
             </div>

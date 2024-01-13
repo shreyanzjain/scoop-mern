@@ -6,6 +6,7 @@ import PlacementUpload from "./PlacementUpload";
 import PlacementStudents from "./PlacementStudents";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import AdminCalendar from "../Calendar/adminCalendar";
 
 export default function () {
   const [userText, setUserText] = useState("");
@@ -41,6 +42,7 @@ export default function () {
         {showComponent == 2 && <PlacementJobs />}
         {showComponent == 3 && <PlacementStudents />}
         {showComponent == 4 && <PlacementUpload />}
+        {showComponent==5 && <AdminCalendar/>}
       </span>
     </div>
   );
