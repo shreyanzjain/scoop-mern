@@ -314,6 +314,23 @@ const AdminCalendar = () => {
   const [activeButton, setActiveButton] = useState('Add');
   const [editCategory, setEditCategory] = useState('College');
   const [editStartDate, setEditStartDate] = useState(null);
+  
+  
+  const handleCategoryChangeEdit = (e) => {
+    setEditCategory(e.target.value);
+  };
+
+  const handleStartDateChangeEdit = (newDate) => {
+    setEditStartDate(newDate);
+  };
+
+  const handleDateChange = (newDate) => {
+    setDate(newDate);
+  };
+
+  const handleDateClick = (value) => {
+    setSelectedDate(value);
+  };
 
   const handleEventTitleChange = (e) => {
     setEventTitle(e.target.value);
@@ -326,11 +343,78 @@ const AdminCalendar = () => {
   const handleCategoryChange = (e) => {
     setCategory(e.target.value);
   };
-    const handleDateChange = (newDate) => {
-    setDate(newDate);
+
+  const toggleButton = (button) => {
+    setActiveButton(button);
   };
-  const handleDateClick = (value) => {
-    setSelectedDate(value);
+
+  const scheduleEvent = () => {
+    if (!selectedDate || !eventTitle || !eventDuration) {
+      alert('Please fill in all fields before scheduling an event.');
+      return;
+    }
+
+    const startDate = new Date(selectedDate);
+    const endDate = new Date(selectedDate);
+    endDate.setDate(endDate.getDate() + parseInt(eventDuration, 10));
+
+    const newEvent = {
+      startDate,
+      endDate,
+      title: eventTitle,
+      duration: parseInt(eventDuration, 10),
+      category,
+    };
+
+    setEvents([...events, newEvent]);
+    setSelectedDate(null);
+    setEventTitle('');
+    setEventDuration('');
+    setCategory('College');
+  };
+
+  const toggleModal = (index) => {
+    setEditingIndex(index);
+  };
+
+  const handleDeleteEvent = (index) => {
+    const updatedEvents = [...events];
+    updatedEvents.splice(index, 1);
+    setEvents(updatedEvents);
+  };
+
+  const handleEditEvent = (index) => {
+    setEditingIndex(index);
+    const event = events[index];
+    setEditEventTitle(event.title);
+    setEditEventDuration(event.duration.toString());
+    setEditStartDate(new Date(event.startDate));
+    setEditCategory(event.category);
+  };
+
+  const handleUpdateEvent = () => {
+    if (editingIndex !== null) {
+      const updatedEvents = [...events];
+      const event = updatedEvents[editingIndex];
+      event.title = editEventTitle;
+      event.duration = parseInt(editEventDuration, 10);
+      event.startDate = new Date(editStartDate);
+      event.endDate = new Date(editStartDate);
+      event.endDate.setDate(event.endDate.getDate() + event.duration);
+      event.category = editCategory;
+
+      setEvents(updatedEvents);
+      setEditingIndex(null);
+      setEditEventTitle('');
+      setEditEventDuration('');
+      setEditStartDate(null);
+    }
+  };
+
+  const handleCancelEdit = () => {
+    setEditingIndex(null);
+    setEditEventTitle('');
+    setEditEventDuration('');
   };
 
   return (

@@ -3,7 +3,6 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import jsonData from './calendardata.json';
 import './CustomCalendar.css';
-import styled from "styled-components";
 
 const CalendarComponent = () => {
   const [date, setDate] = useState(new Date());
@@ -18,7 +17,8 @@ const CalendarComponent = () => {
 
   const centerStyle = {
     display: 'flex',
-    justifyContent: 'center',
+    flexDirection: 'column',  // Change to column direction
+    justifyContent: 'center', // Align items to the top
     alignItems: 'center',
     minHeight: '70vh', // Adjust the height as needed
   };
@@ -29,7 +29,7 @@ const CalendarComponent = () => {
   };
 
   const modalStyle = {
-    backgroundColor: '#6366f1',
+    backgroundColor: '#D3D3D3',
     position: 'fixed',
     top: '50%',
     left: '50%',
@@ -37,7 +37,7 @@ const CalendarComponent = () => {
     width: '600px',
     height: '450px',
     border: '1px solid #000',
-    color: '#fff',
+    color: '#000',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -68,9 +68,10 @@ const CalendarComponent = () => {
 
   const handleDateClick = (value) => {
     const clickedDate = value.toDateString();
-    const event = jsonData.find((item) => new Date(item.year, item.month - 1, item.day).toDateString() === clickedDate);
-    setSelectedEvent(event);
+    const events = jsonData.filter((item) => new Date(item.year, item.month - 1, item.day).toDateString() === clickedDate);
+    setSelectedEvent(events);
   };
+  
 
   const closeModal = () => {
     setSelectedEvent(null);
@@ -117,19 +118,39 @@ const CalendarComponent = () => {
         onClickDay={handleDateClick}
       />
       {selectedEvent && (
-         <div className="blurred-container" style={blurredContainerStyle}>
-        <div className="modal" style={modalStyle}>
-          <span className="close" style={closeButtonStyle} onClick={closeModal}>
-            &times;
-          </span>
-          <div className="modal-content" style={modalContentStyle}>
-            <h2>Event Information</h2>
-            <p>Date: {selectedEvent.day}/{selectedEvent.month}/{selectedEvent.year}</p>
-            <p>Activity: {selectedEvent.activity}</p>
+        <div className="blurred-container" style={blurredContainerStyle}>
+          <div className="modal" style={modalStyle}>
+            <span className="close" style={closeButtonStyle} onClick={closeModal}>
+              &times;
+            </span>
+            <div className="modal-content" style={modalContentStyle}>
+              {selectedEvent.length > 0 ? (
+                <table className="w-full mt-4 border">
+                  <thead>
+                    <tr className="bg-blue-100">
+                      <th className="border p-2">Date</th>
+                      <th className="border p-2">Activity</th>
+                      <th className="border p-2">Category</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {selectedEvent.map((event, index) => (
+                      <tr key={index}>
+                        <td className="border p-2 text-center">{`${event.day}/${event.month}/${event.year}`}</td>
+                        <td className="border p-2 text-center">{event.activity}</td>
+                        <td className="border p-2 text-center">{event.catgeory}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              ) : (
+                <p>No events on this date.</p>
+              )}
+            </div>
           </div>
         </div>
-        </div>
       )}
+
     </div>
   );
 };
