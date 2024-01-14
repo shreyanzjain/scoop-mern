@@ -421,7 +421,7 @@ const AdminCalendar = () => {
     <div className="flex bg-whitesmoke h-screen lg:text-md sm:text-base">
       {/* Left side with Calendar */}
       <div className="flex-shrink-0 flex-glow-0 p-4 h-full bg-whitesmoke" style={{ width: '1050px' }}>
-        <Calendar/>
+        <Calendar showModal={false} />
       </div>
 
       {/* Right side container */}

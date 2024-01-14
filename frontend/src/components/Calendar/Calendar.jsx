@@ -4,7 +4,7 @@ import 'react-calendar/dist/Calendar.css';
 import jsonData from './calendardata.json';
 import './CustomCalendar.css';
 
-const CalendarComponent = () => {
+const CalendarComponent = ({ showModal = true }) => {
   const [date, setDate] = useState(new Date());
   const [highlightedDates, setHighlightedDates] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -67,6 +67,11 @@ const CalendarComponent = () => {
   };
 
   const handleDateClick = (value) => {
+    if (!showModal) {
+      // Handle the date click for adminCalendar (no modal)
+      // You can add your adminCalendar-specific logic here
+      return;
+    }
     const clickedDate = value.toDateString();
     const events = jsonData.filter((item) => new Date(item.year, item.month - 1, item.day).toDateString() === clickedDate);
     setSelectedEvent(events);
@@ -117,7 +122,7 @@ const CalendarComponent = () => {
         style={calendarStyle}
         onClickDay={handleDateClick}
       />
-      {selectedEvent && (
+      {showModal && selectedEvent && (
         <div className="blurred-container" style={blurredContainerStyle}>
           <div className="modal" style={modalStyle}>
             <span className="close" style={closeButtonStyle} onClick={closeModal}>
