@@ -11,13 +11,13 @@ import CallIcon from '@mui/icons-material/Call';
 import PersonIcon from '@mui/icons-material/Person';
 
 const Container = styled.div`
-    flex: 1;
-    background-color: #F0F0F0;
-    height: 100vh;
-    color: black;
-    position: sticky;
-    top: 0;
-`
+  flex: 1;
+  background-color: #f0f0f0;
+  height: 100vh;
+  color: black;
+  position: sticky;
+  top: 0;
+`;
 
 const Wrapper = styled.div`
     padding: 5px 5px;

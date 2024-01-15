@@ -9,9 +9,9 @@ import { NavLink } from 'react-router-dom';
 const Container = styled.div`
   position: sticky;
   top: 0;
-  background-color: #F0F0F0;
+  background-color: #f0f0f0;
   height: 56px;
-`
+`;
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
@@ -76,11 +76,11 @@ const Navbar = ({ setSelectedOptioon }) => {
           </Button1>
         </Item>
 
-        <Item>
+        {/* <Item>
           <Button1>
             <NavLink to="/calendar">Cal</NavLink>
           </Button1>
-        </Item>
+        </Item> */}
 
         <Item>
           <Button1>
