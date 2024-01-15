@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import styled from "styled-components";
-import Menu from "./Menu"; //comment
+import Menu from "./Menu"; 
 import Navbar from "./Navbar";
 import Home from "./Home";
 import Why_tsec from "./Why_tsec";
@@ -13,7 +13,6 @@ import CollegeEnvoys from "./CollegeEnvoys";
 import InterviewBlogs from "./InterviewBlogs";
 import Alumnie from "./Alumnie";
 import ContactUs from "./ContactUs";
-import { Routes, Route, Outlet } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
@@ -35,21 +34,6 @@ const componentsMap = {
   Alumnie,
   ContactUs
 }
-
-// function LandingPage() {
-
-//   return (
-//     <Container>
-//     <Menu/>
-//     <Main>
-//       <Navbar/>
-//       <Outlet />
-//     </Main>
-//   </Container>
-//   )
-// }
-
-// export default LandingPage
 
 const LandingPage = () => {
   const [selectedOption, setSelectedOption] = useState("Home");
