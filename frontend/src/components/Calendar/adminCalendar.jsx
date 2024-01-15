@@ -439,19 +439,50 @@ const AdminCalendar = () => {
     setSelectedDatePicker(e.target.value); // Fix the function to use setSelectedDatePicker
   };
   
+  const [isFormVisible, setIsFormVisible] = useState(true);
+
+  // Function to toggle the visibility of the schedule form
+  
+  const [isH1Small, setIsH1Small] = useState(false);
+
+  // Function to toggle the size of the h1 tag
+  const toggleH1Size = () => {
+    setIsH1Small(!isH1Small);
+  };
+
+  // Function to toggle the visibility of the schedule form
+  const toggleMinimize = () => {
+    setIsFormVisible(!isFormVisible);
+    toggleH1Size(); // Toggle the size of h1 when form visibility changes
+  };
+
   return (
     <div className="flex bg-whitesmoke h-screen lg:text-md sm:text-base">
+      
       {/* Left side with Calendar */}
       <div className="flex-shrink-0 flex-glow-0 p-4 h-full bg-whitesmoke" style={{ width: '1050px' }}>
         <Calendar showEdit={true} />
       </div>
 
       {/* Right side container */}
-      <div className="flex-shrink-0 flex-glow-0 p-4 h-full bg-whitesmoke">
+       <div className={`flex-shrink-0 flex-glow-0 p-4 bg-whitesmoke`}>
+      
+  {/* Schedule Event Form */}
         {/* Schedule Event Form */}
-        <div className="border border-gray-400 p-4" style={{ width: '300', height: '650px' }}>
-          <h1 className="text-3xl font-semibold mb-4">Schedule Event</h1>
-          <form>
+        <div className="border border-gray-400 p-4 ">
+          <div className="flex justify-end">
+            <div className="text-sm font-bold cursor-pointer" onClick={toggleMinimize}>
+            <img
+            src={isFormVisible ? "https://img.icons8.com/material-outlined/24/000000/chevron-up.png" : "https://img.icons8.com/material-outlined/24/000000/chevron-down.png"}
+              alt="Family Icon"
+              className="cursor-pointer" // Add any additional styling if needed
+              onClick={toggleMinimize}
+            />
+            </div>
+          </div>
+          <h1 className={`text-3xl font-semibold mr-12 ${isH1Small ? 'text-sm' : ''}`}>
+            Schedule Event</h1>
+          {isFormVisible && (<form>
             <div className="mb-4">
               <label htmlFor="eventTitle" className="block text-sm font-medium text-gray-700">
                 Event Title
@@ -541,8 +572,9 @@ const AdminCalendar = () => {
             >
               Schedule Event
             </button>
-          </form>
+          </form>)}
         </div>
+        
       </div>
     </div>
   );
