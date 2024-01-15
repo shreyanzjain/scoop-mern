@@ -13,6 +13,7 @@ import CollegeEnvoys from "./CollegeEnvoys";
 import InterviewBlogs from "./InterviewBlogs";
 import Alumnie from "./Alumnie";
 import ContactUs from "./ContactUs";
+import LearnMore from "./LearnMore";
 
 const Container = styled.div`
   display: flex;
@@ -32,7 +33,8 @@ const componentsMap = {
   CollegeEnvoys,
   InterviewBlogs,
   Alumnie,
-  ContactUs
+  ContactUs,
+  LearnMore
 }
 
 const LandingPage = () => {
@@ -44,7 +46,7 @@ const LandingPage = () => {
     <Container>
     <Menu setSelectedOption={setSelectedOption}/>
     <Main>
-      <Navbar/>
+      <Navbar setSelectedOptioon={setSelectedOption}/>
       <SelectedComponent />
     </Main>
   </Container>

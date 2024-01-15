@@ -56,44 +56,61 @@ const Button1 = styled.button`
     gap: 5px;
 `
 
-const Navbar = () => {
+const Navbar = ({ setSelectedOptioon }) => {
+  const handleItemClick = (option) => {
+    setSelectedOptioon(option);
+  };
+
   return (
     <Container className="z-10">
       <Wrapper>
-
         <Item>
-        <Button1><NavLink to="/placement-cell">PL</NavLink></Button1>
+          <Button1>
+            <NavLink to="/placement-cell">PL</NavLink>
+          </Button1>
         </Item>
 
         <Item>
-        <Button1><NavLink to="/user-page">UP</NavLink></Button1>
+          <Button1>
+            <NavLink to="/user-page">UP</NavLink>
+          </Button1>
         </Item>
 
         <Item>
-        <Button1><NavLink to="/calendar">Cal</NavLink></Button1>
+          <Button1>
+            <NavLink to="/calendar">Cal</NavLink>
+          </Button1>
         </Item>
 
         <Item>
-        <Button1><NavLink to="/adminCalendar">AdCal</NavLink></Button1>
+          <Button1>
+            <NavLink to="/adminCalendar">AdCal</NavLink>
+          </Button1>
         </Item>
 
         <Item>
-        <Button1><AutoGraphIcon/>Employers</Button1>
+          <Button1>
+            <AutoGraphIcon />
+            Employers
+          </Button1>
         </Item>
 
-        <Item>
-        <Button1><LightbulbIcon/><NavLink to="/learnMore">Learn More</NavLink></Button1>
+        <Item onClick={() => handleItemClick("LearnMore")}>
+          <Button1>
+            <LightbulbIcon />
+            Learn More
+          </Button1>
         </Item>
 
-        <Item>
-        <Button><PersonIcon/><NavLink to="/login">SIGN - IN</NavLink></Button>
-        </Item>       
-        
-        
-        
+        <Item onClick={() => handleItemClick("Signup_Login")}>
+          <Button>
+            <PersonIcon />
+            SIGN - IN
+          </Button>
+        </Item>
       </Wrapper>
     </Container>
-  )
+  );
 }
 
 export default Navbar
