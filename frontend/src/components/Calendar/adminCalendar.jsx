@@ -416,12 +416,34 @@ const AdminCalendar = () => {
     setEditEventTitle('');
     setEditEventDuration('');
   };
+  const [departments, setDepartments] = useState([
+    { id: 1, name: 'Department 1' },
+    { id: 2, name: 'Department 2' },
+    // Add more departments as needed
+  ]);
 
+  // State to hold selected departments
+  const [selectedDepartments, setSelectedDepartments] = useState([]);
+
+  // Handler for department change
+  const handleDepartmentChange = (e) => {
+    const selectedOptions = Array.from(e.target.selectedOptions, (option) => option.value);
+    setSelectedDepartments(selectedOptions);
+  };
+
+  // New state for date
+  const [selectedDatePicker, setSelectedDatePicker] = useState('');
+
+  // Handler for date change
+  const handleDatePickerChange = (e) => {
+    setSelectedDatePicker(e.target.value); // Fix the function to use setSelectedDatePicker
+  };
+  
   return (
     <div className="flex bg-whitesmoke h-screen lg:text-md sm:text-base">
       {/* Left side with Calendar */}
       <div className="flex-shrink-0 flex-glow-0 p-4 h-full bg-whitesmoke" style={{ width: '1050px' }}>
-        <Calendar showModal={false} />
+        <Calendar showEdit={true} />
       </div>
 
       {/* Right side container */}
@@ -440,6 +462,19 @@ const AdminCalendar = () => {
                 name="eventTitle"
                 value={eventTitle}
                 onChange={handleEventTitleChange}
+                className="border p-2 w-64 mx-auto rounded-md"
+              />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="date" className="block text-sm font-medium text-gray-700">
+                Date
+              </label>
+              <input
+                type="date"
+                id="date"
+                name="date"
+                value={selectedDatePicker}
+                onChange={handleDatePickerChange}
                 className="border p-2 w-64 mx-auto rounded-md"
               />
             </div>
@@ -464,13 +499,41 @@ const AdminCalendar = () => {
                 id="category"
                 name="category"
                 value={category}
-                onChange={handleCategoryChange}
+                onChange={handleDepartmentChange}
                 className="border p-2 w-64 mx-auto rounded-md"
               >
                 <option value="College">College</option>
                 <option value="Placement">Placement</option>
               </select>
             </div>
+            
+            <div className="mb-4">
+            <label htmlFor="department" className="block text-sm font-medium text-gray-700">
+              Department
+            </label>
+            <select
+              id="department"
+              name="department"
+              value={selectedDepartments}
+              onChange={handleDepartmentChange}
+              multiple={true} // Allow multiple selections
+              className="border p-2 w-64 mx-auto rounded-md"
+            >
+              {departments.map((dept) => (
+                <option key={dept.id} value={dept.name}>
+                  <span className="flex items-center">
+                    <input
+                      type="checkbox"
+                      value={dept.name}
+                      checked={selectedDepartments.includes(dept.name)}
+                      className="mr-2"
+                    />
+                    {dept.name}
+                  </span>
+                </option>
+              ))}
+            </select>
+          </div>
             {/* Add other form elements and event handling as needed */}
             <button
               type="submit"
