@@ -70,70 +70,88 @@ const Button = styled.button`
     align-items: center;
     gap: 5px;
 `
-const Menu = () => {
-  return (  
+const Menu = ({ setSelectedOption }) => {
+
+    const handleItemClick = (option) => {
+        setSelectedOption(option);
+    };
+
+  return (
     <Container>
-        <Wrapper>
-
+      <Wrapper>
         <Logo>
-                <Img src={vTube}/>   
-                Scoop        
-            </Logo>
+          <Img src={vTube} />
+          Scoop
+        </Logo>
 
-            <Item>
-                <HomeIcon/>
-                <NavLink to="/home">Home</NavLink>
-            </Item>
+        <Item>
+          <HomeIcon />
+          <span onClick={() => handleItemClick("Home")}>Home</span>
+        </Item>
 
-            <Item>
-                <HelpIcon/>
-                <NavLink to="/whytsec">Why TSEC?</NavLink>
-            </Item>
+        <Item>
+          <HelpIcon />
+          <span onClick={() => handleItemClick("Why_tsec")}>Why Tsec?</span>
+        </Item>
 
-            <Hr/>
+        <Hr />
 
-            <Login>
-                Sign In to use the placement portal.
-                <Button><PersonIcon/><NavLink to="/login">SIGN IN</NavLink></Button>
-            </Login>
+        <Login>
+          Sign In to use the placement portal.
+          <Button>
+            <PersonIcon />
+            <span onClick={() => handleItemClick("Signup_Login")}>
+              SIGN - IN
+            </span>
+          </Button>
+        </Login>
 
-            <Hr/>
+        <Hr />
 
-            <Item>
-                <GroupsIcon/>
-                <NavLink to="/CollegeEnvoys">Placement Department</NavLink>
-            </Item>
+        <Item>
+          <GroupsIcon />
+          <span onClick={() => handleItemClick("CollegeEnvoys")}>
+            Placement Department
+          </span>
+        </Item>
 
-            <Item >
-                <BarChartIcon/>
-                <NavLink to="/PlacementStats">Placement Statistics</NavLink>
-            </Item>
+        <Item>
+          <BarChartIcon />
+          <span onClick={() => handleItemClick("PlacementStats")}>
+            Placement Statistics
+          </span>
+        </Item>
 
-            <Hr/>
+        <Hr />
 
-            <Item>
-                <BusinessIcon/>
-                <NavLink to="/OurRecruiters">Our Recruiters</NavLink>
-            </Item>
+        <Item>
+          <BusinessIcon />
+          <span onClick={() => handleItemClick("OurRecruiters")}>
+            Our Recruiters
+          </span>
+        </Item>
 
-            <Item>
-            <AccountTreeIcon/>
-            <NavLink to="/InterviewBlogs">Interview Blogs</NavLink>
-            </Item>
+        <Item>
+          <AccountTreeIcon />
+          <span onClick={() => handleItemClick("InterviewBlogs")}>
+            Interview Blogs
+          </span>
+        </Item>
 
-            <Item>
-            <BusinessIcon/> <NavLink to="/Alumnie">Alumnie Directory</NavLink>
-            </Item>
-            <Hr/>
-            <Item>
-            <CallIcon/>
-            <NavLink to="/ContactUs">Contact Us</NavLink>
-            </Item>
-
-        </Wrapper>
-    </Container>  
-   
-  )
+        <Item>
+          <BusinessIcon />
+          <span onClick={() => handleItemClick("Alumnie")}>Alumni</span>
+        </Item>
+        <Hr />
+        <Item>
+          <CallIcon />
+          <span onClick={() => handleItemClick("ContactUs")}>
+            Contact Us
+          </span>
+        </Item>
+      </Wrapper>
+    </Container>
+  );
 }
 
 export default Menu
