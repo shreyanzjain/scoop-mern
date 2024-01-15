@@ -465,7 +465,7 @@ const AdminCalendar = () => {
       </div>
 
       {/* Right side container */}
-       <div className={`flex-shrink-0 flex-glow-0 p-4 bg-whitesmoke`} style={{ position: 'absolute', right: 0, top: 50, bottom: 0, width: '340px' }}>
+       <div className={`flex-shrink-0 flex-glow-0 p-4 bg-whitesmoke`} style={{ position: 'relative', right: 0, top: 0, bottom: 0, width: '340px' }}>
       
   {/* Schedule Event Form */}
         {/* Schedule Event Form */}
@@ -480,7 +480,7 @@ const AdminCalendar = () => {
             />
             </div>
           </div>
-          <h1 className={`text-3xl font-semibold mr-12 ${isH1Small ? 'text-m' : ''} flex items-center justify-center`}>
+          <h1 className={`text-3xl font-semibold mr-12 ${isH1Small ? 'text-m' : ''}`}>
             Schedule Event</h1>
           {isFormVisible && (<form>
             <div className="mb-4">
