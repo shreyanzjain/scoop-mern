@@ -84,12 +84,6 @@ const Navbar = ({ setSelectedOptioon }) => {
 
         <Item>
           <Button1>
-            <NavLink to="/adminCalendar">AdCal</NavLink>
-          </Button1>
-        </Item>
-
-        <Item>
-          <Button1>
             <AutoGraphIcon />
             Employers
           </Button1>
