@@ -173,6 +173,8 @@ const CalendarComponent = ({ showEdit = false }) => {
   const [highlightedDates, setHighlightedDates] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
 
+
+
   useEffect(() => {
     // Process your JSON data to extract the date information and set it in the state
     const dates = jsonData.map(({ year, month, day }) => new Date(year, month - 1, day));
@@ -198,7 +200,17 @@ const CalendarComponent = ({ showEdit = false }) => {
     alignItems: 'center',
     minHeight: '100vh',
   };
-
+  const modalStyle = {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 100,
+  }
   const tableContainerStyle = {
     margin: '20px',
     
@@ -220,7 +232,56 @@ const CalendarComponent = ({ showEdit = false }) => {
     setSelectedEvent(events);
   };
   
+  const handleDeleteEvent = (eventId, eventTitle) => {
+    if (window.confirm(`Are you sure you want to delete this event "${eventTitle}"?`)) {
+      // Add logic to delete the event (e.g., an API call or updating state)
+      // Example: deleteEvent(eventId);
+    }
+  };
+  const [modalOpen, setModalOpen] = useState(false);
+  const [eventToEdit, setEventToEdit] = useState(null);
 
+
+  // ... your existing handleDateClick function ...
+
+  const handleEditEvent = (event) => {
+    setEventToEdit(event);
+    setModalOpen(true);
+  };
+
+
+  const handleModalClose = () => {
+    setModalOpen(false);
+    setEventToEdit(null);
+  };
+
+  const handleSaveChanges = () => {
+    if (window.confirm(`Are you sure you want to Update this event "${eventToEdit.activity}"?`)) {
+      // Add logic to delete the event (e.g., an API call or updating state)
+      // Example: deleteEvent(eventId);
+    }
+  };
+
+  
+  const [departments, setDepartments] = useState([
+    { id: 1, name: 'CS' },
+    { id: 2, name: 'IT' },
+    { id: 3, name: 'AI/DS' },
+    { id: 4, name: 'EXTC' },
+    { id: 5, name: 'CHEMICAL' }
+    
+    // Add more departments as needed
+  ]);
+
+  // State to hold selected departments
+  const [selectedDepartments, setSelectedDepartments] = useState([]);
+
+  const handleDepartmentChange = (e) => {
+    const selectedOptions = Array.from(e.target.selectedOptions, (option) => option.value);
+    setSelectedDepartments(selectedOptions);
+  };
+  
+  
   return (
     <div>
       <style>
@@ -326,16 +387,21 @@ const CalendarComponent = ({ showEdit = false }) => {
 
             {showEdit && (
               <td>
-                <button className="edit-btn" value={event.event_id} onClick={(e) => console.log(e.target.value)}>Edit</button>
+                {/* Open the modal on the "Edit" button click */}
+                <button className="edit-btn"  onClick={() => handleEditEvent(event)}>
+                  Edit
+                </button>
               </td>
             )}
+            
             {showEdit && (
               <td>
-                <button className="delete-btn">Delete</button>
+                <button className="delete-btn" value={event.event_id} onClick={() => handleDeleteEvent(event.event_id,event.activity)}>Delete</button>
               </td>
             )}
           </tr>
         ))}
+        
       </tbody>
     </table>
   </div>
@@ -348,6 +414,156 @@ const CalendarComponent = ({ showEdit = false }) => {
           </div>
         </>
       )}
+  {modalOpen && (
+      <div className="modal-container" style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        zIndex: 100,
+      }}>
+        <div className="modal-box" style={{
+         backgroundColor: '#fff',
+         border: '1px solid #ccc',
+         padding: '20px',
+         borderRadius: '5px',
+         boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.2)',
+         height: '500px',
+         width: '600px',
+         display: 'flex', /* Added flexbox for vertical arrangement */
+         flexDirection: 'column', /* Arrange content vertically */
+         justifyContent: 'space-between', /* Distribute content with space */
+         maxHeight: '80%', /* Prevent overflow if content is too long */
+         overflowY: 'auto',
+        }}>
+          <div className="modal-header">
+          <h2 className="flex justify-center items-center text-lg font-semibold">Edit Event</h2>
+          </div>
+          <div className="modal-content">
+            {/* Display event attributes using eventToEdit, centered */}
+            <div className="flex flex-col items-center justify-center mt-4">
+              <div className="flex flex-row justify-between">
+                {/* Left side inputs */}
+                <div className="inputs-container w-1/2" style={{marginRight: '20px' }}>
+                  <div className="input-group mb-4">
+                    {/* ... first three input groups here ... */}
+                    <label className="block text-gray-700 font-bold mb-2" htmlFor="batch-passout-year">Batch Passout Year:</label>
+                    <input type="text" id="batch-passout-year" value={eventToEdit.batch_passout_year} onChange={(e) => setEventToEdit({ ...eventToEdit, batch_passout_year: e.target.value })}
+className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+                  </div>
+                    <div className="input-group mb-4">
+                    <label className="block text-gray-700 font-bold mb-2" htmlFor="eventTitle">event Title:</label>
+                    <input type="text" id="eventTitle" value={eventToEdit.activity} onChange={(e) => setEventToEdit({ ...eventToEdit, activity: e.target.value })}
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+                  </div>
+                  <div className="input-group mb-4">
+                    <label className="block text-gray-700 font-bold mb-2" htmlFor="eventDate">event Date:</label>
+                    <input type="date" id="eventDate" value={`${eventToEdit.year}-${eventToEdit.month}-${eventToEdit.day}`} onChange={(e) => {const [year, month, day] = e.target.value.split("-");
+                      setEventToEdit({ ...eventToEdit, year, month, day });
+                    }}
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+/>
+
+                  </div>
+                </div>
+
+                {/* Right side inputs */}
+                <div className="inputs-container w-1/2">
+                  <div className="input-group mb-4">
+                    <label className="block text-gray-700 font-bold mb-2" htmlFor="eventDuration">event Duration:</label>
+                    <input type="text" id="eventDuration" value={eventToEdit.duration} onChange={(e) => setEventToEdit({ ...eventToEdit, duration: e.target.value })}
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+                  </div>
+                  <div className="input-group mb-4">
+                    <label className="block text-gray-700 font-bold mb-2" htmlFor="eventCategory">event Category:</label>
+                    <select id="eventCategory" value={eventToEdit.category} onChange={(e) => setEventToEdit({ ...eventToEdit, category: e.target.value })}
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+
+                      
+                  <option
+                  
+                  value="College">College</option>
+                      <option value="Placement">Placement</option>
+                     
+                    </select>
+                  </div>
+                  <label className="block text-gray-700 font-bold mb-2" htmlFor="Department">Department:</label>
+                  <div id="Department">
+                  <div className="flex flex-col items-center justify-center mt-4">
+                      <div className="flex flex-row justify-between">
+                        <div className="inputs-container">
+                          <div className="flex flex-col space-x-4 space-y-4">
+                            
+                                         <div className="flex items-center" style={{marginLeft: '15px'}}>
+                                            <input type="checkbox" id="CS" className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" />
+                                            <label htmlFor="CS" className="ml-3 block text-sm font-medium text-gray-700">CS</label>
+                                          </div>
+                                          <div className="flex items-center">
+                                            <input type="checkbox" id="IT" className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" />
+                                            <label htmlFor="IT" className="ml-3 block text-sm font-medium text-gray-700">IT</label>
+                                          </div>
+                                          <div className="flex items-center">
+                                            <input type="checkbox" id="AI/DS" className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" />
+                                            <label htmlFor="AI/DS" className="ml-3 block text-sm font-medium text-gray-700">AI/DS</label>
+                                          </div>
+                          </div>
+                        </div>
+                        <div className="inputs-container">
+                          <div className="flex flex-col space-x-4 space-y-4">
+                            {/* Checkbox groups here */}
+                            <div className="flex items-center" style={{marginLeft: '15px'}}>
+                                            <input type="checkbox" id="EXTC" className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" />
+                                            <label htmlFor="EXTC" className="ml-3 block text-sm font-medium text-gray-700">EXTC</label>
+                                          </div>
+                            <div className="flex items-center">
+                                            <input type="checkbox" id="CHEMICAL" className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" />
+                                            <label htmlFor="CHEMICAL" className="ml-3 block text-sm font-medium text-gray-700">CHEMCIAL</label>
+                                          </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+              
+          </div>
+          <div className="modal-footer" style={{
+            display: 'flex',
+            justifyContent: 'center', /* Center buttons horizontally */
+            alignItems: 'center', /* Center buttons vertically within footer */
+          }}>
+            <button className="save-btn" style={{
+              backgroundColor: 'green',
+              color: 'white', /* Ensure text is readable on green background */
+              border: 'none', /* Remove default border */
+              padding: '10px 20px', /* Adjust padding as needed */
+              borderRadius: '5px', /* Add rounded corners */
+              cursor: 'pointer', /* Indicate interactivity */
+              marginRight: '20px' 
+            }} onClick={handleSaveChanges}>
+              Save Changes
+            </button>
+            <button className="cancel-btn" style={{
+              backgroundColor: 'red',
+              color: 'white', /* Ensure text is readable on red background */
+              border: 'none',
+              padding: '10px 20px',
+              borderRadius: '5px',
+              cursor: 'pointer',
+            }} onClick={handleModalClose}>
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+      
+    )}    
     </div>
   );
 };

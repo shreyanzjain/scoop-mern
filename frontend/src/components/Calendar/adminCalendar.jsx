@@ -307,13 +307,13 @@ const AdminCalendar = () => {
   const [category, setCategory] = useState('College');
   const [selectedDate, setSelectedDate] = useState(null);
   const [date, setDate] = useState(new Date());
+  const [activeButton, setActiveButton] = useState('Add');
   const [events, setEvents] = useState([]);
-  const [editingIndex, setEditingIndex] = useState(null);
   const [editEventTitle, setEditEventTitle] = useState('');
   const [editEventDuration, setEditEventDuration] = useState('');
-  const [activeButton, setActiveButton] = useState('Add');
   const [editCategory, setEditCategory] = useState('College');
   const [editStartDate, setEditStartDate] = useState(null);
+  const [editbatchYear, setbatchYear] = useState(null);
   
   
   const handleCategoryChangeEdit = (e) => {
@@ -338,6 +338,9 @@ const AdminCalendar = () => {
 
   const handleEventDurationChange = (e) => {
     setEventDuration(e.target.value);
+  };
+  const handleBatchPassOutChange = (e) => {
+    setbatchYear(e.target.value);
   };
 
   const handleCategoryChange = (e) => {
@@ -417,8 +420,11 @@ const AdminCalendar = () => {
     setEditEventDuration('');
   };
   const [departments, setDepartments] = useState([
-    { id: 1, name: 'Department 1' },
-    { id: 2, name: 'Department 2' },
+    { id: 1, name: 'CS' },
+    { id: 2, name: 'IT' },
+    { id: 3, name: 'AI/DS' },
+    { id: 4, name: 'EXTC' },
+    { id: 5, name: 'CHEMICAL' }
     // Add more departments as needed
   ]);
 
@@ -484,6 +490,19 @@ const AdminCalendar = () => {
             Schedule Event</h1>
           {isFormVisible && (<form>
             <div className="mb-4">
+              <label htmlFor="BatchPassOut" className="block text-sm font-medium text-gray-700">
+                Batch PassOut Year
+              </label>
+              <input
+                type="number"
+                id="BatchPassOut"
+                name="Batch PassOut Year"
+                value={editbatchYear}
+                onChange={handleBatchPassOutChange}
+                className="border p-2 w-64 mx-auto rounded-md"
+              />
+            </div>
+            <div className="mb-4">
               <label htmlFor="eventTitle" className="block text-sm font-medium text-gray-700">
                 Event Title
               </label>
@@ -542,28 +561,42 @@ const AdminCalendar = () => {
             <label htmlFor="department" className="block text-sm font-medium text-gray-700">
               Department
             </label>
-            <select
-              id="department"
-              name="department"
-              value={selectedDepartments}
-              onChange={handleDepartmentChange}
-              multiple={true} // Allow multiple selections
-              className="border p-2 w-64 mx-auto rounded-md"
-            >
-              {departments.map((dept) => (
-                <option key={dept.id} value={dept.name}>
-                  <span className="flex items-center">
-                    <input
-                      type="checkbox"
-                      value={dept.name}
-                      checked={selectedDepartments.includes(dept.name)}
-                      className="mr-2"
-                    />
-                    {dept.name}
-                  </span>
-                </option>
-              ))}
-            </select>
+            <div id="Department">
+                  <div className="flex flex-col items-center justify-center mt-4">
+                      <div className="flex flex-row justify-between">
+                        <div className="inputs-container">
+                          <div className="flex flex-col space-x-4 space-y-4">
+                            
+                                         <div className="flex items-center" style={{marginLeft: '15px'}}>
+                                            <input type="checkbox" id="CS" className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" />
+                                            <label htmlFor="CS" className="ml-3 block text-sm font-medium text-gray-700">CS</label>
+                                          </div>
+                                          <div className="flex items-center">
+                                            <input type="checkbox" id="IT" className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" />
+                                            <label htmlFor="IT" className="ml-3 block text-sm font-medium text-gray-700">IT</label>
+                                          </div>
+                                          <div className="flex items-center">
+                                            <input type="checkbox" id="AI/DS" className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" />
+                                            <label htmlFor="AI/DS" className="ml-3 block text-sm font-medium text-gray-700">AI/DS</label>
+                                          </div>
+                          </div>
+                        </div>
+                        <div className="inputs-container">
+                          <div className="flex flex-col space-x-4 space-y-4">
+                            {/* Checkbox groups here */}
+                            <div className="flex items-center" style={{marginLeft: '15px'}}>
+                                            <input type="checkbox" id="EXTC" className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" />
+                                            <label htmlFor="EXTC" className="ml-3 block text-sm font-medium text-gray-700">EXTC</label>
+                                          </div>
+                            <div className="flex items-center">
+                                            <input type="checkbox" id="CHEMICAL" className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" />
+                                            <label htmlFor="CHEMICAL" className="ml-3 block text-sm font-medium text-gray-700">CHEMCIAL</label>
+                                          </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
           </div>
             {/* Add other form elements and event handling as needed */}
             <button

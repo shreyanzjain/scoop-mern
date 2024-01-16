@@ -30,7 +30,7 @@
       "category": "Placement",
       "activity": "End of Google",
       "duration": 1,
-      "department": "Mechanical Engineering"
+      "department": "IT"
     },
     {
       "event_id": 4,
@@ -41,7 +41,7 @@
       "category": "Placement",
       "activity": "Microsoft",
       "duration": 1,
-      "department": "Civil Engineering"
+      "department": "EXTC"
     },
     {
       "event_id": 5,
@@ -52,7 +52,7 @@
       "category": "Placement",
       "activity": "Amazon",
       "duration": 1,
-      "department": "Computer Science"
+      "department": "CS"
     },
     {
       "event_id": 6,
@@ -63,7 +63,7 @@
       "category": "College",
       "activity": "Valentine's Day",
       "duration": 1,
-      "department": "Electrical Engineering"
+      "department": "ALL"
     },
     {
       "event_id": 7,
@@ -74,7 +74,7 @@
       "category": "College",
       "activity": "Christmas Vacation",
       "duration": 1,
-      "department": "Mechanical Engineering"
+      "department": "CHEMICAL"
     },
     {
       "event_id": 8,
@@ -85,7 +85,7 @@
       "category": "College",
       "activity": "Gandhi Jayanti",
       "duration": 1,
-      "department": "Civil Engineering"
+      "department": "ALL"
     },
     {
       "event_id": 9,
@@ -96,18 +96,7 @@
       "category": "Placement",
       "activity": "Start of L&T",
       "duration": 1,
-      "department": "Computer Science"
-    },
-    {
-      "event_id": 10,
-      "batch_passout_year": 2023,
-      "year": 2023,
-      "month": 10,
-      "day": 2,
-      "category": "Placement",
-      "activity": "Start of L&T",
-      "duration": 1,
-      "department": "Electrical Engineering"
+      "department": "IT"
     },
     {
       "event_id": 11,
@@ -118,7 +107,7 @@
       "category": "Placement",
       "activity": "Start of L&T",
       "duration": 1,
-      "department": "Mechanical Engineering"
+      "department": "CS"
     }
   ]
   
