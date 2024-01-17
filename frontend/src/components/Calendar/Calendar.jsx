@@ -275,12 +275,23 @@ const CalendarComponent = ({ showEdit = false }) => {
 
   // State to hold selected departments
   const [selectedDepartments, setSelectedDepartments] = useState([]);
+  const handleDepartmentCheckboxChange = (e, department) => {
+    const isChecked = e.target.checked;
 
-  const handleDepartmentChange = (e) => {
-    const selectedOptions = Array.from(e.target.selectedOptions, (option) => option.value);
-    setSelectedDepartments(selectedOptions);
-  };
+    if (department === 'ALL') {
+      // If the 'ALL' checkbox is checked, update all department checkboxes accordingly
+      const updatedDepartments = isChecked ? departments.map((dep) => dep.name) : [];
+      setSelectedDepartments(updatedDepartments);
+    } else {
+        const updatedSelectedDepartments = isChecked
+          ? [...selectedDepartments, department]
+          : selectedDepartments.filter((dep) => dep !== department);
+        setSelectedDepartments(updatedSelectedDepartments);
+      }
+    };
   
+  const isAllChecked = () => eventToEdit.department && eventToEdit.department.split(',').includes('ALL');
+
   
   return (
     <div>
@@ -355,14 +366,14 @@ const CalendarComponent = ({ showEdit = false }) => {
       ) : (
         <>
           <div style={topRightCornerStyle}>
-            <div style={clickBlockStyle} onClick={() => setSelectedEvent(null)}>
+            <div style={clickBlockStyle} className=" rounded-lg shadow-md" onClick={() => setSelectedEvent(null)}>
               Click to see the Calendar
             </div>
           </div>
           <div style={centerStyle}>
           {selectedEvent.length > 0 ? (
   <div style={tableContainerStyle}>
-    <table className="event-table">
+    <table className="event-table  rounded-lg shadow-md">
       <thead>
         <tr>
           <th>Batch PassOut Year</th>
@@ -499,15 +510,18 @@ className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 
                           <div className="flex flex-col space-x-4 space-y-4">
                             
                                          <div className="flex items-center" style={{marginLeft: '15px'}}>
-                                            <input type="checkbox" id="CS" className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" />
+                                            <input type="checkbox" id="CS" className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" checked={isAllChecked() || eventToEdit.department && eventToEdit.department.split(',').includes('IT')}
+              onChange={(e) => handleDepartmentCheckboxChange(e, 'CS')} />
                                             <label htmlFor="CS" className="ml-3 block text-sm font-medium text-gray-700">CS</label>
                                           </div>
                                           <div className="flex items-center">
-                                            <input type="checkbox" id="IT" className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" />
+                                            <input type="checkbox" id="IT" className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" checked={isAllChecked() || eventToEdit.department && eventToEdit.department.split(',').includes('IT')}
+              onChange={(e) => handleDepartmentCheckboxChange(e, 'IT')}/>
                                             <label htmlFor="IT" className="ml-3 block text-sm font-medium text-gray-700">IT</label>
                                           </div>
                                           <div className="flex items-center">
-                                            <input type="checkbox" id="AI/DS" className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" />
+                                            <input type="checkbox" id="AI/DS" className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" checked={isAllChecked() || eventToEdit.department && eventToEdit.department.split(',').includes('AI/DS')}
+              onChange={(e) => handleDepartmentCheckboxChange(e, 'AI/DS')}/>
                                             <label htmlFor="AI/DS" className="ml-3 block text-sm font-medium text-gray-700">AI/DS</label>
                                           </div>
                           </div>
@@ -516,11 +530,13 @@ className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 
                           <div className="flex flex-col space-x-4 space-y-4">
                             {/* Checkbox groups here */}
                             <div className="flex items-center" style={{marginLeft: '15px'}}>
-                                            <input type="checkbox" id="EXTC" className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" />
+                                            <input type="checkbox" id="EXTC" className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" checked={isAllChecked() ||eventToEdit.department && eventToEdit.department.split(',').includes('EXTC')}
+              onChange={(e) => handleDepartmentCheckboxChange(e, 'EXTC')}/>
                                             <label htmlFor="EXTC" className="ml-3 block text-sm font-medium text-gray-700">EXTC</label>
                                           </div>
                             <div className="flex items-center">
-                                            <input type="checkbox" id="CHEMICAL" className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" />
+                                            <input type="checkbox" id="CHEMICAL" className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" checked={isAllChecked() ||eventToEdit.department && eventToEdit.department.split(',').includes('CHEMICAL')}
+              onChange={(e) => handleDepartmentCheckboxChange(e, 'CHEMICAL')}/>
                                             <label htmlFor="CHEMICAL" className="ml-3 block text-sm font-medium text-gray-700">CHEMCIAL</label>
                                           </div>
                           </div>

@@ -475,13 +475,13 @@ const AdminCalendar = () => {
       
   {/* Schedule Event Form */}
         {/* Schedule Event Form */}
-        <div className="border border-gray-400 p-4 ">
+        <div className="border border-gray-200 p-4 rounded-lg shadow-md">
           <div className="flex justify-end">
             <div className="text-sm font-bold cursor-pointer" onClick={toggleMinimize}>
             <img
             src={isFormVisible ? "https://img.icons8.com/material-outlined/24/000000/chevron-up.png" : "https://img.icons8.com/material-outlined/24/000000/chevron-down.png"}
               alt="Family Icon"
-              className="cursor-pointer" // Add any additional styling if needed
+              className="w-6 h-6 transition-transform duration-300 rotate-180" // Add any additional styling if needed
               onClick={toggleMinimize}
             />
             </div>
