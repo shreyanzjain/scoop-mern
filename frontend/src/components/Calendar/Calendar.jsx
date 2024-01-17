@@ -247,6 +247,15 @@ const CalendarComponent = ({ showEdit = false }) => {
   const handleEditEvent = (event) => {
     setEventToEdit(event);
     setModalOpen(true);
+    if (event.department === 'ALL') {
+      // If department is 'ALL', set all departments as selected
+      const allDepartmentNames = departments.map(dep => dep.name);
+      setSelectedDepartments(allDepartmentNames);
+    } else {
+      // Otherwise, set selected departments based on the event's department
+      const selectedDepartmentsFromEvent = event.department ? event.department.split(',') : [];
+      setSelectedDepartments(selectedDepartmentsFromEvent);
+    }
   };
 
 
@@ -264,6 +273,7 @@ const CalendarComponent = ({ showEdit = false }) => {
 
   
   const [departments, setDepartments] = useState([
+    
     { id: 1, name: 'CS' },
     { id: 2, name: 'IT' },
     { id: 3, name: 'AI/DS' },
@@ -272,26 +282,28 @@ const CalendarComponent = ({ showEdit = false }) => {
     
     // Add more departments as needed
   ]);
-
-  // State to hold selected departments
+  
   const [selectedDepartments, setSelectedDepartments] = useState([]);
+  
   const handleDepartmentCheckboxChange = (e, department) => {
     const isChecked = e.target.checked;
-
-    if (department === 'ALL') {
-      // If the 'ALL' checkbox is checked, update all department checkboxes accordingly
-      const updatedDepartments = isChecked ? departments.map((dep) => dep.name) : [];
-      setSelectedDepartments(updatedDepartments);
-    } else {
-        const updatedSelectedDepartments = isChecked
-          ? [...selectedDepartments, department]
-          : selectedDepartments.filter((dep) => dep !== department);
-        setSelectedDepartments(updatedSelectedDepartments);
-      }
-    };
   
-  const isAllChecked = () => eventToEdit.department && eventToEdit.department.split(',').includes('ALL');
+    if (department === 'ALL') {
+      const updatedDepartments = isChecked ? departments.map((dep) => dep.name) : [];
+    setSelectedDepartments(updatedDepartments);
+    } else {
+      const updatedSelectedDepartments = isChecked
+        ? [...selectedDepartments, department]
+        : selectedDepartments.filter((dep) => dep !== department);
+      setSelectedDepartments(updatedSelectedDepartments);
+    }
+  };
+  const totalDepartments = departments.length;
+const midIndex = Math.ceil(totalDepartments / 2);
 
+const leftDepartments = departments.slice(0, midIndex);
+const rightDepartments = departments.slice(midIndex);
+  
   
   return (
     <div>
@@ -506,41 +518,43 @@ className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 
                   <div id="Department">
                   <div className="flex flex-col items-center justify-center mt-4">
                       <div className="flex flex-row justify-between">
-                        <div className="inputs-container">
-                          <div className="flex flex-col space-x-4 space-y-4">
-                            
-                                         <div className="flex items-center" style={{marginLeft: '15px'}}>
-                                            <input type="checkbox" id="CS" className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" checked={isAllChecked() || eventToEdit.department && eventToEdit.department.split(',').includes('IT')}
-              onChange={(e) => handleDepartmentCheckboxChange(e, 'CS')} />
-                                            <label htmlFor="CS" className="ml-3 block text-sm font-medium text-gray-700">CS</label>
-                                          </div>
-                                          <div className="flex items-center">
-                                            <input type="checkbox" id="IT" className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" checked={isAllChecked() || eventToEdit.department && eventToEdit.department.split(',').includes('IT')}
-              onChange={(e) => handleDepartmentCheckboxChange(e, 'IT')}/>
-                                            <label htmlFor="IT" className="ml-3 block text-sm font-medium text-gray-700">IT</label>
-                                          </div>
-                                          <div className="flex items-center">
-                                            <input type="checkbox" id="AI/DS" className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" checked={isAllChecked() || eventToEdit.department && eventToEdit.department.split(',').includes('AI/DS')}
-              onChange={(e) => handleDepartmentCheckboxChange(e, 'AI/DS')}/>
-                                            <label htmlFor="AI/DS" className="ml-3 block text-sm font-medium text-gray-700">AI/DS</label>
-                                          </div>
-                          </div>
-                        </div>
-                        <div className="inputs-container">
-                          <div className="flex flex-col space-x-4 space-y-4">
-                            {/* Checkbox groups here */}
-                            <div className="flex items-center" style={{marginLeft: '15px'}}>
-                                            <input type="checkbox" id="EXTC" className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" checked={isAllChecked() ||eventToEdit.department && eventToEdit.department.split(',').includes('EXTC')}
-              onChange={(e) => handleDepartmentCheckboxChange(e, 'EXTC')}/>
-                                            <label htmlFor="EXTC" className="ml-3 block text-sm font-medium text-gray-700">EXTC</label>
-                                          </div>
-                            <div className="flex items-center">
-                                            <input type="checkbox" id="CHEMICAL" className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" checked={isAllChecked() ||eventToEdit.department && eventToEdit.department.split(',').includes('CHEMICAL')}
-              onChange={(e) => handleDepartmentCheckboxChange(e, 'CHEMICAL')}/>
-                                            <label htmlFor="CHEMICAL" className="ml-3 block text-sm font-medium text-gray-700">CHEMCIAL</label>
-                                          </div>
-                          </div>
-                        </div>
+                      <div className="flex">
+    {/* Left column */}
+    <div className="flex flex-col">
+      {leftDepartments.map((department) => (
+        <div key={department.id} className="flex items-center" style={{ marginLeft: '15px' }}>
+          <input
+            type="checkbox"
+            id={department.name}
+            className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+            checked={selectedDepartments.includes(department.name)}
+            onChange={(e) => handleDepartmentCheckboxChange(e, department.name)}
+          />
+          <label htmlFor={department.name} className="ml-3 block text-sm font-medium text-gray-700">
+            {department.name}
+          </label>
+        </div>
+      ))}
+    </div>
+
+    {/* Right column */}
+    <div className="flex flex-col ml-6">
+      {rightDepartments.map((department) => (
+        <div key={department.id} className="flex items-center" style={{ marginLeft: '15px' }}>
+          <input
+            type="checkbox"
+            id={department.name}
+            className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+            checked={selectedDepartments.includes(department.name)}
+            onChange={(e) => handleDepartmentCheckboxChange(e, department.name)}
+          />
+          <label htmlFor={department.name} className="ml-3 block text-sm font-medium text-gray-700">
+            {department.name}
+          </label>
+        </div>
+      ))}
+    </div>
+  </div>
                       </div>
                     </div>
                   </div>
