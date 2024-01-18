@@ -107,7 +107,7 @@ const Why_tsec = () => {
     <section class="text-gray-600 body-font">
   <TopSalariesBanner />
   
-  <div class="container px-5 py-24 mx-auto">
+  <div class="container px-5 py-24 mx-auto" >
     <div class="text-center mb-20">
       <h1 class="sm:text-3xl text-2xl font-medium text-center title-font text-indigo-500 mb-4">TSEC At a Glance</h1>
       <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
