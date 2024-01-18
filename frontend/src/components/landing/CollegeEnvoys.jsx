@@ -167,6 +167,8 @@ const CollegeEnvoys = () => {
                             { name: 'Student A', image: 'https://via.placeholder.com/150' },
                             { name: 'Student B', image: 'https://via.placeholder.com/150' },
                             { name: 'Student C', image: 'https://via.placeholder.com/150' },
+                            { name: 'Student D', image: 'https://via.placeholder.com/150' }
+                            
                             // Add more students as needed
                         ],
                     },
@@ -252,7 +254,7 @@ const CollegeEnvoys = () => {
                             <h2 className="text-2xl font-medium mb-2">
                                 {departmentData[selectedTab].departmentName} Department 
                             </h2>
-                            <div className="grid grid-cols-2 gap-4">
+                            <div className="grid grid-cols-2 gap-4" style={{height:'200px',overflowY: 'auto' }}>
                                 <div className="border p-2 rounded">
                                     <div className="flex items-center">
                                         <img src={departmentData[selectedTab].databaseEnvoy.image} alt={departmentData[selectedTab].databaseEnvoy.name} className="w-16 h-16 rounded-full" />
@@ -271,9 +273,9 @@ const CollegeEnvoys = () => {
                         </div>
                     )}
 
-                    <button className="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+                    {/* <button className="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
                         <NavLink to="/">Home</NavLink>
-                    </button>
+                    </button> */}
                 </div>
             </section>
         </div>

@@ -18,6 +18,10 @@ const alumniData = {
     alumni: [
       { alumni_name: 'Varun Iyer', Company_name: 'General Mills', yearOfGrad: 2024, linkedin: 'https://www.linkedin.com/in/varun-iyer-22a43121b/' },
       { alumni_name: 'Bob Green', Company_name: 'IT Solutions', yearOfGrad: 2020 },
+      { alumni_name: 'Varun Iyer', Company_name: 'General Mills', yearOfGrad: 2024, linkedin: 'https://www.linkedin.com/in/varun-iyer-22a43121b/' },
+      { alumni_name: 'Bob Green', Company_name: 'IT Solutions', yearOfGrad: 2020 },
+      { alumni_name: 'Varun Iyer', Company_name: 'General Mills', yearOfGrad: 2024, linkedin: 'https://www.linkedin.com/in/varun-iyer-22a43121b/' },
+      { alumni_name: 'Bob Green', Company_name: 'IT Solutions', yearOfGrad: 2020 },
       // Add more alumni as needed
     ],
   },
@@ -83,7 +87,7 @@ const Alumnie = () => {
           </div>
 
           {filteredAlumni.length > 0 ? (
-            <div className="relative p-4 border-2 border-gray-200 bg-white mt-4">
+            <div className="relative p-4 border-2 border-gray-200 bg-white mt-4" style={{height:'400px',overflowY: 'auto' }}>
               {/* Dropdown icon */}
               <div className="absolute top-0 right-0 m-4 cursor-pointer max-h-48 overflow-y-auto" onClick={toggleDropdown}>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className={`h-6 w-6 ${isDropdownOpen ? 'transform rotate-180' : ''}`}>
@@ -92,7 +96,7 @@ const Alumnie = () => {
               </div>
 
               <h2 className="text-2xl font-medium mb-2">{alumniData[selectedTab].department_name} Department</h2>
-              <table className="w-full text-left table-auto">
+              <table className="w-full text-left table-auto" >
                 <thead>
                   <tr>
                     <th className="py-2 px-4">srNo</th>
@@ -157,11 +161,11 @@ const Alumnie = () => {
           ) : (
             <p className="mt-4">No matching alumni found.</p>
           )}
-          <div className="mt-4">
+          {/* <div className="mt-4">
             <button className="flex mx-auto mt-2 text-indigo-500 border-2 border-indigo-500 py-2 px-8 focus:outline-none hover-bg-indigo-500 hover-text-white rounded text-lg">
               <NavLink to="/">Home</NavLink>
             </button>
-          </div>
+          </div> */}
         </div>
       </section>
     </div>
