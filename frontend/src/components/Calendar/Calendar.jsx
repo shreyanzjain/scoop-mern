@@ -184,7 +184,7 @@ const CalendarComponent = ({ showEdit = false }) => {
   const topRightCornerStyle = {
     position: 'absolute',
     padding: '20px',
-    ...(showEdit ? { marginRight: '50px' } : { top: '0', right: '0' }),
+    ...(showEdit ? { marginRight: '50px' } : { top: '50', right: '0' }),
   };
 
   const clickBlockStyle = {

@@ -3,7 +3,6 @@ import logo from "./icons/logo.png";
 import location from "./icons/location.png";
 import rupee from "./icons/rupee.png";
 import person from "./icons/person.png";
-import InterviewBlogs from "./InterviewBlogs";
 export default function ({
   jobId,
   companyName,
