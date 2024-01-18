@@ -95,7 +95,7 @@ const Signup_Login = () => {
         <form className="mx-auto max-w-lg rounded-lg border">
           <div className="flex flex-col gap-4 p-4 md:p-8">
             <div>
-              <label htmlFor="Role" className="mb-2 inline-block text-sm text-gray-800 sm:text-base">Role</label>
+              {/* <label htmlFor="Role" className="mb-2 inline-block text-sm text-gray-800 sm:text-base">Role</label>
               <div className="relative">
                 <select
                   name="role"
@@ -108,7 +108,7 @@ const Signup_Login = () => {
                   <option value="Envoy">Envoy</option>
                   <option value="Student">Student</option>
                 </select>
-              </div>
+              </div> */}
             </div>
             <div>
               <label htmlFor="email" className="mb-2 inline-block text-sm text-gray-800 sm:text-base">Email</label>

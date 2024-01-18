@@ -3,16 +3,25 @@ import logo from "./icons/logo.png";
 import location from "./icons/location.png";
 import rupee from "./icons/rupee.png";
 import person from "./icons/person.png";
-
+import InterviewBlogs from "./InterviewBlogs";
 export default function ({
   jobId,
   companyName,
   jobTitle,
   jobLocation,
   jobCompensation,
-  setMainJobId
+  setMainJobId,
+  setShowInterviewBlogs,
 }) {
+  
   // console.log(jobId, companyName, jobTitle, jobLocation, jobCompensation);
+  const toggleInterviewBlogs = () => {
+    setShowInterviewBlogs((prevShowInterviewBlogs) => !prevShowInterviewBlogs);
+  };
+  const handleMoreButtonClick = () => {
+    setMainJobId(jobId);
+    setShowInterviewBlogs(false);
+  };
   return (
     <div>
       <div className="job-card rounded-md">
@@ -24,6 +33,7 @@ export default function ({
           <div className="job-title flex flex-row items-center">
             <img className="person-logo" src={person} />
             <div className="job-title-text">{jobTitle}</div>
+            
           </div>
           <div className="job-location flex flex-row items-cente">
             <img className="location-logo" src={location} />
@@ -36,13 +46,16 @@ export default function ({
         </div>
         <div className="card-bottom flex justify-end">
           <span>
-            <button className="button" onClick={() =>setMainJobId(jobId)}>More</button>
+            <button className="button" onClick={toggleInterviewBlogs}>Interview Blogs</button>
+          </span>
+          <span>
+            <button className="button" onClick={handleMoreButtonClick}>More</button>
           </span>
           <span>
             <button className="button">Apply</button>
           </span>
         </div>
-      </div>
     </div>
+  </div>
   );
 }
