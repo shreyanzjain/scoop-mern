@@ -10,18 +10,11 @@ export default function ({
   jobTitle,
   jobLocation,
   jobCompensation,
-  setMainJobId,
-  setShowInterviewBlogs,
+  setMainJobId
 }) {
   
   // console.log(jobId, companyName, jobTitle, jobLocation, jobCompensation);
-  const toggleInterviewBlogs = () => {
-    setShowInterviewBlogs((prevShowInterviewBlogs) => !prevShowInterviewBlogs);
-  };
-  const handleMoreButtonClick = () => {
-    setMainJobId(jobId);
-    setShowInterviewBlogs(false);
-  };
+  
   return (
     <div>
       <div className="job-card rounded-md">
@@ -46,10 +39,7 @@ export default function ({
         </div>
         <div className="card-bottom flex justify-end">
           <span>
-            <button className="button" onClick={toggleInterviewBlogs}>Interview Blogs</button>
-          </span>
-          <span>
-            <button className="button" onClick={handleMoreButtonClick}>More</button>
+            <button className="button" onClick={() =>setMainJobId(jobId)}>More</button>
           </span>
           <span>
             <button className="button">Apply</button>
