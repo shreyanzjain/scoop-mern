@@ -7,6 +7,7 @@ import UserProfile from './UserProfile';
 import { Outlet } from 'react-router-dom';
 import CalendarComponent from '../Calendar/Calendar';
 import InterviewBlogs from './InterviewBlogs.jsx';
+import Alumnie from './Alumnie.jsx';
 const Container = styled.div`
   display: flex;
 `;
@@ -19,7 +20,8 @@ const componentsMap = {
   Dashboard,
   UserProfile,
   CalendarComponent,
-  InterviewBlogs
+  InterviewBlogs,
+  Alumnie
 }
 const Wrapper = styled.div``;
 const UserUI = () => {

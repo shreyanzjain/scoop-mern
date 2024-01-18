@@ -10,8 +10,6 @@ import Signup_Login from "./Signup_Login";
 import PlacementStats from "./PlacementStats";
 import ForgotPassword from "./ForgotPassword";
 import CollegeEnvoys from "./CollegeEnvoys";
-import InterviewBlogs from "./InterviewBlogs";
-import Alumnie from "./Alumnie";
 import ContactUs from "./ContactUs";
 import LearnMore from "./LearnMore";
 
@@ -31,8 +29,6 @@ const componentsMap = {
   PlacementStats,
   ForgotPassword,
   CollegeEnvoys,
-  InterviewBlogs,
-  Alumnie,
   ContactUs,
   LearnMore
 }

@@ -129,18 +129,7 @@ const Menu = ({ setSelectedOption }) => {
           </span>
         </Item>
 
-        <Item>
-          <AccountTreeIcon />
-          <span onClick={() => handleItemClick("InterviewBlogs")}>
-            Interview Blogs
-          </span>
-        </Item>
-
-        <Item>
-          <BusinessIcon />
-          <span onClick={() => handleItemClick("Alumnie")}>Alumni</span>
-        </Item>
-        <Hr />
+       
         <Item>
           <CallIcon />
           <span onClick={() => handleItemClick("ContactUs")}>
