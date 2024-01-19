@@ -21,7 +21,7 @@ const UserProfile = () => {
         <UserProfileNav />
     <Container>
         
-        <Personal />
+        {/* <Personal /> */}
         {/* <Edu />
         <CurrentEdu />
         <Address />

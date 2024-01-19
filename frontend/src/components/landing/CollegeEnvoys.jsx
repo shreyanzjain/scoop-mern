@@ -143,7 +143,6 @@
 // export default CollegeEnvoys;
 
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
 
 const CollegeEnvoys = () => {
     const [selectedTab, setSelectedTab] = useState(2);
