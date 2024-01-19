@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Justify = styled.div`
+  color: black;
   text-align: justify;
   text-justify: inter-word;
 `;
@@ -172,7 +173,7 @@ const Why_tsec = () => {
         </div>
       </div>
     </div>
-    <button class="flex mx-auto mt-8 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Home</button>
+    
   </div>
 </section>
 </div>

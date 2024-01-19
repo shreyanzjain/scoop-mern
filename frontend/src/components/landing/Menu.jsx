@@ -89,7 +89,7 @@ const Menu = ({ setSelectedOption }) => {
 
         <Item>
           <HelpIcon />
-          <span onClick={() => handleItemClick("Why_tsec")}>Why Tsec?</span>
+          <span onClick={() => handleItemClick("Why_tsec")}>About TSEC</span>
         </Item>
 
         <Hr />
