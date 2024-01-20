@@ -64,7 +64,7 @@ const UserProfileNav = () => {
   return (
     <Container>
       <div>
-        <div className="flex overflow-x-auto whitespace-nowrap">
+        <div className="flex overflow-x-auto whitespace-nowrap mb-8">
           {[
             "Personal",
             "Educational",
@@ -86,7 +86,7 @@ const UserProfileNav = () => {
         </div>
       </div>
       {/* Render the selected component */}
-      {renderComponent()}
+      <div style={{maxHeight:'400px',overflow:'auto'}}>{renderComponent()}</div>
     </Container>
   );
 };
