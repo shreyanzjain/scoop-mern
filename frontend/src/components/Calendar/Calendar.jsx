@@ -326,6 +326,7 @@ const rightDepartments = departments.slice(midIndex);
             width: 100%;
             border-collapse: collapse;
             margin-top: -125px;
+            
           }
           
           .event-table th,
@@ -339,6 +340,7 @@ const rightDepartments = departments.slice(midIndex);
           .event-table th, .event-table td {
             background-color: #f2f2f2;
             padding: 8px 25px;
+            background-color: ${showEdit ? '#f2f2f2' : '#ffffff'};
           }
 
           .edit-btn,
