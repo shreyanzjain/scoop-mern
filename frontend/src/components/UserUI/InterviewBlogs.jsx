@@ -79,11 +79,11 @@ function InterviewBlogs() {
 
     return (
         <div className="p-2 bg-gray-50 border rounded shadow-md w-full">
-            <div className="text-left">
+            {/* <div className="text-left">
                 <h1 className="text-3xl text-indigo-500 tracking-widest font-medium title-font mb-2">Interview Blogs</h1>
-            </div>
+            </div> */}
             <div className="text-right space-y-2 pr-4 relative">
-                <div className="flex items-center">
+                <div className="flex items-center mt-4">
                     <label htmlFor="companyDropdown" className="pr-2">Select a Company:</label>
                     <select
                         id="companyDropdown"

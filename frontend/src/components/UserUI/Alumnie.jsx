@@ -67,12 +67,12 @@ const Alumnie = () => {
   }
 
   return (
-    <div>
+    <div className='bg-whitesmoke'>
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-col text-center w-full mb-10">
-            <h1 className="text-3xl text-indigo-500 tracking-widest font-medium title-font mb-1">Alumni List</h1>
-          </div>
+            {/* <h1 className="text-3xl text-indigo-500 tracking-widest font-medium title-font mb-1">Alumni List</h1> */}
+          
 
           <div className="flex items-center justify-center space-x-4">
             {Object.keys(alumniData).map((tab) => (
@@ -84,6 +84,7 @@ const Alumnie = () => {
                 {alumniData[tab].department_name}
               </div>
             ))}
+          </div>
           </div>
 
           {filteredAlumni.length > 0 ? (

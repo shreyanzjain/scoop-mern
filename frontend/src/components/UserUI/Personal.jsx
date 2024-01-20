@@ -1,3 +1,60 @@
+// import React from 'react';
+
+// const Personal = () => {
+//   return (
+//     <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+//       <h2 className="text-2xl font-medium mb-6">Personal Details</h2>
+//       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4">
+//         <div className="flex items-center">
+//           <p className="text-gray-500 font-medium mr-4">First Name:</p>
+//           <p className="text-gray-900 font-semibold">Varun</p>
+//         </div>
+//         <div className="flex items-center">
+//           <p className="text-gray-500 font-medium mr-4">Last Name:</p>
+//           <p className="text-gray-900 font-semibold">Iyer</p>
+//         </div>
+//         <div className="flex items-center">
+//           <p className="text-gray-500 font-medium mr-4">Age:</p>
+//           <p className="text-gray-900 font-semibold">99</p>
+//         </div>
+//         <div className="flex items-center">
+//           <p className="text-gray-500 font-medium mr-4">Email:</p>
+//           <p className="text-gray-900 font-semibold">abc@gmail.com</p>
+//         </div>
+//         <div className="flex items-center">
+//           <p className="text-gray-500 font-medium mr-4">Gender:</p>
+//           <p className="text-gray-900 font-semibold">Male</p>
+//         </div>
+//         <div className="flex items-center">
+//           <p className="text-gray-500 font-medium mr-4">Date Of Birth:</p>
+//           <p className="text-gray-900 font-semibold">32/14/2024</p>
+//           <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md ml-4">
+//             Edit
+//         </button>
+//         </div>
+//         <div className="flex items-center">
+//           <p className="text-gray-500 font-medium mr-4">Father's Name:</p>
+//           <p className="text-gray-900 font-semibold">XYZ</p>
+//         </div>
+
+//         <div className="flex items-center">
+//           <p className="text-gray-500 font-medium mr-4">Mother's Name:</p>
+//           <p className="text-gray-900 font-semibold">Abc</p>
+//         </div>
+//         <div className="flex items-center">
+//           <p className="text-gray-500 font-medium mr-4">Phone Number:</p>
+//           <p className="text-gray-900 font-semibold">9854234188</p>
+//         </div>        
+//         <div className="flex items-center">
+//           <p className="text-gray-500 font-medium mr-4">Additional Phone Number:</p>
+//           <p className="text-gray-900 font-semibold">Male</p>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Personal;
 import React from 'react'
 
 const Personal = () => {

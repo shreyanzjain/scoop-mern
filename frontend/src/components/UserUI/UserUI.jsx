@@ -8,6 +8,7 @@ import { Outlet } from 'react-router-dom';
 import CalendarComponent from '../Calendar/Calendar';
 import InterviewBlogs from './InterviewBlogs.jsx';
 import Alumnie from './Alumnie.jsx';
+import UserAppliedJobs from './UserAppliedJob.jsx'
 const Container = styled.div`
   display: flex;
 `;
@@ -21,7 +22,8 @@ const componentsMap = {
   UserProfile,
   CalendarComponent,
   InterviewBlogs,
-  Alumnie
+  Alumnie,
+  UserAppliedJobs
 }
 const Wrapper = styled.div``;
 const UserUI = () => {
