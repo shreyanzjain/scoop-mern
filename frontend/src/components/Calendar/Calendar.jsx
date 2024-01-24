@@ -185,6 +185,7 @@ const CalendarComponent = ({ showEdit = false }) => {
     position: 'absolute',
     padding: '20px',
     ...(showEdit ? { marginRight: '50px' } : { top: '50', right: '0' }),
+    marginBottom:'40px'
   };
 
   const clickBlockStyle = {
@@ -200,21 +201,14 @@ const CalendarComponent = ({ showEdit = false }) => {
     alignItems: 'center',
     minHeight: '100vh',
   };
-  const modalStyle = {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    zIndex: 100,
-  }
   const tableContainerStyle = {
-    margin: '20px',
+    marginTop: '10%',
+    
+    // overflowY:'auto'
     
   };
+  
+
 
   const tileClassName = ({ date }) => {
     if (highlightedDates.find((d) => d.toDateString() === date.toDateString())) {
@@ -317,11 +311,8 @@ const rightDepartments = departments.slice(midIndex);
             font-weight: bold;
           }
 
-          .table-container {
-            margin: 20px;
-            
-          }
-
+          
+          
           .event-table {
             width: 100%;
             border-collapse: collapse;

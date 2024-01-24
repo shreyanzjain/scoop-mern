@@ -108,6 +108,57 @@
       "activity": "Start of L&T",
       "duration": 1,
       "department": "CS,IT,AI/DS"
+    },
+    {
+      "event_id": 11,
+      "batch_passout_year": 2023,
+      "year": 2023,
+      "month": 10,
+      "day": 2,
+      "category": "Placement",
+      "activity": "Start of L&T",
+      "duration": 1,
+      "department": "CS,IT,AI/DS"
+    },{
+      "event_id": 11,
+      "batch_passout_year": 2023,
+      "year": 2023,
+      "month": 10,
+      "day": 2,
+      "category": "Placement",
+      "activity": "Start of L&T",
+      "duration": 1,
+      "department": "CS,IT,AI/DS"
+    },{
+      "event_id": 11,
+      "batch_passout_year": 2023,
+      "year": 2023,
+      "month": 10,
+      "day": 2,
+      "category": "Placement",
+      "activity": "Start of L&T",
+      "duration": 1,
+      "department": "CS,IT,AI/DS"
+    },{
+      "event_id": 11,
+      "batch_passout_year": 2023,
+      "year": 2023,
+      "month": 10,
+      "day": 2,
+      "category": "Placement",
+      "activity": "Start of L&T",
+      "duration": 1,
+      "department": "CS,IT,AI/DS"
+    },{
+      "event_id": 11,
+      "batch_passout_year": 2023,
+      "year": 2023,
+      "month": 10,
+      "day": 2,
+      "category": "Placement",
+      "activity": "Start of L&T",
+      "duration": 1,
+      "department": "CS,IT,AI/DS"
     }
   ]
   
