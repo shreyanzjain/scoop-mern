@@ -82,7 +82,7 @@ const Navbar = ({ setSelectedOptioon }) => {
           </Button1>
         </Item> */}
 
-        <Item>
+        <Item onClick={() => handleItemClick("EmployerRegistration")}>
           <Button1>
             <AutoGraphIcon />
             Employers
