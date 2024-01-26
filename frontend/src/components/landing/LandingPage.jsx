@@ -12,7 +12,7 @@ import ForgotPassword from "./ForgotPassword";
 import CollegeEnvoys from "./CollegeEnvoys";
 import ContactUs from "./ContactUs";
 import LearnMore from "./LearnMore";
-
+import EmployerRegistration from './Employer'
 const Container = styled.div`
   display: flex;
 `;
@@ -30,7 +30,8 @@ const componentsMap = {
   ForgotPassword,
   CollegeEnvoys,
   ContactUs,
-  LearnMore
+  LearnMore,
+  EmployerRegistration
 }
 
 const LandingPage = () => {
