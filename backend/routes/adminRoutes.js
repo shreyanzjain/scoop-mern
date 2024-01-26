@@ -39,8 +39,7 @@ router.post("/register_admin", authorization, adminCheck, jsonParser, async (req
   const {email, password} = req.body;
   if (email && password) {
     const response = await create_user(email, "ADMIN", password);
-    console.log(response);
-    return res.status(parseInt(response[0])).send(parseInt(response[1]));
+    return res.status(parseInt(response[0])).send(response[1]);
   } else {
     return res
       .status(400)
