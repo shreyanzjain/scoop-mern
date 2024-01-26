@@ -1,0 +1,82 @@
+{
+    "info": {
+        "_postman_id": "f8c2e531-e59d-4730-8251-14ac3363f7f6",
+        "name": "Scoop: User",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "Login",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://127.0.0.1:3000/user/login",
+                    "path": [
+                        "user",
+                        "login"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "3000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"email\": \"admin@admin.com\",\n  \"password\": \"admin\"\n}"
+                }
+            }
+        },
+        {
+            "name": "Auth Test",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://127.0.0.1:3000/user/auth_test",
+                    "path": [
+                        "user",
+                        "auth_test"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "3000"
+                }
+            }
+        },
+        {
+            "name": "Logout",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://127.0.0.1:3000/user/logout",
+                    "path": [
+                        "user",
+                        "logout"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "3000"
+                }
+            }
+        }
+    ]
+}

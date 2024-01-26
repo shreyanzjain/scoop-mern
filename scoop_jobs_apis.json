@@ -1,0 +1,124 @@
+{
+    "info": {
+        "_postman_id": "712f26b9-6301-4636-8a9e-d32dc4836658",
+        "name": "Scoop: Jobs",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "Get All Jobs",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://127.0.0.1:3000/jobs/get_by_branch?branch=ALL",
+                    "query": [
+                        {
+                            "key": "branch",
+                            "value": "ALL"
+                        }
+                    ],
+                    "variable": [],
+                    "path": [
+                        "jobs",
+                        "get_by_branch"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "3000"
+                }
+            }
+        },
+        {
+            "name": "Create Job",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://127.0.0.1:3000/jobs/create",
+                    "path": [
+                        "jobs",
+                        "create"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "3000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\r\n  \"company\": \"solidity\",\r\n  \"job_role\": \"Cloud\",\r\n  \"job_description\": \"We are seeking a talented Cloud Solutions Architect to guide and consult our customers on designing robust cloud infrastructure solutions on Microsoft Azure. The Cloud Solutions Architect is responsible for:\\n\\n  • Serving as the internal and external technical expert regarding cloud, solutions, architectural designs, implementations, and operations leveraging Azure\\n\\n  • Collaborating with customer and engineering teams to understand requirements and create technical designs for solutions to be built on Azure\\n\\n  This is an excellent opportunity for professionals experienced with:\\n\\n  • Cloud infrastructure and platforms\\n  • Strong technical experience in solution architecture and design\\n\\n  As a strategic technical advisor, you will be:\\n\\n  • Solving extremely complex technical problems \\n  • Architecting and implementing advanced cloud solutions\\n\",\r\n  \r\n  \"salary\": 2200000, \r\n  \"status\": \"about_to_open\",\r\n  \"location\": \"DELHI\",\r\n  \"cgpa_cutoff\": 8,\r\n  \"tenth\": 85,\r\n  \"twelfth\": 90,\r\n  \"kt_allowed\": false,\r\n  \"drop_allowed_ug\": true,\r\n  \"branches\": [\"CS\", \"IT\"]\r\n}"
+                }
+            }
+        },
+        {
+            "name": "Get Job By Branch",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://127.0.0.1:3000/jobs/get_by_branch?branch=ALL",
+                    "query": [
+                        {
+                            "key": "branch",
+                            "value": "ALL"
+                        }
+                    ],
+                    "variable": [],
+                    "path": [
+                        "jobs",
+                        "get_by_branch"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "3000"
+                }
+            }
+        },
+        {
+            "name": "Get Job By Id",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://127.0.0.1:3000/jobs/get?id=3",
+                    "query": [
+                        {
+                            "key": "id",
+                            "value": "3"
+                        }
+                    ],
+                    "variable": [],
+                    "path": [
+                        "jobs",
+                        "get"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "3000"
+                }
+            }
+        }
+    ]
+}

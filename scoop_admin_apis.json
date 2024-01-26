@@ -1,0 +1,71 @@
+{
+    "info": {
+        "_postman_id": "ea1a94a4-9f9b-414a-9406-2845e8842a7b",
+        "name": "Scoop: Admin",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "Bulk Upload - Students",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://127.0.0.1:3000/admin/bulk_register_student",
+                    "path": [
+                        "admin",
+                        "bulk_register_student"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "3000"
+                },
+                "body": {
+                    "mode": "formdata",
+                    "formdata": [
+                        {
+                            "key": "file_field",
+                            "src": "c:\\Users\\shrey\\Documents\\major_project\\scoop\\students_dummy.csv",
+                            "type": "file"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Register Admin",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://127.0.0.1:3000/admin/register_admin",
+                    "path": [
+                        "admin",
+                        "register_admin"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "3000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"email\": \"admin@admin.com\",\n  \"password\": \"admin\"\n}"
+                }
+            }
+        }
+    ]
+}
