@@ -166,7 +166,7 @@ import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import jsonData from './demo.json';
-import './CustomCalendar.css';
+
 
 const CalendarComponent = ({ showEdit = false }) => {
   const [date, setDate] = useState(new Date());
@@ -207,6 +207,11 @@ const CalendarComponent = ({ showEdit = false }) => {
     // overflowY:'auto'
     
   };
+  const calendarStyle = {
+    width: '500px', // Adjust the width conditionally
+    height: '375px', // Adjust the height conditionally
+  };
+  
   
 
 
@@ -214,6 +219,7 @@ const CalendarComponent = ({ showEdit = false }) => {
     if (highlightedDates.find((d) => d.toDateString() === date.toDateString())) {
       return 'highlighted-date';
     }
+    
     return '';
   };
 
@@ -225,7 +231,8 @@ const CalendarComponent = ({ showEdit = false }) => {
     );
     setSelectedEvent(events);
   };
-  
+
+
   const handleDeleteEvent = (eventId, eventTitle) => {
     if (window.confirm(`Are you sure you want to delete this event "${eventTitle}"?`)) {
       // Add logic to delete the event (e.g., an API call or updating state)
@@ -310,7 +317,11 @@ const rightDepartments = departments.slice(midIndex);
             padding: 6px;
             font-weight: bold;
           }
-
+          .react-calendar {
+            width: ${calendarStyle.width};
+            height: ${calendarStyle.height};
+          }
+        
           
           
           .event-table {

@@ -321,8 +321,8 @@ import Calendar from './Calendar'; // Import your Calendar component
 function AdminCalendar() {
   return (
     // placeholder bg color for visibility of the container
-    <div className="container w-5/6 bg-whitesmoke bg-opacity-30 ms-2 me-2 mt-2">
-      <div className="flex absolute top right-2 bg-whitesmoke p-2 h-13">
+    <div className="container w-5/6 bg-whitesmoke bg-opacity-30 m-2">
+      <div className="flex absolute top-15 right-0 bg-whitesmoke p-4">
         <div className="upload-photo-box">
         <label
           htmlFor="fileInput"
@@ -345,7 +345,7 @@ function AdminCalendar() {
           Submit
         </button>
       </div>
-      <div className="flex bg-whitesmoke h-3/4 items-center justify-center">
+      <div className="flex bg-whitesmoke items-center justify-center">
         <Calendar showEdit={true} />
       </div>
       
