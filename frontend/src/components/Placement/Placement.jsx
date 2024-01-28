@@ -42,7 +42,7 @@ export default function () {
         {showComponent == 2 && <PlacementJobs />}
         {showComponent == 3 && <PlacementStudents />}
         {showComponent == 4 && <PlacementUpload />}
-        {showComponent==5 && <AdminCalendar/>}
+        {showComponent == 5 && <AdminCalendar/>}
       </span>
     </div>
   );

@@ -270,9 +270,9 @@ const CalendarComponent = ({ showEdit = false }) => {
     
     { id: 1, name: 'CS' },
     { id: 2, name: 'IT' },
-    { id: 3, name: 'AI/DS' },
+    { id: 3, name: 'AIDS' },
     { id: 4, name: 'EXTC' },
-    { id: 5, name: 'CHEMICAL' }
+    { id: 5, name: 'CHEM' }
     
     // Add more departments as needed
   ]);

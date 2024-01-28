@@ -20,7 +20,7 @@ function SideBar({ onClickOption, optionValue }) {
     },
     {
       id:5,
-      value: "Admin Cal"
+      value: "Calendar"
     }
   ];
 
