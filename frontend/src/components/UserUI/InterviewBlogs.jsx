@@ -72,40 +72,71 @@ function InterviewBlogs() {
     const companyNames = Object.keys(companyData);
     const [selectedCompany, setSelectedCompany] = useState(null);
     const [selectedUserIndex, setSelectedUserIndex] = useState(null);
-
+    const [selectedBatchYear, setSelectedBatchYear] = useState(null);
+    
+    
     const selectUser = (index) => {
         setSelectedUserIndex(index);
     };
-
+    const filterUsersByBatchYear = (users) => {
+        if (selectedBatchYear) {
+          return users.filter((user) => user.batchYear === selectedBatchYear);
+        }
+        return users;
+      };
+      const handleCompanyDropdownChange = (e) => {
+        setSelectedCompany(e.target.value);
+        setSelectedUserIndex(null);
+        setSelectedBatchYear(null);
+        
+      };
     return (
         <div className="p-2 bg-gray-50 border rounded shadow-md w-full">
-            {/* <div className="text-left">
-                <h1 className="text-3xl text-indigo-500 tracking-widest font-medium title-font mb-2">Interview Blogs</h1>
-            </div> */}
             <div className="text-right space-y-2 pr-4 relative">
-                <div className="flex items-center mt-4">
-                    <label htmlFor="companyDropdown" className="pr-2">Select a Company:</label>
-                    <select
-                        id="companyDropdown"
-                        className="p-2 pr-2 border rounded"
-                        onChange={(e) => {
-                            setSelectedCompany(e.target.value);
-                            setSelectedUserIndex(null);
-                        }}
-                    >
-                        <option value="">Select a company</option>
-                        {companyNames.map((company, index) => (
-                            <option key={index} value={company}>
-                                {company}
-                            </option>
-                        ))}
-                    </select>
-                </div>
+            <div className="flex justify-between mt-4">
+  <div className="flex items-center">
+    <label htmlFor="companyDropdown" className="pr-2">Select a Company:</label>
+    <select
+      id="companyDropdown"
+      className="p-2 pr-2 border rounded"
+      onChange={handleCompanyDropdownChange}
+    >
+      <option value="">Select a company</option>
+      {companyNames.map((company, index) => (
+        <option key={index} value={company}>
+          {company}
+        </option>
+      ))}
+    </select>
+  </div>
+  {selectedCompany ? (
+    <div className="flex items-center">
+      <label htmlFor="batchYearDropdown" className="pr-2">
+        Select Batch Year:
+      </label>
+      <select
+        id="batchYearDropdown"
+        className="p-2 pr-2 border rounded"
+        onChange={(e) => setSelectedBatchYear(e.target.value)}
+      >
+        <option value="">All</option>
+        {Array.from(new Set(companyData[selectedCompany].map((user) => user.batchYear))).map(
+          (batchYear, index) => (
+            <option key={index} value={batchYear}>
+              {batchYear}
+            </option>
+          )
+        )}
+      </select>
+    </div>
+  ) : null}
+</div>
+
                 {selectedCompany ? (
-                    <div className="absolute top-16 left-0 right-0 bg-white border-gray-300 p-4 ">
+                    <div className="absolute top-20 left-0 right-0 bg-white border-gray-300 p-4 ">
                         {selectedUserIndex === null ? (
-                            <div className="user-list-container" style={{ maxHeight: '500px', overflowY: 'auto',scrollbarWidth: 'thin', scrollbarColor: 'black black'  }}>
-                                {companyData[selectedCompany].map((user, index) => (
+                            <div className="user-list-container" style={{ maxHeight: '500px', overflowY: 'auto',scrollbarWidth: 'thin', scrollbarColor: 'grey'  }}>
+                                 {filterUsersByBatchYear(companyData[selectedCompany]).map((user, index) => (
                                     <div
                                         key={index}
                                         className="mb-4 p-2 border border-gray-400 cursor-pointer"
