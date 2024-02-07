@@ -102,20 +102,30 @@ function PlacementDashboard() {
     <div className="container m-2 bg-whitesmoke bg-opacity-30 w-5/6 text-3xl font-bold">
       <span className="flex h-1/2">
         <div className="flex items-center justify-center bg-white border-2 border-ebony text-licorice text-lg font-normal w-3/6 m-2 ms-0 mt-0 rounded-lg">
-          <h1>
+          <h1 className="text-center mb-2 bg-gray-50 py-2 px-4 rounded-lg">
+            Percentage Placed (Department-wise)
             <Percentage_Placed data={data} />
           </h1>
         </div>
         <div className="flex items-center justify-center bg-white border-2 border-ebony text-gray-900 text-lg font-normal w-3/6 mb-2 rounded-lg">
-            <Appearing_Placed data = {data1} />
+          <h1 className="text-center mb-2 bg-gray-50 py-2 px-4 rounded-lg">
+            Students appearing with students placed
+            <Appearing_Placed data={data1} />
+          </h1>
         </div>
       </span>
       <span className="flex h-1/2">
         <div className="flex items-center justify-center bg-white border-2 border-ebony text-licorice text-lg font-normal w-3/6 me-2 mb-2 rounded-lg">
-            <Average_Salary data = {data2} />
+          <h1 className="text-center mb-2 bg-gray-50 py-2 px-4 rounded-lg">
+            Average Salary
+            <Average_Salary data={data2} />
+          </h1>
         </div>
         <div className="flex items-center justify-center bg-white border-2 border-ebony text-gray-900 text-lg font-normal w-3/6 mb-2 rounded-lg">
-            <Highest_Salary data = {data3} />
+          <h1 className="text-center mb-2 bg-gray-50 py-2 px-4 rounded-lg">
+            Highest Salary
+            <Highest_Salary data={data3} />
+          </h1>
         </div>
       </span>
     </div>
