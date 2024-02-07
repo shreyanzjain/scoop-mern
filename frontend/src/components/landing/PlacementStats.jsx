@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
+import Appearing_Placed from "../Placement/Analytics/Appearing_Placed";
+import Highest_Salary from "../Placement/Analytics/Highest_Salary";
 const PlacementStats = () => {
   const [selectedTab, setSelectedTab] = useState('IT');
   const [lowSalary, setLowSalary] = useState(0);
@@ -80,12 +81,97 @@ const PlacementStats = () => {
       }
     }, 30);
   };
+  const data1 = [
+    {
+      name: "Comps",
+      placed: 100,
+      appearing: 160,
+    },
+    {
+      name: "IT",
+      placed: 37,
+      appearing: 110,
+    },
+    {
+      name: "EXTC",
+      placed: 15,
+      appearing: 50,
+    },
+    {
+      name: "AI & DS",
+      placed: 40,
+      appearing: 50,
+    },
+    {
+      name: "CHEM",
+      placed: 25,
+      appearing: 40,
+    },
+  ];
+  
+const data3 = [
+  {
+    name: "Comps",
+    max_ctc: 24,
+  },
+  {
+    name: "IT",
+    max_ctc: 19.75,
+  },
+  {
+    name: "EXTC",
+    max_ctc: 19.75,
+  },
+  {
+    name: "AI & DS",
+    max_ctc: 19.43,
+  },
+  {
+    name: "CHEM",
+    max_ctc: 8,
+  },
+];
+  const testimonials = [
+    {
+      id: 1,
+      content: (
+        <>
+          <p>
+          </p>
+          <Appearing_Placed data={data1} /> {/* Include your chart component */}
+        </>
+      )
+    },
+    {
+      id: 2,
+      content: (
+        <>
+          <p>
+          </p>
+          <Highest_Salary data={data3} />
+        </>
+      )
+    },
+    
+    // Add more testimonials as needed
+  ];
+
+  const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
 
   useEffect(() => {
     
     updateSalaries(selectedTab); // Initial animation when the component mounts
+    
   }, [selectedTab]);
+  useEffect(()=>{
+    const intervalId = setInterval(() => {
+      setCurrentTestimonialIndex((prevIndex) =>
+        prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000); // Change interval time as needed (in milliseconds)
 
+    return () => clearInterval(intervalId);
+  }, [testimonials.length]);
   const placementData = {
     IT: {
       lowSalary: 500000,
@@ -239,65 +325,11 @@ const PlacementStats = () => {
   return (
     <div>
       <h1 className="text-3xl text-indigo-500 tracking-widest font-medium title-font text-center mt-10 h-[1.25rem]">Placement Statistics</h1>
-      <div className="flex justify-center space-x-4 mt-10">
-        {/* Your tab buttons here */}
-        <button
-          className={`p-2 px-4 border-2 border-gray-200 cursor-pointer ${
-            selectedTab === 'CS'
-            ? 'bg-indigo-500 text-white'
-            : 'hover:bg-gray-200'
-          } mx-2`}
-          onClick={() => handleTabChange('CS')}
-        >
-          CS
-        </button>
-        <button
-          className={`p-2 px-4 border-2 border-gray-200 cursor-pointer ${
-            selectedTab === 'IT'
-            ? 'bg-indigo-500 text-white'
-            : 'hover:bg-gray-200'
-          } mx-2`}
-          onClick={() => handleTabChange('IT')}
-        >
-          IT
-        </button>
-        <button
-          className={`p-2 px-4 border-2 border-gray-200 cursor-pointer ${
-            selectedTab === 'AI&DS'
-              ? 'bg-indigo-500 text-white'
-              : 'hover:bg-gray-200'
-          } mx-2`}
-          onClick={() => handleTabChange('AI&DS')}
-        >
-          AI&DS
-        </button>
-        <button
-          className={`p-2 px-4 border-2 border-gray-200 cursor-pointer  ${
-            selectedTab === 'EXTC'
-            ? 'bg-indigo-500 text-white'
-            : 'hover:bg-gray-200'
-          } mx-2`}
-          onClick={() => handleTabChange('EXTC')}
-        >
-          EXTC
-        </button>
-        <button
-          className={`p-2 px-4 border-2 border-gray-200 cursor-pointer ${
-            selectedTab === 'Chemical'
-            ? 'bg-indigo-500 text-white'
-            : 'hover:bg-gray-200'
-          } mx-2`}
-          onClick={() => handleTabChange('Chemical')}
-        >
-          Chemical
-        </button>
-        
-      </div>
-
+      
       <div>
         <div>
           <br/>
-          <div className="flex space-x-4">
+          {/* <div className="flex space-x-4">
             <div className="flex-1 text-center bg-white p-4 border border-blue-500 rounded-md
         transition duration-300 ease-in-out hover:bg-indigo-500 hover:border-blue-500 hover:text-white ml-10">
               <div className="text-lg font-semibold">Lowest Salary</div>
@@ -313,32 +345,23 @@ const PlacementStats = () => {
               <div className="text-lg font-semibold">Highest Salary</div>
               <div className="text-2xl">{Math.round(highSalary)}</div>
             </div>
-          </div>
-        <div className="flex space-x-4 mt-4">
-          <div className="flex-1 text-center bg-white p-4 border border-blue-500 rounded-md
-        transition duration-300 ease-in-out hover:bg-indigo-500 hover:border-blue-500 hover:text-white ml-10">
-          <div className="text-lg font-semibold">Placed Students</div>
-          <div className="text-2xl">{placedStudents}</div>
+          </div> */}
+          <div className="flex justify-center">
+      {testimonials.map((testimonial, index) => (
+        <div
+          key={testimonial.id}
+          className={`${
+            index === currentTestimonialIndex ? 'block' : 'hidden'
+          } bg-white-100 p-8 rounded-lg shadow-lg mr-4 mt-20`}
+          style={{width:'750px'}}
+        >
+          
+          <center><p className="text-white-700 mb-4">{testimonial.content}</p></center>
+         
         </div>
-        <div className="flex-1 text-center bg-white p-4 border border-blue-500 rounded-md
-        transition duration-300 ease-in-out hover:bg-indigo-500 hover:border-blue-500 hover:text-white mr-4" style={{ marginRight: '40px' }}>
-          <div className="text-lg font-semibold">Remaining Students</div>
-          <div className="text-2xl">{remainingStudents}</div>
-        </div>
-      </div>
-
-      <div className="flex space-x-4 mt-4">
-      <div className="flex-1 text-center bg-white p-4 border border-blue-500 rounded-md
-        transition duration-300 ease-in-out hover:bg-indigo-500 hover:border-blue-500 hover:text-white ml-10">
-          <div className="text-lg font-semibold">Total Companies</div>
-          <div className="text-2xl">{totalCompanies}</div>
-        </div>
-        <div className="flex-1 text-center bg-white p-4 border border-blue-500 rounded-md
-        transition duration-300 ease-in-out hover:bg-indigo-500 hover:border-blue-500 hover:text-white mr-4" style={{ marginRight: '40px' }}>
-          <div className="text-lg font-semibold">Recruited Companies</div>
-          <div className="text-2xl">{recruitedCompanies}</div>
-        </div>
-      </div>
+      ))}
+    </div>
+        
     </div>
   </div> 
   </div>
