@@ -32,12 +32,12 @@ const CustomAppPla = ({ data }) => {
       <Bar
         dataKey="appearing"
         fill="#8884d8"
-        activeBar={<Rectangle fill="pink" stroke="blue" />}
+        activeBar={<Rectangle fill="#8884d8" stroke="blue" />}
       />
       <Bar
         dataKey="placed"
         fill="#82ca9d"
-        activeBar={<Rectangle fill="gold" stroke="purple" />}
+        activeBar={<Rectangle fill="#82ca9d" stroke="purple" />}
       />
     </BarChart>
   );
