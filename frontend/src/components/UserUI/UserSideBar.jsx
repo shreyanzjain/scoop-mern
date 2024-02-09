@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 // Define a styled component for the sidebar with the background color
 const StyledSidebar = styled.aside`
-background-color: #F5F5F5;
+background-color: #F0F0F0;
 height: 100%;
   position: sticky;
   top: 0;
