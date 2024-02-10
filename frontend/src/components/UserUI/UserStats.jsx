@@ -106,10 +106,7 @@ const CompanyTable = ({ companies, onSelect }) => (
 
 const DepartmentPieChart = ({ company }) => (
   <div className="w-full h-1/2 bg-gray-100 flex justify-center items-center">
-    <div className="text-center">
-      <h2 className="text-lg font-bold mb-4">
-        Students Recruited (Department-wise)
-      </h2>
+    <div className="text-center ">
       <PieChart width={400} height={300}>
         <Pie
           data={Object.entries(company.departments).map(
@@ -134,6 +131,7 @@ const DepartmentPieChart = ({ company }) => (
     </div>
   </div>
 );
+
 
 const CompanyDetails = ({ company }) => (
   <div className=" w-full w-1/2 bg-gray-100 p-4 rounded-lg shadow-md">
@@ -181,7 +179,7 @@ const UserStats = () => {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold bg-gray-800 text-white text-center p-4">
+      <h1 className="text-2xl font-bold bg-gray-200 text-black text-center p-4">
         Placement Details
       </h1>
       <div className="flex">

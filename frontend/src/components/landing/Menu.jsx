@@ -39,13 +39,20 @@ const Img = styled.img`
 `
 
 const Item = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    margin: 0px 10px;
-    padding: 7.5px 0px
-`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  margin: 0px 10px;
+  padding: 7.5px 0px;
+  transition: background-color 0.2s; 
+
+  &:hover {
+    background-color: #d3b88c;
+    border-radius: 10px;
+  }
+`;
+
 const Hr = styled.hr`
     margin: 15px 0px;
     border: 0.5px solid #2c2f33;
@@ -83,12 +90,17 @@ const Menu = ({ setSelectedOption }) => {
         </Logo>
 
         <Item>
-          <HomeIcon />
+          <span onClick={() => handleItemClick("Home")}>
+            <HomeIcon />
+          </span>
           <span onClick={() => handleItemClick("Home")}>Home</span>
         </Item>
 
         <Item>
-          <HelpIcon />
+          <span onClick={() => handleItemClick("Why_tsec")}>
+            <HelpIcon />
+          </span>
+
           <span onClick={() => handleItemClick("Why_tsec")}>About TSEC</span>
         </Item>
 
@@ -97,7 +109,9 @@ const Menu = ({ setSelectedOption }) => {
         <Login>
           Sign In to use the placement portal.
           <Button>
-            <PersonIcon />
+            <span onClick={() => handleItemClick("Signup_Login")}>
+              <PersonIcon />
+            </span>
             <span onClick={() => handleItemClick("Signup_Login")}>
               SIGN - IN
             </span>
@@ -107,14 +121,18 @@ const Menu = ({ setSelectedOption }) => {
         <Hr />
 
         <Item>
-          <GroupsIcon />
+          <span onClick={() => handleItemClick("CollegeEnvoys")}>
+            <GroupsIcon />
+          </span>
           <span onClick={() => handleItemClick("CollegeEnvoys")}>
             Placement Department
           </span>
         </Item>
 
         <Item>
-          <BarChartIcon />
+          <span onClick={() => handleItemClick("PlacementStats")}>
+            <BarChartIcon />
+          </span>
           <span onClick={() => handleItemClick("PlacementStats")}>
             Placement Statistics
           </span>
@@ -123,18 +141,19 @@ const Menu = ({ setSelectedOption }) => {
         <Hr />
 
         <Item>
-          <BusinessIcon />
+          <span onClick={() => handleItemClick("OurRecruiters")}>
+            <BusinessIcon />
+          </span>
           <span onClick={() => handleItemClick("OurRecruiters")}>
             Our Recruiters
           </span>
         </Item>
 
-       
         <Item>
-          <CallIcon />
           <span onClick={() => handleItemClick("ContactUs")}>
-            Contact Us
+            <CallIcon />
           </span>
+          <span onClick={() => handleItemClick("ContactUs")}>Contact Us</span>
         </Item>
       </Wrapper>
     </Container>

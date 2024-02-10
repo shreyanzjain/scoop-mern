@@ -120,7 +120,7 @@ const Alumnie = () => {
 
   return (
     <div className="bg-whitesmoke">
-      <h1 className="text-2xl font-bold bg-gray-800 text-white text-center p-4">
+      <h1 className="text-2xl font-bold bg-gray-200 text-black text-center p-4">
         Alumni List (Department-wise)
       </h1>
       <section className="text-gray-600 body-font">
