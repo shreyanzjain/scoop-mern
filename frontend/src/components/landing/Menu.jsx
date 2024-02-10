@@ -45,7 +45,7 @@ const Item = styled.div`
   cursor: pointer;
   margin: 0px 10px;
   padding: 7.5px 0px;
-  transition: background-color 0.2s; 
+  transition: background-color 0.2s, border-radius 0.2s;
 
   &:hover {
     background-color: #d3b88c;
