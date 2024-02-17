@@ -12,7 +12,7 @@ import PersonIcon from '@mui/icons-material/Person';
 
 const Container = styled.div`
   flex: 1;
-  background-color: #f0f0f0;
+  background-color: #f4f2f3;
   height: 100vh;
   color: black;
   position: sticky;

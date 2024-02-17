@@ -9,7 +9,7 @@ import { NavLink } from 'react-router-dom';
 const Container = styled.div`
   position: sticky;
   top: 0;
-  background-color: #f0f0f0;
+  background-color: #f4f2f3;
   height: 56px;
 `;
 const Wrapper = styled.div`

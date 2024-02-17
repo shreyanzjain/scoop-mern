@@ -76,7 +76,7 @@ const CompanyTable = ({ companies, onSelect }) => (
   <div className="w-1/2 h-screen overflow-y-auto bg-gray-100 p-4">
     <h2 className="text-lg font-bold mb-4">List of Companies</h2>
     <h2 className="text-sm font-semibold mb-3">Click on any company</h2>
-    
+
     <div className="overflow-x-auto">
       <table className="w-full border-collapse shadow-md">
         <thead>
@@ -93,7 +93,9 @@ const CompanyTable = ({ companies, onSelect }) => (
               className="cursor-pointer hover:bg-gray-100"
             >
               <td className="border border-gray-400 px-4 py-2">{index + 1}</td>
-              <td className="border border-gray-400 px-4 py-2">{company.name}</td>
+              <td className="border border-gray-400 px-4 py-2 hover:text-blue-700">
+                {company.name}
+              </td>
             </tr>
           ))}
         </tbody>
@@ -101,8 +103,6 @@ const CompanyTable = ({ companies, onSelect }) => (
     </div>
   </div>
 );
-
-
 
 const DepartmentPieChart = ({ company }) => (
   <div className="w-full h-1/2 bg-gray-100 flex justify-center items-center">
@@ -131,7 +131,6 @@ const DepartmentPieChart = ({ company }) => (
     </div>
   </div>
 );
-
 
 const CompanyDetails = ({ company }) => (
   <div className=" w-full w-1/2 bg-gray-100 p-4 rounded-lg shadow-md">
@@ -168,7 +167,6 @@ const CompanyDetails = ({ company }) => (
     </div>
   </div>
 );
-
 
 const UserStats = () => {
   const [selectedCompany, setSelectedCompany] = useState(null);
