@@ -12,7 +12,7 @@ async function get_data_for_jwt(email) {
     },
   });
 
-  const user_dict = { id: user.id, role: user.role, email: user.email };
+  const user_dict = { entityId: user.id, entityRole: user.role, entityEmail: user.email };
   return user_dict;
 }
 

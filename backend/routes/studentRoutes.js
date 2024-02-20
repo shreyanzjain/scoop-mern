@@ -7,10 +7,9 @@ const { get_profile, update_profile } = require("../methods/studentMethods");
 
 const studentCheck = (req, res, next) => {
   const entityRole = req.entityRole;
-  if (req.entityRole == "STUDENT") {
+  if (entityRole == "STUDENT") {
     return next();
   } else {
-    console.log("here");
     return res.status(403).send("Unauthorized");
   }
 };
