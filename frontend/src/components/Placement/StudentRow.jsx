@@ -34,13 +34,13 @@ function VerificationStatus({verification_status}) {
   }
 }
 
-function StudentRow({ f_name, l_name, branch, verification_status }) {
+function StudentRow({ name, branch, verification_status }) {
   return (
     <div className="container flex px-2 items-center justify-between bg-whitesmoke border-b-2 border-licorice h-20">
       <div className="flex items-center">
         <div className="ms-2">
           <p className="text-2xl font-bold">
-            {f_name} {l_name}
+            {name}
           </p>
           <p className="text-lg ">{branch}</p>
         </div>
