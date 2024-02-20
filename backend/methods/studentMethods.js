@@ -9,6 +9,18 @@ async function get_profile(entityId) {
   return profile;
 }
 
+async function get_students() {
+  const profiles = await prisma.student.findMany({
+    select: {
+      id: true,
+      name: true,
+      branch: true,
+      verified: true,
+    },
+  });
+  return { status: 200, data: profiles };
+}
+
 async function update_profile(
   entityId,
   student_name,
@@ -29,8 +41,7 @@ async function update_profile(
   linkedin,
   leetcode,
   codechef,
-  codeforces,
-  verified
+  codeforces
 ) {
   const profile = await prisma.student.findFirst({
     where: {
@@ -61,16 +72,18 @@ async function update_profile(
         leetcode: leetcode,
         codechef: codechef,
         codeforces: codeforces,
-        verified: verified,
         user_id: entityId,
       },
     });
     if (new_profile) {
       return { status: 200, message: "Profile created" };
     } else {
-      return { status: 400, message: "Error, check if all fields are properly sent." };
+      return {
+        status: 400,
+        message: "Error, check if all fields are properly sent.",
+      };
     }
   }
 }
 
-module.exports = { get_profile, update_profile };
+module.exports = { get_profile, update_profile, get_students };
