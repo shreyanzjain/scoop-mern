@@ -58,7 +58,7 @@ function PlacementJobs() {
         </>
       )}
       {!listView && (
-        <div className="flex-col h-3/4 text-lg bg-whitesmoke text-licorice overflow-y-scroll">
+        <div className="flex-col h-5/6 text-lg bg-whitesmoke text-licorice overflow-y-scroll">
           <JobDetail job={detailData} onClickBack={onClickBack} />
         </div>
       )}

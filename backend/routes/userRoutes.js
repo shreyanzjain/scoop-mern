@@ -36,7 +36,7 @@ router.post("/login", jsonParser, async (req, res) => {
           maxAge: 604800000, // 7 days
         })
         .status(200)
-        .send("Logged In Successfully");
+        .send(user_dict);
     } else {
       res.status(400).send("Incorrect Credentials");
     }

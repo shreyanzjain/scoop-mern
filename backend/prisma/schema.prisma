@@ -40,8 +40,37 @@ model User {
   hashed_password String @db.VarChar(64)
   last_password String? @db.VarChar(64)
   last_modified_date DateTime @default(now()) @db.Timestamp(6)
+  studentProfile Student?
 
   @@map("users")
+}
+
+model Student { 
+  id Int @id @default(autoincrement())
+  name String @db.VarChar(80)
+  dob DateTime @db.Timestamp(6)
+  phone String
+  phone_alt String
+  branch JobBranchesEnum
+  cgpa Float @db.DoublePrecision
+  sem_1 Float @db.DoublePrecision
+  sem_2 Float @db.DoublePrecision
+  sem_3 Float @db.DoublePrecision
+  sem_4 Float @db.DoublePrecision
+  sem_5 Float @db.DoublePrecision
+  sem_6 Float @db.DoublePrecision
+  tenth Float @db.DoublePrecision
+  twelfth Float @db.DoublePrecision
+  kt Int @default(0)
+  linkedin String @db.Text
+  leetcode String @db.Text
+  codechef String @db.Text
+  codeforces String @db.Text
+  verified Boolean
+  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  user_id Int @unique
+  
+  @@map("students")
 }
 
 model Admin {
