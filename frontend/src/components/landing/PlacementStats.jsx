@@ -140,7 +140,7 @@ const PlacementStats = () => {
       id: 2,
       content: (
         <>
-          <p></p>
+          
           <Highest_Salary data={data3} />
         </>
       ),
