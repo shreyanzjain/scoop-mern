@@ -4,7 +4,7 @@ async function get_profile(entityId) {
   const profile = await prisma.student.findFirst({
     where: {
       user_id: entityId,
-    },
+    }
   });
   return profile;
 }
@@ -18,7 +18,7 @@ async function get_student(student_id) {
   if (profile) {
     return { status: 200, data: profile };
   } else {
-    return { status: 400, message: "No such user" };
+    return { status: 400, message: "No such student" };
   }
 }
 
