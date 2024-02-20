@@ -103,7 +103,7 @@ const TopSalariesBanner = () => {
 };
 const Why_tsec = () => {
   return (
-    <div style={{ marginTop: '60px', overflow: 'hidden',position:'fixed'}}>
+    <div style={{ marginTop: '60px', overflow: 'hidden', position:'fixed'}}>
     <section class="text-gray-600 body-font">
   <TopSalariesBanner />
   
@@ -119,57 +119,57 @@ const Why_tsec = () => {
     
     <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
       <div class="p-2 sm:w-1/2 w-full">
-        <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+        <div class="bg-gray-300 rounded flex p-4 h-full items-center">
           <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-indigo-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
             <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
             <path d="M22 4L12 14.01l-3-3"></path>
           </svg>
-          <span class="title-font font-medium">Approved by AICTE</span>
+          <span class="title-font font-medium text-black">Approved by AICTE</span>
         </div>
       </div>
       <div class="p-2 sm:w-1/2 w-full">
-        <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+        <div class="bg-gray-300 rounded flex p-4 h-full items-center">
           <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-indigo-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
             <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
             <path d="M22 4L12 14.01l-3-3"></path>
           </svg>
-          <span class="title-font font-medium">Affiliated to University of Mumbai</span>
+          <span class="title-font font-medium text-black">Affiliated to University of Mumbai</span>
         </div>
       </div>
       <div class="p-2 sm:w-1/2 w-full">
-        <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+        <div class="bg-gray-300 rounded flex p-4 h-full items-center">
           <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-indigo-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
             <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
             <path d="M22 4L12 14.01l-3-3"></path>
           </svg>
-          <span class="title-font font-medium">Accredited by NBA</span>
+          <span class="title-font font-medium text-black">Accredited by NBA</span>
         </div>
       </div>
       <div class="p-2 sm:w-1/2 w-full">
-        <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+        <div class="bg-gray-300 rounded flex p-4 h-full items-center">
           <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-indigo-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
             <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
             <path d="M22 4L12 14.01l-3-3"></path>
           </svg>
-          <span class="title-font font-medium">Recognized by Government of Maharashtra</span>
+          <span class="title-font font-medium text-black">Recognized by Government of Maharashtra</span>
         </div>
       </div>
       <div class="p-2 sm:w-1/2 w-full">
-        <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+        <div class="bg-gray-300 rounded flex p-4 h-full items-center">
           <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-indigo-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
             <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
             <path d="M22 4L12 14.01l-3-3"></path>
           </svg>
-          <span class="title-font font-medium">Well-equipped laboratories with cutting-edge instruments.</span>
+          <span class="title-font font-medium text-black">Well-equipped laboratories with cutting-edge instruments.</span>
         </div>
       </div>
       <div class="p-2 sm:w-1/2 w-full">
-        <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+        <div class="bg-gray-300 rounded flex p-4 h-full items-center">
           <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-indigo-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
             <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
             <path d="M22 4L12 14.01l-3-3"></path>
           </svg>
-          <span class="title-font font-medium">High competency in coding and Hackathon.</span>
+          <span class="title-font font-medium text-black">High competency in coding and Hackathon.</span>
         </div>
       </div>
     </div>
