@@ -9,6 +9,19 @@ async function get_profile(entityId) {
   return profile;
 }
 
+async function get_student(student_id) {
+  const profile = await prisma.student.findFirst({
+    where: {
+      id: student_id,
+    },
+  });
+  if (profile) {
+    return { status: 200, data: profile };
+  } else {
+    return { status: 400, message: "No such user" };
+  }
+}
+
 async function get_students() {
   const profiles = await prisma.student.findMany({
     select: {
@@ -86,4 +99,4 @@ async function update_profile(
   }
 }
 
-module.exports = { get_profile, update_profile, get_students };
+module.exports = { get_profile, update_profile, get_students, get_student };

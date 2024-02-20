@@ -26,11 +26,7 @@ function JobDetail({ onClickBack, job }) {
       </div>
       <div className="container ps-2 pt-2">
         <div className="flex flex-col w-full h-full">
-          <div className="container flex w-full h-12">
-            <div className="flex ps-1 h-full border-2 rounded-md me-2 border-ebony shadow-sm w-1/2">
-              <div className=" text-lg font-bold">Company {company}</div>
-            </div>
-          </div>
+          <p>Company: {company}</p>
           <p>Job Role: {job_role}</p>
           <p>Job Description: {job_description}</p>
           <p>Salary: {salary}</p>
