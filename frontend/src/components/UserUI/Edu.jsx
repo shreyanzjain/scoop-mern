@@ -1,88 +1,46 @@
-import React from 'react'
+import React, { useState } from "react";
 
 const Edu = () => {
+  const userData = {
+    tenthBoard: "Maharashtra State Board",
+    tenthPercentage: 95.4,
+    twelfthBoard: "Maharashtra State Board",
+    twelfthPercentage: 90,
+    diplomaYesNo: "No",
+    diplomaPercentage: 0,
+    additionalPhoneNumber: "1234567890",
+  };
   return (
-    <div class="bg-white max-w-2xl shadow overflow-hidden sm:rounded-lg">
-    <div class="px-4 py-5 sm:px-6">
-        <h3 class="text-lg leading-6 font-medium text-gray-900">
-            Past Educational Details
-        </h3>
-        <p class="mt-1 max-w-2xl text-sm text-gray-500">
-            Academic Records
-        </p>
+    <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+      <h2 className="text-2xl font-medium mb-6">Personal Details</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4">
+        <div className="flex items-center">
+          <p className="text-gray-500 font-medium mr-4">Tenth Board:</p>
+          <p className="text-gray-900 font-semibold">{userData.tenthBoard}</p>
+        </div>
+        <div className="flex items-center">
+          <p className="text-gray-500 font-medium mr-4">Tenth Board Marks</p>
+          <p className="text-gray-900 font-semibold">{userData.tenthPercentage}%</p>
+        </div>
+        <div className="flex items-center">
+          <p className="text-gray-500 font-medium mr-4">Twelfth Board</p>
+          <p className="text-gray-900 font-semibold">{userData.twelfthBoard}</p>
+        </div>
+        <div className="flex items-center">
+          <p className="text-gray-500 font-medium mr-4">Twelfth Board Marks</p>
+          <p className="text-gray-900 font-semibold">{userData.twelfthPercentage}</p>
+        </div>
+        <div className="flex items-center">
+          <p className="text-gray-500 font-medium mr-4">Diploma</p>
+          <p className="text-gray-900 font-semibold">{userData.diplomaYesNo}</p>
+        </div>
+        <div className="flex items-center">
+          <p className="text-gray-500 font-medium mr-4">Diploma Marks</p>
+          <p className="text-gray-900 font-semibold">{userData.diplomaPercentage}</p>
+        </div>
+      </div>
     </div>
-    <div class="border-t border-gray-200">
-        <dl>
-            <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-gray-500">
-                    SSC Board
-                </dt>
-                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                    MH Board
-                </dd>
-            </div>
-            <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-gray-500">
-                    SSC Pass (%):
-                </dt>
-                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                    99
-                </dd>
-            </div>
-            <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-gray-500">
-                    HSC Board
-                </dt>
-                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                    MH Board
-                </dd>
-            </div>
-            <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-gray-500">
-                    HSC Pass (%):
-                </dt>
-                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                    99
-                </dd>
-            </div>
-            <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-gray-500">
-                    Diploma
-                </dt>
-                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                    YES/ NO
-                </dd>
-            </div>
-            <div class="bg-white-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-gray-500">
-                    Diploma Pass (%):
-                </dt>
-                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                    XYZ
-                </dd>
-            </div>
-            <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-gray-500">
-                    Father's Name:
-                </dt>
-                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                    XYZ
-                </dd>
-            </div>
-            <div class="bg-white-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-gray-500">
-                    Drop after 12th?
-                </dt>
-                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                    yes/ no
-                </dd>
-            </div>
-            
-        </dl>
-    </div>
-</div>
-   
-  )
-}
+  );
+};
 
-export default Edu
+export default Edu;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Highest_Salary from "../Placement/Analytics/Highest_Salary";
 
 const PlacementStats = () => {
-  const [selectedTab, setSelectedTab] = useState('IT');
+  const [selectedTab, setSelectedTab] = useState('CS');
   const [lowSalary, setLowSalary] = useState(0);
   const [avgSalary, setAvgSalary] = useState(0);
   const [highSalary, setHighSalary] = useState(0);
@@ -15,10 +15,8 @@ const PlacementStats = () => {
     setSelectedTab(newTab);
     updateSalaries(newTab); // Call the animation when the tab changes
   };
-   
-
-
-   const updateSalaries = (newTab) => {
+  
+  const updateSalaries = (newTab) => {
     const increment = 2; // Change this value based on your animation speed
     
     let currentLowSalary = 100000;
@@ -82,81 +80,82 @@ const PlacementStats = () => {
     }, 30);
   };
   
+  const data3 = [
+    {
+      name: "Comps",
+      max_ctc: 24,
+    },
+    {
+      name: "IT",
+      max_ctc: 19.75,
+    },
+    {
+      name: "EXTC",
+      max_ctc: 19.75,
+    },
+    {
+      name: "AI & DS",
+      max_ctc: 19.43,
+    },
+    {
+      name: "CHEM",
+      max_ctc: 8,
+    },
+  ];
   
-  
-const data3 = [
-  {
-    name: "Comps",
-    max_ctc: 24,
-  },
-  {
-    name: "IT",
-    max_ctc: 19.75,
-  },
-  {
-    name: "EXTC",
-    max_ctc: 19.75,
-  },
-  {
-    name: "AI & DS",
-    max_ctc: 19.43,
-  },
-  {
-    name: "CHEM",
-    max_ctc: 8,
-  },
-];
   const testimonials = [
     {
       id: 1,
       content: (
         <>
-          <p>
-          </p>
+          <p></p>
           {/* <Appearing_Placed data={data1} /> Include your chart component */}
-            <div className="flex space-x-4">
-            <div className="flex-1 text-center bg-white p-4 border border-blue-500 rounded-md
-        transition duration-300 ease-in-out hover:bg-indigo-500 hover:border-blue-500 hover:text-white">
-              <div className="text-lg font-semibold">Lowest Salary</div>
-              <div className="text-2xl">{Math.round(lowSalary)}</div>
-            </div>
-            <div className="flex-1 text-center bg-white p-4 border border-blue-500 rounded-md
-        transition duration-300 ease-in-out hover:bg-indigo-500 hover:border-blue-500 hover:text-white ">
+          <div className="flex space-x-4">
+            <div
+              className="flex-1 text-center bg-white p-4 border border-blue-500 rounded-md
+        transition duration-300 ease-in-out hover:bg-indigo-500 hover:border-blue-500 hover:text-white "
+            >
               <div className="text-lg font-semibold">Average Salary</div>
               <div className="text-2xl">{Math.round(avgSalary)}</div>
             </div>
-            <div className="flex-1 text-center bg-white p-4 border border-blue-500 rounded-md
-        transition duration-300 ease-in-out hover:bg-indigo-500 hover:border-blue-500 hover:text-white">
+            <div
+              className="flex-1 text-center bg-white p-4 border border-blue-500 rounded-md
+        transition duration-300 ease-in-out hover:bg-indigo-500 hover:border-blue-500 hover:text-white"
+            >
               <div className="text-lg font-semibold">Highest Salary</div>
               <div className="text-2xl">{Math.round(highSalary)}</div>
             </div>
-          </div>  
-         
+            <div
+              className="flex-1 text-center bg-white p-4 border border-blue-500 rounded-md
+        transition duration-300 ease-in-out hover:bg-indigo-500 hover:border-blue-500 hover:text-white"
+            >
+              <div className="text-lg font-semibold">Lowest Salary</div>
+              <div className="text-2xl">{Math.round(lowSalary)}</div>
+            </div>
+          </div>
         </>
-      )
+      ),
     },
     {
       id: 2,
       content: (
         <>
-          <p>
-          </p>
+          <p></p>
           <Highest_Salary data={data3} />
         </>
-      )
+      ),
     },
-    
+
     // Add more testimonials as needed
   ];
 
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
 
   useEffect(() => {
-    
     updateSalaries(selectedTab); // Initial animation when the component mounts
-    
   }, [selectedTab]);
-  useEffect(()=>{
+
+  useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentTestimonialIndex((prevIndex) =>
         prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
@@ -165,6 +164,7 @@ const data3 = [
 
     return () => clearInterval(intervalId);
   }, [testimonials.length]);
+
   const placementData = {
     IT: {
       lowSalary: 500000,
@@ -174,26 +174,6 @@ const data3 = [
       totalPlaced: 70,
       totalCompanies: 20,
       recruitedCompanies: 15,
-      // Year1: {
-      //   totalStudents: 100,
-      //   totalPlaced: 70,
-      // },
-      // Year2: {
-      //   totalStudents: 110,
-      //   totalPlaced: 75,
-      // },
-      // Year3: {
-      //   totalStudents: 120,
-      //   totalPlaced: 80,
-      // },
-      // Year4: {
-      //   totalStudents: 130,
-      //   totalPlaced: 85,
-      // },
-      // Year5: {
-      //   totalStudents: 140,
-      //   totalPlaced: 90,
-      // },
     },
     CS: {
       lowSalary: 480000,
@@ -203,26 +183,6 @@ const data3 = [
       totalPlaced: 70,
       totalCompanies: 20,
       recruitedCompanies: 15,
-      // Year1: {
-      //   totalStudents: 90,
-      //   totalPlaced: 60,
-      // },
-      // Year2: {
-      //   totalStudents: 95,
-      //   totalPlaced: 65,
-      // },
-      // Year3: {
-      //   totalStudents: 100,
-      //   totalPlaced: 70,
-      // },
-      // Year4: {
-      //   totalStudents: 105,
-      //   totalPlaced: 75,
-      // },
-      // Year5: {
-      //   totalStudents: 110,
-      //   totalPlaced: 80,
-      // },
     },
     'AI&DS': {
       lowSalary: 380000,
@@ -232,27 +192,6 @@ const data3 = [
       totalPlaced: 70,
       totalCompanies: 20,
       recruitedCompanies: 15,
-      // Year1: {
-      //   totalStudents: 80,
-      //   totalPlaced: 50,
-      // },
-      // Year2: {
-      //   totalStudents: 85,
-      //   totalPlaced: 55,
-      // },
-      // Year3: {
-      //   totalStudents: 90,
-      //   totalPlaced: 60,
-      // },
-      // Year4: {
-      //   totalStudents: 95,
-      //   totalPlaced: 65,
-      // },
-      // Year5: {
-      //   totalStudents: 100,
-      //   totalPlaced: 70,
-      // },
-      
     },
     Chemical: {
       lowSalary: 460000,
@@ -262,27 +201,6 @@ const data3 = [
       totalPlaced: 70,
       totalCompanies: 20,
       recruitedCompanies: 15,
-      
-      // Year1: {
-      //   totalStudents: 95,
-      //   totalPlaced: 65,
-      // },
-      // Year2: {
-      //   totalStudents: 100,
-      //   totalPlaced: 70,
-      // },
-      // Year3: {
-      //   totalStudents: 105,
-      //   totalPlaced: 75,
-      // },
-      // Year4: {
-      //   totalStudents: 110,
-      //   totalPlaced: 80,
-      // },
-      // Year5: {
-      //   totalStudents: 115,
-      //   totalPlaced: 85,
-      // },
     },
     EXTC: {
       lowSalary: 470000,
@@ -292,31 +210,11 @@ const data3 = [
       totalPlaced: 70,
       totalCompanies: 20,
       recruitedCompanies: 15,
-      // Year1: {
-      //   totalStudents: 85,
-      //   totalPlaced: 55,
-      // },
-      // Year2: {
-      //   totalStudents: 90,
-      //   totalPlaced: 60,
-      // },
-      // Year3: {
-      //   totalStudents: 95,
-      //   totalPlaced: 65,
-      // },
-      // Year4: {
-      //   totalStudents: 100,
-      //   totalPlaced: 70,
-      // },
-      // Year5: {
-      //   totalStudents: 105,
-      //   totalPlaced: 75,
-      // },
     },
   };
   
   return (
-    <div>
+    <div className="container mx-auto">
       <h1 className="text-3xl text-indigo-500 tracking-widest font-medium title-font text-center mt-10 h-[1.25rem]">Placement Statistics</h1>
       <div className="flex justify-center space-x-4 mt-10">
         {/* Your tab buttons here */}

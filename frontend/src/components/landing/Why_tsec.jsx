@@ -9,7 +9,7 @@ const Justify = styled.div`
 
 const BannerContainer = styled.div`
   color: #f0f0f0;
-  padding: 20px;
+  padding: 5px;
   text-align: center;
   display: flex;
   border-radius: 8px;
@@ -18,7 +18,7 @@ const BannerContainer = styled.div`
   top: 75px;
   z-index: 1;
   overflow: hidden;
-
+  
   @keyframes moveBanner {
     0% {
       transform: translateX(100%);
@@ -43,7 +43,7 @@ const DepartmentContainer = styled.div`
   flex-direction: column; /* Updated to column direction */
   align-items: center; /* Center horizontally */
   justify-content: center; /* Center vertically */
-
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   &:last-child {
     margin-right: 0; /* No margin for the last department container */
   }
@@ -70,32 +70,32 @@ const TopSalariesBanner = () => {
     <BannerContainer>
       <DepartmentContainer>
       <div className='text-container'>
-          <p>CS</p>
-          <p>Top Salary</p>
+          <p>CS: Top CTC</p>
+          <p>1 Crore</p>
         </div>
       </DepartmentContainer>
       <DepartmentContainer>
       <div className='text-container'>
-          <p>IT</p>
-          <p>Top Salary</p>
+          <p>IT: Top CTC</p>
+          <p>55 LPA</p>
         </div>
       </DepartmentContainer>
       <DepartmentContainer>
       <div className='text-container'>
-          <p>AI-DS</p>
-          <p>Top Salary</p>
+          <p>AI-DS: Top CTC</p>
+          <p>20 LPA</p>
         </div>
       </DepartmentContainer>
       <DepartmentContainer>
       <div className='text-container'>
-          <p>EXTC</p>
-          <p>Top Salary</p>
+          <p>EXTC: Top CTC</p>
+          <p>20 LPA</p>
         </div>
       </DepartmentContainer>
       <DepartmentContainer>
       <div className='text-container'>
-          <p>CHEMICAL</p>
-          <p>Top Salary</p>
+          <p>CHEM: Top CTC</p>
+          <p>12 LPA</p>
         </div>
       </DepartmentContainer>
     </BannerContainer>
@@ -103,7 +103,7 @@ const TopSalariesBanner = () => {
 };
 const Why_tsec = () => {
   return (
-    <div style={{ marginTop: '60px', overflow: 'hidden',position:'fixed' }}>
+    <div style={{ marginTop: '60px', overflow: 'hidden',position:'fixed'}}>
     <section class="text-gray-600 body-font">
   <TopSalariesBanner />
   

@@ -30,31 +30,39 @@ const Item = styled.div`
 const Input = styled.input``
 
 const Button = styled.button`
-    padding: 5px 15px;
-    background-color: transparent;
-    border: 2px solid #3E5FD0;
-    color: #3E5FD0;
-    border-radius: 15px;
-    font-weight: bold;
-    margin-top: 10px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-`
+  padding: 5px 15px;
+  background-color: transparent;
+  border: 2px solid #3e5fd0;
+  color: #3e5fd0;
+  border-radius: 15px;
+  font-weight: bold;
+  margin-top: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  &:hover {
+    box-shadow: 0px 0px 10px 2px rgba(62, 95, 208, 0.5);
+  }
+`;
 const Button1 = styled.button`
-    padding: 5px 15px;
-    background-color: transparent;
-    border: 2px solid #3E5FD0;
-    color: black;
-    border-radius: 15px;
-    font-weight: bold;
-    margin-top: 10px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-`
+  padding: 5px 15px;
+  background-color: transparent;
+  border: 2px solid #3e5fd0;
+  color: black;
+  border-radius: 15px;
+  font-weight: bold;
+  margin-top: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  &:hover {
+    box-shadow: 0px 0px 10px 2px rgba(62, 95, 208, 0.5);
+  }
+`;
 
 const Navbar = ({ setSelectedOptioon }) => {
   const handleItemClick = (option) => {
