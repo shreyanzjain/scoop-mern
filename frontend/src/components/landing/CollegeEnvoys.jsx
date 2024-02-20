@@ -145,7 +145,7 @@
 import React, { useState } from 'react';
 
 const CollegeEnvoys = () => {
-    const [selectedTab, setSelectedTab] = useState(2);
+    const [selectedTab, setSelectedTab] = useState(1);
 
     // Sample student data for each department
     const departmentData = {

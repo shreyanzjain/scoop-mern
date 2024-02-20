@@ -50,7 +50,7 @@ const SideBar = ({ setSelectedOption }) => {
 
           <div class="flex flex-col justify-between flex-1 mt-6">
             <nav>
-              <a class="flex items-center px-4 py-2 mt-5 text-black-600 transition-colors duration-300 transform rounded-lg dark:text-gray-400 hover:bg-tan dark:hover:text-black-600 hover:text-gray-700 cursor-pointer">
+              <a class="flex items-center px-4 py-2 mt-5 text-black-600 transition-colors duration-300 transform rounded-lg hover:bg-tan k-600  cursor-pointer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -74,7 +74,7 @@ const SideBar = ({ setSelectedOption }) => {
                 </span>
               </a>
 
-              <a class="flex items-center px-4 py-2 mt-5 text-black-600 transition-colors duration-300 transform rounded-lg dark:text-gray-400 hover:bg-tan dark:hover:text-gray-200 hover:text-gray-700 cursor-pointer">
+              <a class="flex items-center px-4 py-2 mt-5 text-black-600 transition-colors duration-300 transform rounded-lg hover:bg-tan cursor-pointer">
                 <svg
                   class="w-5 h-5"
                   viewBox="0 0 24 24"
@@ -105,7 +105,7 @@ const SideBar = ({ setSelectedOption }) => {
                 </span>
               </a>
 
-              <a class="flex items-center px-4 py-2 mt-5 text-black-600 transition-colors duration-300 transform rounded-lg dark:text-gray-400 hover:bg-tan dark:hover:text-gray-200 hover:text-gray-700 cursor-pointer">
+              <a class="flex items-center px-4 py-2 mt-5 text-black-600 transition-colors duration-300 transform rounded-lg hover:bg-tan cursor-pointer">
                 <svg
                   class="w-5 h-5"
                   viewBox="0 0 24 24"
@@ -129,7 +129,7 @@ const SideBar = ({ setSelectedOption }) => {
                 </span>
               </a>
 
-              <a class="flex items-center px-4 py-2 mt-5 text-black-600 transition-colors duration-300 transform rounded-lg dark:text-gray-400 hover:bg-tan dark:hover:text-gray-200 hover:text-gray-700 cursor-pointer">
+              <a class="flex items-center px-4 py-2 mt-5 text-black-600 transition-colors duration-300 transform rounded-lg hover:bg-tan cursor-pointer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -152,7 +152,7 @@ const SideBar = ({ setSelectedOption }) => {
                 </span>
               </a>
 
-              <a className="flex items-center px-4 py-2 mt-5 text-black-600 transition-colors duration-300 transform rounded-lg dark:text-gray-400 hover:bg-tan dark:hover:text-gray-200 hover:text-gray-700 cursor-pointer">
+              <a className="flex items-center px-4 py-2 mt-5 text-black-600 transition-colors duration-300 transform rounded-lg hover:bg-tan cursor-pointer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -175,7 +175,7 @@ const SideBar = ({ setSelectedOption }) => {
                 </span>
               </a>
 
-              <a class="flex items-center px-4 py-2 mt-5 text-black-600 transition-colors duration-300 transform rounded-lg dark:text-gray-400 hover:bg-tan dark:hover:text-gray-200 hover:text-gray-700 cursor-pointer">
+              <a class="flex items-center px-4 py-2 mt-5 text-black-600 transition-colors duration-300 transform rounded-lg hover:bg-tan cursor-pointer">
                 <svg
                   class="w-5 h-5"
                   viewBox="0 0 24 24"
@@ -206,7 +206,7 @@ const SideBar = ({ setSelectedOption }) => {
                 </span>
               </a>
 
-              <a class="flex items-center px-4 py-2 mt-5 text-black-600 transition-colors duration-300 transform rounded-lg dark:text-gray-400 hover:bg-tan dark:hover:text-gray-200 hover:text-gray-700 cursor-pointer">
+              <a class="flex items-center px-4 py-2 mt-5 text-black-600 transition-colors duration-300 transform rounded-lg hover:bg-tan cursor-pointer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -226,7 +226,7 @@ const SideBar = ({ setSelectedOption }) => {
                 </span>
               </a>
 
-              <a class="flex items-center px-4 py-2 mt-5 text-black-600 transition-colors duration-300 transform rounded-lg dark:text-gray-400 hover:bg-tan dark:hover:text-gray-200 hover:text-gray-700 cursor-pointer">
+              <a class="flex items-center px-4 py-2 mt-5 text-black-600 transition-colors duration-300 transform rounded-lg hover:bg-tan cursor-pointer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
