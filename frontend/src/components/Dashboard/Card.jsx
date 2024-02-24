@@ -18,14 +18,13 @@ export default function ({
     <div>
       <div className="job-card rounded-md">
         <div className="card-top flex flex-row items-center">
-          <img className="company-logo" src={logo} />
+          {/* <img className="company-logo" src={logo} /> */}
           <div className="company-title text-3xl font-bold">{companyName}</div>
         </div>
         <div className="card-mid">
           <div className="job-title flex flex-row items-center">
             <img className="person-logo" src={person} />
             <div className="job-title-text">{jobTitle}</div>
-            
           </div>
           <div className="job-location flex flex-row items-cente">
             <img className="location-logo" src={location} />
@@ -38,13 +37,15 @@ export default function ({
         </div>
         <div className="card-bottom flex justify-end">
           <span>
-            <button className="button" onClick={() =>setMainJobId(jobId)}>More</button>
+            <button className="button" onClick={() => setMainJobId(jobId)}>
+              More
+            </button>
           </span>
           <span>
             <button className="button">Apply</button>
           </span>
         </div>
+      </div>
     </div>
-  </div>
   );
 }
