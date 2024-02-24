@@ -62,6 +62,7 @@ model Student {
   tenth Float @db.DoublePrecision
   twelfth Float @db.DoublePrecision
   kt Int @default(0)
+  drop Boolean @default(false)
   linkedin String @db.Text
   leetcode String @db.Text
   codechef String @db.Text

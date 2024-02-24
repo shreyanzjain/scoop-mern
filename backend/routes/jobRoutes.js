@@ -8,6 +8,7 @@ const {
   get_jobs,
   get_job_by_id,
   get_jobs_by_branch,
+  applyById,
 } = require("../methods/jobMethods");
 
 // middleware to check if the user is actually an admin
@@ -19,6 +20,22 @@ const adminCheck = (req, res, next) => {
     return res.status(403).send("Unauthorized.");
   }
 };
+
+const studentCheck = (req, res, next) => {
+  const entityRole = req.entityRole;
+  if (entityRole === "STUDENT") {
+    next();
+  } else {
+    return res.status(403).send("Unauthorized.");
+  }
+};
+
+router.put("/apply", authorization, studentCheck, async (req, res) => {
+  const id = parseInt(req.query.id);
+  const response = await applyById(id, req.entityId);
+  console.log(response);
+  return res.status(response.status).send({ message: response.message });
+});
 
 router.get("/get", authorization, jsonParser, async (req, res) => {
   const id = parseInt(req.query.id);

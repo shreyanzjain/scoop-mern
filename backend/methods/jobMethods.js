@@ -94,4 +94,66 @@ async function get_jobs_by_branch(branch) {
   }
 }
 
-module.exports = { create_job, get_jobs, get_job_by_id, get_jobs_by_branch };
+async function applyById(job_id, entityId) {
+  const response = await get_job_by_id(job_id);
+  if (response.status == 200) {
+    const job = response.data;
+    const studentQualification = await prisma.student.findFirst({
+      where: {
+        user_id: entityId,
+      },
+      select: {
+        cgpa: true,
+        kt: true,
+        drop: true,
+        tenth: true,
+        twelfth: true,
+        branch: true,
+      },
+    });
+    if (studentQualification) {
+      if (
+        (() => {
+          for (let i = 0; i < job.branches.length; i++) {
+            if (job.branches[i].branch == "ALL") {
+              return true;
+            }
+            if (job.branches[i].branch == studentQualification.branch) {
+              return true;
+            }
+          }
+          return false;
+        })() &&
+        studentQualification.cgpa >= job.cgpa_cutoff &&
+        studentQualification.tenth >= job.tenth &&
+        studentQualification.twelfth >= job.twelfth &&
+        (studentQualification.kt > 0
+          ? job.kt_allowed == true
+            ? true
+            : false
+          : true) &&
+        (studentQualification.drop
+          ? job.drop_allowed_ug == true
+            ? true
+            : false
+          : true)
+      ) {
+        return { status: 200, message: "Applied successfully" };
+      } else {
+        return { status: 400, message: "Not qualified" };
+      }
+    } else {
+      return { status: 404, message: "No such student" };
+    }
+  } else {
+    return { status: response.status, message: response.data };
+  }
+}
+
+module.exports = {
+  create_job,
+  get_jobs,
+  get_job_by_id,
+  get_jobs_by_branch,
+  applyById,
+};
