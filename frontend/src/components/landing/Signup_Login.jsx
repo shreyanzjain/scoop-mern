@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { useCookies, CookiesProvider } from "react-cookie";
 import { NavLink, redirect } from "react-router-dom";
 
 const Signup_Login = () => {
@@ -13,6 +13,11 @@ const Signup_Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState(false);
+  const [cookies, setCookies] = useCookies([
+    "entityRole",
+    "entityEmail",
+    "entityId",
+  ]);
 
   // Function to check if both email and password are filled
   const isSubmitDisabled = () => {
@@ -67,13 +72,19 @@ const Signup_Login = () => {
           }
         )
         .then((res) => {
+          console.log(res.data);
+          if (res.data) {
+            setCookies("entityEmail", res.data.entityEmail, { path: "/" });
+            setCookies("entityId", res.data.entityId, { path: "/" });
+            setCookies("entityRole", res.data.entityRole, { path: "/" });
+          }
+          // console.log("cookies", cookies);
           if (res.data.entityRole === "STUDENT") {
             navigate("/user-page");
           }
           if (res.data.entityRole === "ADMIN") {
             navigate("/placement-cell");
           }
-          console.log(res.data);
         });
     }
   };
