@@ -1,9 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { NavLink, redirect } from "react-router-dom";
 
 const Signup_Login = () => {
+  const navigate = useNavigate();
   const [emailValue, setEmailValue] = useState("");
   const [isValidEmail, setIsValidEmail] = useState(true);
   const [buttonClicked, setButtonClicked] = useState(false);
@@ -65,8 +67,11 @@ const Signup_Login = () => {
           }
         )
         .then((res) => {
-          if (res.data.role == "ADMIN") {
-            return redirect(" placement-cell");
+          if (res.data.entityRole === "STUDENT") {
+            navigate("/user-page");
+          }
+          if (res.data.entityRole === "ADMIN") {
+            navigate("/placement-cell");
           }
           console.log(res.data);
         });
