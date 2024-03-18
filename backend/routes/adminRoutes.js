@@ -119,7 +119,8 @@ router.post(
       })
       .on("error", (err) => console.log(err))
       .on("data", async (row) => {
-        const res = await create_user(row.email, "STUDENT", row.password);
+        const email = Object.keys(row)[0], password = row[email];
+        const res = await create_user(email, "STUDENT", password);
         // const info = await transporter.sendMail(
         //   mailOptions(row.email, row.password)
         // );
@@ -130,5 +131,4 @@ router.post(
     return res.status(200).send(req.file);
   }
 );
-
 module.exports = router;
