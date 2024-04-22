@@ -32,7 +32,8 @@ router.post("/login", jsonParser, async (req, res) => {
       return res
         .cookie("access_token", token, {
           httpOnly: true,
-          sameSite: "lax",
+          sameSite: "none",
+          secure:true,
           maxAge: 604800000, // 7 days
         })
         .status(200)

@@ -29,6 +29,9 @@
     padding: 5px;
     
 }
+.company-title {
+    padding-left: 8px;
+}
 .job-title>img, .job-location>img, .job-compensation>img {
     width: 25px;
     height: auto;

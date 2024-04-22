@@ -1,8 +1,25 @@
 import data from "./Data.json";
+import axios from "axios";
 import emptyPlaceholder from "./icons/emptyPlaceholder.gif";
+import { useEffect, useState } from "react";
+
 export default function ({ jobId }) {
-  //   jobId = data[0].jobId;
-  if (jobId == undefined) {
+  const [job, setJob] = useState();
+  const [obj, setObj] = useState(null);
+
+  useEffect(() => {
+    const fetchJobData = async () => {
+      if (!jobId) return;
+      const response = await axios.get(
+        `http://127.0.0.1:3000/jobs/get?id=${jobId}`,
+        { withCredentials: true }
+      );
+      setObj(response.data);
+    };
+    fetchJobData();
+  }, [jobId]);
+
+  if (obj === null) {
     return (
       <div className="maincard-container">
         <div className="empty-container">
@@ -11,34 +28,38 @@ export default function ({ jobId }) {
       </div>
     );
   }
-  const obj = data.find((ele) => ele.jobId == jobId);
-  const status = true,
-    cgpa = 8,
-    tenth = 60,
-    twelfth = 60,
-    isKtAllowed = false,
-    isDropAllowed = true,
-    jobDescription =
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Neque ornare aenean euismod elementum nisi quis eleifend. At imperdiet dui accumsan sit amet nulla facilisi morbi. Mattis molestie a iaculis at erat pellentesque adipiscing. Id venenatis a condimentum vitae. Dolor sit amet consectetur adipiscing elit ut. Arcu risus quis varius quam quisque id diam. Vel quam elementum pulvinar etiam non. Feugiat pretium nibh ipsum consequat nisl. Elementum sagittis vitae et leo duis ut diam. Sapien et ligula ullamcorper malesuada proin libero. Interdum varius sit amet mattis vulputate. Volutpat commodo sed egestas egestas. Malesuada proin libero nunc consequat interdum varius sit. Donec pretium vulputate sapien nec. Nisi est sit amet facilisis magna etiam. In cursus turpis massa tincidunt dui ut ornare.";
+
+  const companyName = obj.company,
+    branches = obj.branches,
+    jobTitle = obj.job_role,
+    jobCompensation = obj.salary,
+    jobLocation = obj.location,
+    status = obj.status,
+    cgpa = obj.cgpa_cutoff,
+    tenth = obj.tenth,
+    twelfth = obj.twelfth,
+    isKtAllowed = obj.kt_allowed,
+    isDropAllowed = obj.drop_allowed_ug,
+    jobDescription = obj.job_description;
   return (
     <div className="maincard-container">
-      <div className="maincard-top text-3xl font-bold">{obj.companyName}</div>
+      <div className="maincard-top text-3xl font-bold">{companyName}</div>
       <div className="maincard-mid overflow-y-auto">
         <div>
           <span className="font-bold">Role: </span>
-          <span>{obj.jobTitle}</span>
+          <span>{jobTitle}</span>
         </div>
         <div>
           <span className="font-bold">Salary: </span>
-          <span>{obj.jobCompensation}</span>
+          <span>{jobCompensation}</span>
         </div>
         <div>
           <span className="font-bold">Status: </span>
-          <span>{status ? "Accepting Application" : "CLosed"}</span>
+          <span>{status}</span>
         </div>
         <div>
           <span className="font-bold">Location: </span>
-          <span>{obj.jobLocation}</span>
+          <span>{jobLocation}</span>
         </div>
         <div>
           <span className="font-bold">CGPA: </span>
