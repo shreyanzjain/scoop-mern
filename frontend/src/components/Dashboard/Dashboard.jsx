@@ -5,7 +5,7 @@ import axios from "axios";
 import MainCard from "./MainCard";
 import { useState } from "react";
 
-const URL = "http://127.0.0.1:3000/jobs/get_by_branch?branch=",
+const URL = "http://localhost:3000/jobs/get_by_branch?branch=",
   branch = "IT",
   jobList = [];
 let iterations = 0;
