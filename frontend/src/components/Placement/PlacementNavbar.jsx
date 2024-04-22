@@ -4,7 +4,7 @@ import AttributionIcon from "@mui/icons-material/Attribution";
 import axios from "axios";
 
 function login() {
-  axios.post("http://127.0.0.1:3000/user/login", {
+  axios.post("http://localhost:3000/user/login", {
     email: "admin@admin.com",
     password: "admin",
   }, {
@@ -19,7 +19,7 @@ function login() {
 }
 
 function protected_check() {
-  axios.get("http://127.0.0.1:3000/user/auth_test", {
+  axios.get("http://localhost:3000/user/auth_test", {
     withCredentials: true
   })
   .then((response)=> {

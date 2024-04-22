@@ -18,7 +18,7 @@ export default function () {
   useEffect(() => {
     async function fetchUserData() {
       await axios
-        .get("http://127.0.0.1:3000/user/auth_test", {
+        .get("http://localhost:3000/user/auth_test", {
           withCredentials: true,
         })
         .then((res) => {

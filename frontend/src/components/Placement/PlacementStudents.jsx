@@ -12,7 +12,7 @@ function PlacementStudents() {
   useEffect(() => {
     const getData = async () => {
       await axios
-        .get("http://127.0.0.1:3000/student/all", {
+        .get("http://localhost:3000/student/all", {
           withCredentials: true,
         })
         .then((res) => {
@@ -29,7 +29,7 @@ function PlacementStudents() {
 
   async function handleVerify(id) {
     await axios
-      .get(`http://127.0.0.1:3000/student/get?id=${id}`, {
+      .get(`http://localhost:3000/student/get?id=${id}`, {
         withCredentials: true,
       })
       .then((res) => {

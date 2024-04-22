@@ -25,24 +25,46 @@ function JobDetail({ onClickBack, job }) {
         </a>
       </div>
       <div className="container ps-2 pt-2">
-        <div className="flex flex-col w-full h-full">
-          <p>Company: {company}</p>
-          <p>Job Role: {job_role}</p>
-          <p>Job Description: {job_description}</p>
-          <p>Salary: {salary}</p>
-          <p>Status: {status}</p>
-          <p>Location: {location}</p>
-          <p>CGPA Cutoff: {cgpa_cutoff}</p>
-          <p>Tenth: {tenth}</p>
-          <p>Twelfth: {twelfth}</p>
-          <p>KT Allowed: {kt_allowed ? "Yes" : "No"}</p>
-          <p>Drop Allowed UG: {drop_allowed_ug ? "Yes" : "No"}</p>
-          <p>Branches:</p>
-          <ul>
+        <div className="flex flex-col w-full h-full text-black">
+          <p className="text-3xl font-bold">{company}</p>
+          <p className="text-xl font-semibold">{job_role}</p>
+          <div className="flex space-x-3 w-full mt-1">
+            <a className="border-2 border-green-900 bg-green-400 w-fit px-2 rounded-xl text-green-900">
+              <strong>Rs.</strong> {salary}
+            </a>
+            <a className="border-2 border-gray-900 bg-gray-400 w-fit px-2 rounded-xl text-gray-900">
+              {location}
+            </a>
+            <a className="border-2 border-purple-900 bg-purple-400 w-fit px-2 rounded-xl text-purple-900">
+              <strong>CGPA</strong> {cgpa_cutoff} and above
+            </a>
+            <a className="border-2 border-blue-900 bg-blue-400 w-fit px-2 rounded-xl text-blue-900">
+              <strong>X</strong> {tenth}% and above
+            </a>
+            <a className="border-2 border-yellow-900 bg-yellow-400 w-fit px-2 rounded-xl text-yellow-900">
+              <strong>XII</strong> {twelfth}% and above
+            </a>
+            <a className="border-2 border-red-900 bg-red-400 w-fit px-2 rounded-xl text-red-900">
+              <strong>KT </strong>
+              {kt_allowed ? "Allowed" : "Not Eligible"}
+            </a>
+            <a className="border-2 border-pink-900 bg-pink-400 w-fit px-2 rounded-xl text-pink-900">
+              <strong>DROP </strong>
+              {drop_allowed_ug ? "Allowed" : "Not Eligible"}
+            </a>
+          </div>
+          <div className="flex space-x-3 mt-2">
             {branches.map((branch, index) => (
-              <li key={index}>{branch.branch}</li>
+              <a
+                className="border-2 border-black bg-white w-fit px-4 rounded-xl text-black"
+                key={index}
+              >
+                {branch.branch}
+              </a>
             ))}
-          </ul>
+          </div>
+          <p>Status: {status}</p>
+          <p>Job Description: {job_description}</p>
         </div>
       </div>
     </div>

@@ -11,7 +11,7 @@ function PlacementJobs() {
   const [detailData, setDetailData] = useState({});
   const onClickDetail = async (id) => {
     await axios
-      .get(`http://127.0.0.1:3000/jobs/get?id=${id}`, {
+      .get(`http://localhost:3000/jobs/get?id=${id}`, {
         withCredentials: true,
       })
       .then((res) => {
@@ -26,7 +26,7 @@ function PlacementJobs() {
   useEffect(() => {
     const getData = async () => {
       await axios
-        .get("http://127.0.0.1:3000/jobs/get", {
+        .get("http://localhost:3000/jobs/get", {
           withCredentials: true,
         })
         .then((res) => {
@@ -58,7 +58,7 @@ function PlacementJobs() {
         </>
       )}
       {!listView && (
-        <div className="flex-col h-5/6 text-lg bg-whitesmoke text-licorice overflow-y-scroll">
+        <div className="flex-col h-3/4 text-lg bg-whitesmoke text-licorice overflow-y-scroll">
           <JobDetail job={detailData} onClickBack={onClickBack} />
         </div>
       )}

@@ -16,7 +16,7 @@ function PlacementUpload() {
     e.preventDefault();
     await axios
       .post(
-        "http://127.0.0.1:3000/jobs/create/",
+        "http://localhost:3000/jobs/create/",
         {
           company: company,
           job_role: role,
