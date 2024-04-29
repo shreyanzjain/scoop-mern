@@ -41,8 +41,8 @@ function PlacementUpload() {
   return (
     // placeholder bg color for visibility of the container
     <div className="container w-5/6 bg-whitesmoke bg-opacity-30 m-2">
-      <div className="container h-5/6">
-        <div className="flex bg-whitesmoke items-start">
+      <div className="container h-full">
+        <div className="flex bg-whitesmoke items-start h-full">
           <form className="w-full pt-2 px-2">
             <div className="flex flex-wrap -mx-3">
               <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -158,7 +158,7 @@ function PlacementUpload() {
                 </label>
                 <textarea
                   value={description}
-                  className="appearance-none resize-y block w-full bg-white text-licorice rounded pt-3 pb-32 px-3 mb-3 leading-tight focus:outline-none focus:border-2 focus:border-licorice"
+                  className="appearance-none resize-y block w-full bg-white text-licorice rounded pt-3 pb-56 px-3 mb-3 leading-tight focus:outline-none focus:border-2 focus:border-licorice"
                   id="grid-description"
                   type="textarea"
                   onChange={(e) => setDescription(e.target.value)}

@@ -23,6 +23,7 @@
   "homepage": "https://github.com/shreyanzjain/scoop-mern#readme",
   "dependencies": {
     "concurrently": "^8.2.2",
+    "react-cookie": "^7.1.4",
     "start": "^5.1.0"
   }
 }

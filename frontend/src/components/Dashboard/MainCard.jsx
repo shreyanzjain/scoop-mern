@@ -11,7 +11,7 @@ export default function ({ jobId }) {
     const fetchJobData = async () => {
       if (!jobId) return;
       const response = await axios.get(
-        `http://127.0.0.1:3000/jobs/get?id=${jobId}`,
+        `http://localhost:3000/jobs/get?id=${jobId}`,
         { withCredentials: true }
       );
       setObj(response.data);
