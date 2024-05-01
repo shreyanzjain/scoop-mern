@@ -8,6 +8,7 @@ const {
   update_profile,
   get_students,
   get_student,
+  verify_student,
 } = require("../methods/studentMethods");
 
 const studentCheck = (req, res, next) => {
@@ -105,5 +106,19 @@ router.post(
     return res.status(response.status).send(response.message);
   }
 );
+
+router.post("/verify", authorization, async (req, res) => {
+  if (req.entityRole == "ADMIN" || req.entityRole == "ENVOY") {
+    const id = parseInt(req.query.id);
+    if (id) {
+      const response = await verify_student(id);
+      return res.status(response.status).send(response.message);
+    } else {
+      return res.status(400).send("Send id as a query param :(");
+    }
+  } else {
+    return res.status(403).send("Unauthorized.");
+  }
+});
 
 module.exports = router;

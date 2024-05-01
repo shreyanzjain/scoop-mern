@@ -8,6 +8,8 @@ function PlacementStudents() {
   const [showList, setShowList] = useState(true);
   const [students, setStudents] = useState([]);
   const [student, setStudent] = useState({});
+  // a toggle for when a student is verified so as to reload the data via useEffect
+  const [verifiedStudent, setVerifiedStudent] = useState(false);
 
   useEffect(() => {
     const getData = async () => {
@@ -21,10 +23,29 @@ function PlacementStudents() {
         });
     };
     getData();
-  }, []);
+  }, [verifiedStudent]);
 
   function handleBack() {
     setShowList(true);
+  }
+
+  async function handleStudentVerification(id) {
+    await axios
+      .post(
+        `http://localhost:3000/student/verify?id=${id}`,
+        {},
+        {
+          withCredentials: true,
+        }
+      )
+      .then((res) => {
+        setVerifiedStudent(!verifiedStudent);
+        handleBack();
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   async function handleVerify(id) {
@@ -61,7 +82,7 @@ function PlacementStudents() {
         </div>
         <div
           className="bg-ashgray h-7 ms-2 w-1/12 text-center text-licorice rounded-sm hover:cursor-pointer"
-          onClick={handleBack}
+          onClick={() => handleStudentVerification(student.id)}
         >
           Verify
         </div>

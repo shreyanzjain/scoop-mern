@@ -4,7 +4,7 @@ async function get_profile(entityId) {
   const profile = await prisma.student.findFirst({
     where: {
       user_id: entityId,
-    }
+    },
   });
   return profile;
 }
@@ -32,6 +32,39 @@ async function get_students() {
     },
   });
   return { status: 200, data: profiles };
+}
+
+async function verify_student(id) {
+  const student = await prisma.student.findFirst({
+    where: {
+      id: id,
+    },
+  });
+
+  if (student) {
+    // if student is already verified then return
+    if (student.verified) {
+      return { status: 400, message: "Already verified." };
+    }
+
+    // if not verified then mark as verified
+
+    const updated_student = await prisma.student.update({
+      where: {
+        id: id,
+      },
+      data: {
+        verified: true,
+      },
+    });
+    if (updated_student) {
+      return { status: 200, message: "Updated successfully." };
+    } else {
+      return { status: 500, message: "An error occured, try again later." };
+    }
+  } else {
+    return { status: 404, message: `Student with id ${id} not found.` };
+  }
 }
 
 async function update_profile(
@@ -99,4 +132,10 @@ async function update_profile(
   }
 }
 
-module.exports = { get_profile, update_profile, get_students, get_student };
+module.exports = {
+  get_profile,
+  update_profile,
+  get_students,
+  get_student,
+  verify_student,
+};
