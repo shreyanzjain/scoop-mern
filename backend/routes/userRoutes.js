@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const jsonParser = bodyParser.json();
 const jwt = require("jsonwebtoken");
 
-const { login_user } = require("../methods/userMethods");
+const { login_user, update_password } = require("../methods/userMethods");
 const { get_data_for_jwt } = require("../methods/authMethods");
 const { authorization } = require("../middlewares/authorization");
 
@@ -32,8 +32,7 @@ router.post("/login", jsonParser, async (req, res) => {
       return res
         .cookie("access_token", token, {
           httpOnly: true,
-          sameSite: "none",
-          secure:true,
+          sameSite: "lax",
           maxAge: 604800000, // 7 days
         })
         .status(200)
@@ -45,6 +44,19 @@ router.post("/login", jsonParser, async (req, res) => {
     return res
       .status(400)
       .send("either or all of email, password not in req body.");
+  }
+});
+
+router.post("/update_password", authorization, jsonParser, async (req, res) => {
+  const { password } = req.body;
+  if (password) {
+    const { entityId } = req;
+    const response = await update_password(entityId, password);
+    return res.status(response.status).send(response.message);
+  } else {
+    return res
+      .status(400)
+      .send('please send the new password in the body as {password: "abcde"}');
   }
 });
 

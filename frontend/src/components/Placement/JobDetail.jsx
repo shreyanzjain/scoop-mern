@@ -18,7 +18,7 @@ function JobDetail({ onClickBack, job }) {
     <div>
       <div className="container ps-2 pt-2">
         <a
-          className="flex bg-tan w-24 items-center justify-center hover:cursor-pointer"
+          className="flex bg-tan rounded-sm w-24 items-center justify-center hover:cursor-pointer"
           onClick={onClickBack}
         >
           Back

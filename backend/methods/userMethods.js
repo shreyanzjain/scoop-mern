@@ -18,9 +18,9 @@ async function create_user(email, role, password) {
         hashed_password: hashed_password,
       },
     });
-    return ['200', 'User created.'];
+    return ["200", "User created."];
   } else {
-    return ['400', 'User already exists.'];
+    return ["400", "User already exists."];
   }
 }
 
@@ -36,14 +36,42 @@ async function login_user(email, password) {
       password,
       user.hashed_password
     );
-    if(is_correct_password){
-      return ['200', 'Correct password.'];
-    } else  {
-      return ['400', 'Incorrect password.']
+    if (is_correct_password) {
+      return ["200", "Correct password."];
+    } else {
+      return ["400", "Incorrect password."];
     }
   } else {
-    return ['400', 'No such user.']
+    return ["400", "No such user."];
   }
 }
 
-module.exports = { create_user, login_user };
+async function update_password(user_id, password) {
+  const user = await prisma.user.findFirst({
+    where: {
+      id: user_id,
+    },
+  });
+
+  const updated_user = await prisma.user.update({
+    where: {
+      id: user_id,
+    },
+    data: {
+      last_password: user.hashed_password,
+      last_modified_date: new Date(),
+      hashed_password: await bcrypt.hash(password, SALT_ROUNDS),
+    },
+  });
+
+  if (updated_user) {
+    return { status: 200, message: "Successful" };
+  } else {
+    return {
+      status: 500,
+      message: "Password update unsuccessful, try again later.",
+    };
+  }
+}
+
+module.exports = { create_user, login_user, update_password };
