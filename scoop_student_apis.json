@@ -1,20 +1,20 @@
 {
     "info": {
-        "_postman_id": "9e3780c5-c4b2-4e6e-9c5b-2d9dcc982c1e",
-        "name": "Scoop: Jobs",
+        "_postman_id": "8d4f22bc-b8ac-4e70-8183-c80d7b637804",
+        "name": "Scoop: Student",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
         "description": ""
     },
     "item": [
         {
-            "name": "Get All Jobs",
+            "name": "Get Profile",
             "request": {
                 "method": "GET",
                 "url": {
-                    "raw": "http://127.0.0.1:3000/jobs/get",
+                    "raw": "http://127.0.0.1:3000/student/profile",
                     "path": [
-                        "jobs",
-                        "get"
+                        "student",
+                        "profile"
                     ],
                     "protocol": "http",
                     "host": [
@@ -28,14 +28,14 @@
             }
         },
         {
-            "name": "Create Job",
+            "name": "Post Profile",
             "request": {
                 "method": "POST",
                 "url": {
-                    "raw": "http://127.0.0.1:3000/jobs/create",
+                    "raw": "http://127.0.0.1:3000/student/profile",
                     "path": [
-                        "jobs",
-                        "create"
+                        "student",
+                        "profile"
                     ],
                     "protocol": "http",
                     "host": [
@@ -53,26 +53,19 @@
                             "language": "json"
                         }
                     },
-                    "raw": "{\r\n  \"company\": \"solidity\",\r\n  \"job_role\": \"Cloud\",\r\n  \"job_description\": \"We are seeking a talented Cloud Solutions Architect to guide and consult our customers on designing robust cloud infrastructure solutions on Microsoft Azure. The Cloud Solutions Architect is responsible for:\\n\\n  • Serving as the internal and external technical expert regarding cloud, solutions, architectural designs, implementations, and operations leveraging Azure\\n\\n  • Collaborating with customer and engineering teams to understand requirements and create technical designs for solutions to be built on Azure\\n\\n  This is an excellent opportunity for professionals experienced with:\\n\\n  • Cloud infrastructure and platforms\\n  • Strong technical experience in solution architecture and design\\n\\n  As a strategic technical advisor, you will be:\\n\\n  • Solving extremely complex technical problems \\n  • Architecting and implementing advanced cloud solutions\\n\",\r\n  \r\n  \"salary\": 2200000, \r\n  \"status\": \"about_to_open\",\r\n  \"location\": \"DELHI\",\r\n  \"cgpa_cutoff\": 8,\r\n  \"tenth\": 85,\r\n  \"twelfth\": 90,\r\n  \"kt_allowed\": false,\r\n  \"drop_allowed_ug\": true,\r\n  \"branches\": [\"CS\", \"IT\"]\r\n}"
+                    "raw": "{\n  \"student_name\": \"Karthika Rao\",\n  \"dob\": \"2004-11-26T00:00:00.000Z\",\n  \"phone\": \"8424825775\",\n  \"phone_alt\": \"1234567890\",\n  \"branch\": \"CHEM\",\n  \"cgpa\": 8.7,\n  \"sem_1\": 8.5,\n  \"sem_2\": 8.3,\n  \"sem_3\": 7.9,\n  \"sem_4\": 8.1,\n  \"sem_5\": 9.0,  \n  \"sem_6\": 8.8,\n  \"sem_7\": 8.6,\n  \"sem_8\": 8.9,\n  \"tenth\": 90.5,\n  \"twelfth\": 92.7,\n  \"kt\": 0,\n  \"linkedin\": \"https://www.linkedin.com/in/johndoe\",\n  \"leetcode\": \"https://leetcode.com/johndoe/\", \n  \"codechef\": \"https://www.codechef.com/users/johndoe\",\n  \"codeforces\": \"http://codeforces.com/profile/johndoe\"\n}"
                 }
             }
         },
         {
-            "name": "Get Job By Branch",
+            "name": "Get All Students",
             "request": {
                 "method": "GET",
                 "url": {
-                    "raw": "http://127.0.0.1:3000/jobs/get_by_branch?branch=ALL",
-                    "query": [
-                        {
-                            "key": "branch",
-                            "value": "ALL"
-                        }
-                    ],
-                    "variable": [],
+                    "raw": "http://127.0.0.1:3000/student/all",
                     "path": [
-                        "jobs",
-                        "get_by_branch"
+                        "student",
+                        "all"
                     ],
                     "protocol": "http",
                     "host": [
@@ -86,20 +79,20 @@
             }
         },
         {
-            "name": "Get Job By Id",
+            "name": "Get Student By Id",
             "request": {
                 "method": "GET",
                 "url": {
-                    "raw": "http://127.0.0.1:3000/jobs/get?id=3",
+                    "raw": "http://127.0.0.1:3000/student/get?id=2",
                     "query": [
                         {
                             "key": "id",
-                            "value": "3"
+                            "value": "2"
                         }
                     ],
                     "variable": [],
                     "path": [
-                        "jobs",
+                        "student",
                         "get"
                     ],
                     "protocol": "http",
@@ -114,21 +107,21 @@
             }
         },
         {
-            "name": "Apply Job By Id",
+            "name": "Verify Student",
             "request": {
-                "method": "PUT",
+                "method": "POST",
                 "url": {
-                    "raw": "http://127.0.0.1:3000/jobs/apply?id=8",
+                    "raw": "http://127.0.0.1:3000/student/verify?id=4",
                     "query": [
                         {
                             "key": "id",
-                            "value": "8"
+                            "value": "4"
                         }
                     ],
                     "variable": [],
                     "path": [
-                        "jobs",
-                        "apply"
+                        "student",
+                        "verify"
                     ],
                     "protocol": "http",
                     "host": [
