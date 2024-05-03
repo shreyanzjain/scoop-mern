@@ -1,36 +1,18 @@
 import React from "react";
-import vTube from "../img/half_logo.png";
+import { useNavigate } from "react-router-dom";
 import AttributionIcon from "@mui/icons-material/Attribution";
 import axios from "axios";
 
-function login() {
-  axios.post("http://localhost:3000/user/login", {
-    email: "admin@admin.com",
-    password: "admin",
-  }, {
-    withCredentials: true
-  })
-  .then((response) => {
-    console.log(response);
-  })
-  .catch((error) => {
-    console.log(error);
-  })
+async function logout() {
+  const response = await axios.get("http://localhost:3000/user/logout", {
+    withCredentials: true,
+  });
+
+  return response;
 }
 
-function protected_check() {
-  axios.get("http://localhost:3000/user/auth_test", {
-    withCredentials: true
-  })
-  .then((response)=> {
-    console.log(response);
-  })
-  .catch((error)=> {
-    console.log(error);
-  })
-}
-
-function PlacementNavbar({userText}) {
+function PlacementNavbar({ userText }) {
+  const navigate = useNavigate();
   return (
     <nav className="sticky top-0 z-10 bg-whitesmoke border-b-2 border-ebony">
       <div className="max-w-full mx-auto">
@@ -39,10 +21,14 @@ function PlacementNavbar({userText}) {
             <AttributionIcon className="text-licorice me-2" /> {userText}
           </span>
           <div className="flex space-x-4 text-licorice me-2">
-            <a className="hover:bg-ashgray px-2" href="#" onClick={protected_check}>
-              Report An Issue
-            </a>
-            <a className="hover:bg-ashgray px-2" href="#" onClick={login}>
+            <a
+              className="hover:bg-ashgray px-2 hover:cursor-pointer"
+              onClick={async (e) => {
+                e.preventDefault();
+                const response = await logout();
+                navigate("/");
+              }}
+            >
               Log Out
             </a>
           </div>

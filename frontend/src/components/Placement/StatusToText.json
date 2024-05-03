@@ -1,3 +1,7 @@
 {
-    "about_to_open": "About to open"
+  "about_to_open": "About to open",
+  "recieving_applications": "Applications Open",
+  "applications_closed": "Applications Closed",
+  "interviewing": "Interviewing",
+  "completed": "Completed"
 }

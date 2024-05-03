@@ -1,3 +1,6 @@
+import statusToText from "./StatusToText.json";
+import colorStatus from "./ColorStatus.json";
+
 function JobDetail({ onClickBack, job }) {
   const {
     id,
@@ -52,6 +55,12 @@ function JobDetail({ onClickBack, job }) {
               <strong>DROP </strong>
               {drop_allowed_ug ? "Allowed" : "Not Eligible"}
             </a>
+            <a
+              className={`border-2 border-licorice w-fit px-2 rounded-xl`}
+              style={{ backgroundColor: colorStatus[status] }}
+            >
+              <strong>{statusToText[status]}</strong>
+            </a>
           </div>
           <div className="flex space-x-3 mt-2">
             {branches.map((branch, index) => (
@@ -63,8 +72,10 @@ function JobDetail({ onClickBack, job }) {
               </a>
             ))}
           </div>
-          <p>Status: {status}</p>
-          <p>Job Description: {job_description}</p>
+          <div className="mt-2">
+            <strong>Description</strong>
+            <p>{job_description}</p>
+          </div>
         </div>
       </div>
     </div>

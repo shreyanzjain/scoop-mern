@@ -87,11 +87,29 @@ function PlacementStudents() {
           Verify
         </div>
       </div>
-      {Object.keys(student).map((key) => (
-        <p className="ms-2" key={key}>
-          <strong>{key}</strong>: {student[key]}
-        </p>
-      ))}
+      {Object.keys(student).map((key) => {
+        if (key == "user_id" || key == "id" || key == "verified" || key == "drop") {
+          return;
+        } else if (key == "dob") {
+          const date = new Date(student[key]);
+          const formattedDate = date.toISOString().substring(0, 10);
+          const [year, month, day] = formattedDate.split("-");
+          const ddMmYyyyFormat = `${day}-${month}-${year}`;
+          return (
+            <p className="ms-2" key={key}>
+              <strong style={{ textTransform: "capitalize" }}>Birthdate</strong>{" "}
+              {ddMmYyyyFormat}
+            </p>
+          );
+        } else {
+          return (
+            <p className="ms-2" key={key}>
+              <strong style={{ textTransform: "capitalize" }}>{key}</strong>{" "}
+              {student[key]}
+            </p>
+          );
+        }
+      })}
     </div>
   );
 

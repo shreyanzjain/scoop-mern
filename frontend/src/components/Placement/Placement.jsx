@@ -21,8 +21,8 @@ export default function () {
         .then((res) => {
           console.log(res);
           if (
-            res.data.entityRole == "ADMIN" ||
-            res.data.entityRole == "ENVOY"
+            res.status === 200 &&
+            (res.data.entityRole === "ADMIN" || res.data.entityRole === "ENVOY")
           ) {
             setUserText(res.data.entityEmail);
           } else {
@@ -31,6 +31,7 @@ export default function () {
         })
         .catch((err) => {
           console.log(err);
+          navigate("/");
           setUserText("You are not logged in!");
         });
     }

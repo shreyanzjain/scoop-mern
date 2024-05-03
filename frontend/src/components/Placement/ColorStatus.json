@@ -1,8 +1,7 @@
 {
-    "complete": "#c5d8c5",
-    "recieving_applications": "#f4f2f3",
-    "applications_closed": "#D3B88C",
-    "interviewing": "#D3B88C",
-    "completed": "#D3B88C",
-    "about_to_open": "#c5d8c5"
+  "recieving_applications": "#f4f2f3",
+  "applications_closed": "#D3B88C",
+  "interviewing": "#D3B88C",
+  "completed": "#c5d8c5",
+  "about_to_open": "#c5d8c5"
 }
