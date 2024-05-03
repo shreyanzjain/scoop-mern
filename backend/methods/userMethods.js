@@ -53,6 +53,33 @@ async function update_password(user_id, password) {
     },
   });
 
+  const compareCurrentPassword = await bcrypt.compare(
+    password,
+    user.hashed_password
+  );
+
+  if (user.last_password) {
+    const compareLastPassword = await bcrypt.compare(
+      password,
+      user.last_password
+    );
+
+    if (compareCurrentPassword || compareLastPassword) {
+      return {
+        status: 400,
+        message:
+          "The new password is the same as one of the last two passwords",
+      };
+    }
+  }
+
+  if (compareCurrentPassword) {
+    return {
+      status: 400,
+      message: "The new password is the same as one of the last two passwords",
+    };
+  }
+
   const updated_user = await prisma.user.update({
     where: {
       id: user_id,
