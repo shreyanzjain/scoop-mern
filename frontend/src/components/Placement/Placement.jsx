@@ -7,13 +7,10 @@ import PlacementStudents from "./PlacementStudents";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import AdminCalendar from "../Calendar/adminCalendar";
+import { useNavigate } from "react-router-dom";
 
 export default function () {
-  const [userText, setUserText] = useState("");
-  const [showComponent, setShowComponent] = useState(1);
-  const onClickOption = (value) => {
-    setShowComponent(value);
-  };
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchUserData() {
@@ -23,16 +20,30 @@ export default function () {
         })
         .then((res) => {
           console.log(res);
-          setUserText(res.data.entityEmail);
+          if (
+            res.data.entityRole == "ADMIN" ||
+            res.data.entityRole == "ENVOY"
+          ) {
+            setUserText(res.data.entityEmail);
+          } else {
+            navigate("/");
+          }
         })
         .catch((err) => {
           console.log(err);
-          setUserText("You are not logged in!")
+          setUserText("You are not logged in!");
         });
-    };
+    }
 
     fetchUserData();
   }, []);
+
+  const [userText, setUserText] = useState("");
+  const [showComponent, setShowComponent] = useState(1);
+  const onClickOption = (value) => {
+    setShowComponent(value);
+  };
+
   return (
     <div>
       <PlacementNavbar userText={userText} />
@@ -42,7 +53,7 @@ export default function () {
         {showComponent == 2 && <PlacementJobs />}
         {showComponent == 3 && <PlacementStudents />}
         {showComponent == 4 && <PlacementUpload />}
-        {showComponent == 5 && <AdminCalendar/>}
+        {showComponent == 5 && <AdminCalendar />}
       </span>
     </div>
   );

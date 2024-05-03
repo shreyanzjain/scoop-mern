@@ -74,13 +74,13 @@ const Navbar = ({ setSelectedOptioon }) => {
       <Wrapper>
         <Item>
           <Button1>
-            <NavLink to="/placement-cell">PL</NavLink>
+            <NavLink to="/placement-cell">Placement Cell</NavLink>
           </Button1>
         </Item>
 
         <Item>
           <Button1>
-            <NavLink to="/user-page">UP</NavLink>
+            <NavLink to="/user-page">Students</NavLink>
           </Button1>
         </Item>
 
