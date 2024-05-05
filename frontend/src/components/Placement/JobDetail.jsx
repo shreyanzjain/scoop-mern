@@ -1,5 +1,9 @@
 import statusToText from "./StatusToText.json";
+import { useEffect } from "react";
 import colorStatus from "./ColorStatus.json";
+import textToStatus from "./TextToStatus.json";
+import axios from "axios";
+import { useState } from "react";
 
 function JobDetail({ onClickBack, job }) {
   const {
@@ -17,6 +21,23 @@ function JobDetail({ onClickBack, job }) {
     drop_allowed_ug,
     branches,
   } = job;
+
+  const [selectedValue, setSelectedValue] = useState(statusToText[status]);
+
+  useEffect(() => {
+    axios.post(
+      "http://localhost:3000/jobs/update_status",
+      {
+        id: id,
+        status: textToStatus[selectedValue],
+      },
+      {
+        withCredentials: true,
+      }
+    );
+    console.log(textToStatus[selectedValue]);
+  }, [selectedValue]);
+
   return (
     <div>
       <div className="container ps-2 pt-2">
@@ -55,14 +76,9 @@ function JobDetail({ onClickBack, job }) {
               <strong>DROP </strong>
               {drop_allowed_ug ? "Allowed" : "Not Eligible"}
             </a>
-            <a
-              className={`border-2 border-licorice w-fit px-2 rounded-xl`}
-              style={{ backgroundColor: colorStatus[status] }}
-            >
-              <strong>{statusToText[status]}</strong>
-            </a>
           </div>
-          <div className="flex space-x-3 mt-2">
+          <strong className="mt-2">Branches</strong>
+          <div className="flex space-x-3 ">
             {branches.map((branch, index) => (
               <a
                 className="border-2 border-black bg-white w-fit px-4 rounded-xl text-black"
@@ -72,6 +88,23 @@ function JobDetail({ onClickBack, job }) {
               </a>
             ))}
           </div>
+          <strong className="mt-2">Status</strong>
+          <a>
+            <select
+              className="p-1 text-black bg-white border-2 border-black rounded-xl shadow-sm"
+              value={selectedValue}
+              onChange={(e) => {
+                e.preventDefault();
+                const text = e.target.value;
+                setSelectedValue(text);
+              }}
+            >
+              {Object.keys(statusToText).map((key) => {
+                return <option>{statusToText[key]}</option>;
+              })}
+            </select>
+          </a>
+
           <div className="mt-2">
             <strong>Description</strong>
             <p>{job_description}</p>

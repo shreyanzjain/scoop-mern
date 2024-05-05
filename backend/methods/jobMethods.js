@@ -150,10 +150,50 @@ async function applyById(job_id, entityId) {
   }
 }
 
+async function update_status(id, status) {
+  const job = await prisma.job.findFirst({
+    where: {
+      id: id,
+    },
+  });
+
+  if (job.status === status) {
+    return {
+      status: 400,
+      message: "chosen status matches the current status",
+    };
+  }
+
+  if (job) {
+    try {
+      const updated_job = await prisma.job.update({
+        where: {
+          id: id,
+        },
+        data: {
+          status: status,
+        },
+      });
+      return {
+        status: 200,
+        message: `job with id ${id} updated successfully`,
+      };
+    } catch {
+      return {
+        status: 400,
+        message: `could not update job id ${id}`,
+      };
+    }
+  } else {
+    return { status: 404, message: `No job with id ${id}` };
+  }
+}
+
 module.exports = {
   create_job,
   get_jobs,
   get_job_by_id,
   get_jobs_by_branch,
   applyById,
+  update_status,
 };

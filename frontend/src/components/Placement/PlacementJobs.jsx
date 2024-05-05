@@ -19,21 +19,24 @@ function PlacementJobs() {
       });
   };
 
+  const getData = async () => {
+    await axios
+      .get("http://localhost:3000/jobs/get", {
+        withCredentials: true,
+      })
+      .then((res) => {
+        console.log(res.data);
+        setJobs(res.data);
+      });
+  };
+
   const onClickBack = () => {
+    getData();
     setListView(true);
   };
+
   const [jobs, setJobs] = useState([]);
   useEffect(() => {
-    const getData = async () => {
-      await axios
-        .get("http://localhost:3000/jobs/get", {
-          withCredentials: true,
-        })
-        .then((res) => {
-          console.log(res.data);
-          setJobs(res.data);
-        });
-    };
     getData();
   }, []);
 

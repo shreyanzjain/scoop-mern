@@ -11,6 +11,8 @@ function PlacementUpload() {
   const [location, setLocation] = useState();
   const [salary, setSalary] = useState();
   const [description, setDescription] = useState();
+  const [twelfth, setTwelfth] = useState();
+  const [branches, setBranches] = useState();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,6 +27,11 @@ function PlacementUpload() {
           location: location,
           salary: parseFloat(salary),
           job_description: description,
+          branches: [branches],
+          twelfth: parseInt(twelfth),
+          ktAllowed: true,
+          dropAllowedUg: true,
+          status: "about_to_open",
         },
         {
           withCredentials: true,
@@ -96,6 +103,38 @@ function PlacementUpload() {
               <div className="w-full md:w-1/2 px-3">
                 <label
                   className="block uppercase tracking-wide text-licorice text-xs font-bold mb-2"
+                  htmlFor="grid-branches"
+                >
+                  Branches
+                </label>
+                <input
+                  value={branches}
+                  className="appearance-none block w-full bg-white text-licorice rounded py-3 px-4 leading-tight focus:outline-none focus:border-2 focus:border-licorice"
+                  id="grid-tenth-percentage-cutoff"
+                  type="text"
+                  placeholder="IT, CS"
+                  onChange={(e) => setBranches(e.target.value)}
+                />
+              </div>
+              <div className="w-full md:w-1/2 px-3 mb-2">
+                <label
+                  className="block uppercase tracking-wide text-licorice text-xs font-bold mb-2"
+                  htmlFor="grid-tenth-percentage-cuttof"
+                >
+                  Twelfth Cutoff
+                </label>
+                <input
+                  value={twelfth}
+                  className="appearance-none block w-full bg-white text-licorice rounded py-3 px-4 leading-tight focus:outline-none focus:border-2 focus:border-licorice"
+                  id="grid-tenth-percentage-cutoff"
+                  type="number"
+                  placeholder="75%"
+                  onChange={(e) => setTwelfth(e.target.value)}
+                />
+              </div>
+              <div className="w-full md:w-1/2 px-3 mb-2">
+                <label
+                  className="block uppercase tracking-wide text-licorice text-xs font-bold mb-2"
                   htmlFor="grid-tenth-percentage-cuttof"
                 >
                   Tenth Cutoff
@@ -109,7 +148,7 @@ function PlacementUpload() {
                   onChange={(e) => setTenth(e.target.value)}
                 />
               </div>
-              
+
               <div className="w-full md:w-1/2 px-3">
                 <label
                   className="block uppercase tracking-wide text-licorice text-xs font-bold mb-2"
@@ -149,13 +188,14 @@ function PlacementUpload() {
                   className="block uppercase tracking-wide text-licorice text-xs font-bold mb-2"
                   htmlFor="grid-description"
                 >
-                 <div className="flex gap-1 items-center"> 
-                   <p>Description</p>
-                   <p className="flex normal-case text-gray-600 items-center">
-                    <Info style={{fontSize: '14px'}}/>
-                    Paste the role, responsibilities, and skills required here.
+                  <div className="flex gap-1 items-center">
+                    <p>Description</p>
+                    <p className="flex normal-case text-gray-600 items-center">
+                      <Info style={{ fontSize: "14px" }} />
+                      Paste the role, responsibilities, and skills required
+                      here.
                     </p>
-                 </div>
+                  </div>
                 </label>
                 <textarea
                   value={description}

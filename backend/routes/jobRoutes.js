@@ -9,6 +9,7 @@ const {
   get_job_by_id,
   get_jobs_by_branch,
   applyById,
+  update_status,
 } = require("../methods/jobMethods");
 
 // middleware to check if the user is actually an admin
@@ -113,5 +114,19 @@ router.post(
     }
   }
 );
+
+router.post("/update_status", authorization, jsonParser, async (req, res) => {
+  if (req.entityRole === "ADMIN" || req.entityRole === "ENVOY") {
+    const { id, status } = req.body;
+    if (id && status) {
+      const response = await update_status(id, status);
+      return res.status(response.status).send(response.message);
+    } else {
+      return res.status(400).send("job's id and status required in req body");
+    }
+  } else {
+    return res.status(403).send("Unauthorized");
+  }
+});
 
 module.exports = router;
