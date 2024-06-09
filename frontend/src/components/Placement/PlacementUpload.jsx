@@ -110,7 +110,7 @@ function PlacementUpload() {
                 <input
                   value={branches}
                   className="appearance-none block w-full bg-white text-licorice rounded py-3 px-4 leading-tight focus:outline-none focus:border-2 focus:border-licorice"
-                  id="grid-tenth-percentage-cutoff"
+                  id="grid-branches"
                   type="text"
                   placeholder="IT, CS"
                   onChange={(e) => setBranches(e.target.value)}
@@ -119,14 +119,14 @@ function PlacementUpload() {
               <div className="w-full md:w-1/2 px-3 mb-2">
                 <label
                   className="block uppercase tracking-wide text-licorice text-xs font-bold mb-2"
-                  htmlFor="grid-tenth-percentage-cuttof"
+                  htmlFor="grid-twelfth-percentage-cutoff"
                 >
                   Twelfth Cutoff
                 </label>
                 <input
                   value={twelfth}
                   className="appearance-none block w-full bg-white text-licorice rounded py-3 px-4 leading-tight focus:outline-none focus:border-2 focus:border-licorice"
-                  id="grid-tenth-percentage-cutoff"
+                  id="grid-twelfth-percentage-cutoff"
                   type="number"
                   placeholder="75%"
                   onChange={(e) => setTwelfth(e.target.value)}
@@ -135,7 +135,7 @@ function PlacementUpload() {
               <div className="w-full md:w-1/2 px-3 mb-2">
                 <label
                   className="block uppercase tracking-wide text-licorice text-xs font-bold mb-2"
-                  htmlFor="grid-tenth-percentage-cuttof"
+                  htmlFor="grid-tenth-percentage-cutoff"
                 >
                   Tenth Cutoff
                 </label>

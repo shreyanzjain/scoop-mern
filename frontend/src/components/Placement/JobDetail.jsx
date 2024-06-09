@@ -91,7 +91,7 @@ function JobDetail({ onClickBack, job }) {
           <strong className="mt-2">Status</strong>
           <a>
             <select
-              className="p-1 text-black bg-white border-2 border-black rounded-xl shadow-sm"
+              className="p-1 text-black bg-white focus:border-2 focus:border-slate-500 border-2 border-black rounded-xl shadow-sm "
               value={selectedValue}
               onChange={(e) => {
                 e.preventDefault();
@@ -100,7 +100,7 @@ function JobDetail({ onClickBack, job }) {
               }}
             >
               {Object.keys(statusToText).map((key) => {
-                return <option>{statusToText[key]}</option>;
+                return <option className="bg-white">{statusToText[key]}</option>;
               })}
             </select>
           </a>
